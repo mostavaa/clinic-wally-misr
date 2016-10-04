@@ -1,0 +1,8 @@
+﻿@model DateTime?
+@{
+    if(Model.HasValue){
+        Write(Model.Value.ToString("dd-MMM-yyyy"));
+    }else{
+       Write("");
+    }
+}

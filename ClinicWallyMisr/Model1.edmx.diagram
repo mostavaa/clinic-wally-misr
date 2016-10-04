@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b2888f05112941fb9ff82a35de37d342" Name="Diagram1">
+        <EntityTypeShape EntityType="ClinicWallyMisrModel.Job" Width="1.5" PointX="0.75" PointY="3" />
+        <EntityTypeShape EntityType="ClinicWallyMisrModel.Specialization" Width="1.5" PointX="3" PointY="2.875" />
+        <AssociationConnector Association="ClinicWallyMisrModel.FK_Specialization_Job" />
+        <EntityTypeShape EntityType="ClinicWallyMisrModel.SystemPerson" Width="1.5" PointX="5.25" PointY="1" />
+        <AssociationConnector Association="ClinicWallyMisrModel.FK_SystemPerson_Job" />
+        <AssociationConnector Association="ClinicWallyMisrModel.FK_SystemPerson_Specialization" />
+        <EntityTypeShape EntityType="ClinicWallyMisrModel.medicine" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="ClinicWallyMisrModel.patient" Width="1.5" PointX="7.5" PointY="14.5" />
+        <AssociationConnector Association="ClinicWallyMisrModel.FK_patient_SystemPerson" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,11 @@
+﻿@model DateTime?
+@{
+    if (Model.HasValue)
+    {
+        @Html.TextBox("", Model.Value.ToString("dd-MMM-yyyy"), new { @class = "form-control", @readonly = "readonly", style = "cursor:pointer" })
+    }
+    else
+    {
+        @Html.TextBox("", "", new { @class = "form-control", @readonly = "readonly", style = "cursor:pointer" })
+    }
+}

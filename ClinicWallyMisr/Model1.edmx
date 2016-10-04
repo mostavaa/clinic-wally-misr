@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ClinicWallyMisrModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="medicine">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="code" Type="nvarchar" MaxLength="50" />
+          <Property Name="scientificName" Type="nvarchar" MaxLength="50" />
+          <Property Name="commercialName" Type="nvarchar" MaxLength="50" />
+          <Property Name="activeIngredient" Type="nvarchar" MaxLength="50" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" />
+          <Property Name="dose" Type="nvarchar" MaxLength="50" />
+          <Property Name="sideEffects" Type="nvarchar" MaxLength="150" />
+          <Property Name="notes" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="patient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="diagnosis" Type="nvarchar" MaxLength="100" />
+          <Property Name="diagnosisCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="notes" Type="nvarchar" MaxLength="150" />
+          <Property Name="masterStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="dateofDiagnosis" Type="date" />
+          <Property Name="firstStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="dateofRelapse" Type="date" />
+          <Property Name="firstPresentationDate" Type="date" />
+          <Property Name="birthDate" Type="date" />
+          <Property Name="doctorId" Type="uniqueidentifier" />
+          <Property Name="age" Type="int" />
+          <Property Name="gender" Type="nvarchar" MaxLength="10" />
+          <Property Name="referredFrom" Type="nvarchar" MaxLength="50" />
+          <Property Name="education" Type="nvarchar" MaxLength="50" />
+          <Property Name="nationality" Type="nvarchar" MaxLength="50" />
+          <Property Name="maritalStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="occupation" Type="nvarchar" MaxLength="50" />
+          <Property Name="noofChildren" Type="int" />
+          <Property Name="ageofOldest" Type="int" />
+          <Property Name="ageofYoungest" Type="int" />
+          <Property Name="phone1" Type="nvarchar" MaxLength="15" />
+          <Property Name="phone2" Type="nvarchar" MaxLength="15" />
+          <Property Name="phone3" Type="nvarchar" MaxLength="15" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="governorate" Type="nvarchar" MaxLength="50" />
+          <Property Name="address" Type="nvarchar" MaxLength="250" />
+          <Property Name="relationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="relation" Type="nvarchar" MaxLength="50" />
+          <Property Name="relationPhone1" Type="nvarchar" MaxLength="15" />
+          <Property Name="relationPhone2" Type="nvarchar" MaxLength="15" />
+          <Property Name="relationPhone3" Type="nvarchar" MaxLength="15" />
+          <Property Name="relationAddress" Type="nvarchar" MaxLength="250" />
+          <Property Name="relationGovernorate" Type="nvarchar" MaxLength="50" />
+          <Property Name="demographic" Type="nvarchar" MaxLength="50" />
+          <Property Name="demographicType" Type="nvarchar" MaxLength="50" />
+          <Property Name="demographicSince" Type="nvarchar" MaxLength="4" />
+          <Property Name="packsNumber" Type="int" />
+          <Property Name="alcoholIntake" Type="bit" Nullable="false" />
+          <Property Name="menstrual" Type="nvarchar" MaxLength="50" />
+          <Property Name="LMP" Type="bit" Nullable="false" />
+          <Property Name="LMPDate" Type="date" />
+          <Property Name="contraception" Type="nvarchar" MaxLength="50" />
+          <Property Name="pregnancyatDiagnosis" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Specialization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="jobId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="SystemPerson">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="250" />
+          <Property Name="gender" Type="nvarchar" MaxLength="20" />
+          <Property Name="religion" Type="nvarchar" MaxLength="20" />
+          <Property Name="nationality" Type="nvarchar" MaxLength="50" />
+          <Property Name="maritalStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="insuranceNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="SSN" Type="nvarchar" MaxLength="14" />
+          <Property Name="DateofBirth" Type="date" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="10" />
+          <Property Name="mobile1" Type="nvarchar" MaxLength="15" />
+          <Property Name="mobile2" Type="nvarchar" MaxLength="15" />
+          <Property Name="place" Type="nvarchar" MaxLength="50" />
+          <Property Name="cv" Type="nvarchar" MaxLength="50" />
+          <Property Name="joinDate" Type="date" />
+          <Property Name="leaveDate" Type="date" />
+          <Property Name="leaveReason" Type="nvarchar" MaxLength="150" />
+          <Property Name="scientificDegree" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="jobId" Type="uniqueidentifier" />
+          <Property Name="specializationId" Type="uniqueidentifier" />
+        </EntityType>
+        <Association Name="FK_patient_SystemPerson">
+          <End Role="SystemPerson" Type="Self.SystemPerson" Multiplicity="0..1" />
+          <End Role="patient" Type="Self.patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemPerson">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="patient">
+              <PropertyRef Name="doctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specialization_Job">
+          <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
+          <End Role="Specialization" Type="Self.Specialization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Specialization">
+              <PropertyRef Name="jobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SystemPerson_Job">
+          <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
+          <End Role="SystemPerson" Type="Self.SystemPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SystemPerson">
+              <PropertyRef Name="jobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SystemPerson_Specialization">
+          <End Role="Specialization" Type="Self.Specialization" Multiplicity="0..1" />
+          <End Role="SystemPerson" Type="Self.SystemPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specialization">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SystemPerson">
+              <PropertyRef Name="specializationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ClinicWallyMisrModelStoreContainer">
+          <EntitySet Name="Job" EntityType="Self.Job" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="medicine" EntityType="Self.medicine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="patient" EntityType="Self.patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Specialization" EntityType="Self.Specialization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemPerson" EntityType="Self.SystemPerson" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_patient_SystemPerson" Association="Self.FK_patient_SystemPerson">
+            <End Role="SystemPerson" EntitySet="SystemPerson" />
+            <End Role="patient" EntitySet="patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specialization_Job" Association="Self.FK_Specialization_Job">
+            <End Role="Job" EntitySet="Job" />
+            <End Role="Specialization" EntitySet="Specialization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SystemPerson_Job" Association="Self.FK_SystemPerson_Job">
+            <End Role="Job" EntitySet="Job" />
+            <End Role="SystemPerson" EntitySet="SystemPerson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SystemPerson_Specialization" Association="Self.FK_SystemPerson_Specialization">
+            <End Role="Specialization" EntitySet="Specialization" />
+            <End Role="SystemPerson" EntitySet="SystemPerson" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ClinicWallyMisrModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ClinicWallyMisrEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Jobs" EntityType="ClinicWallyMisrModel.Job" />
+          <EntitySet Name="Specializations" EntityType="ClinicWallyMisrModel.Specialization" />
+          <AssociationSet Name="FK_Specialization_Job" Association="ClinicWallyMisrModel.FK_Specialization_Job">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="Specialization" EntitySet="Specializations" />
+          </AssociationSet>
+          <EntitySet Name="SystemPersons" EntityType="ClinicWallyMisrModel.SystemPerson" />
+          <AssociationSet Name="FK_SystemPerson_Job" Association="ClinicWallyMisrModel.FK_SystemPerson_Job">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="SystemPerson" EntitySet="SystemPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SystemPerson_Specialization" Association="ClinicWallyMisrModel.FK_SystemPerson_Specialization">
+            <End Role="Specialization" EntitySet="Specializations" />
+            <End Role="SystemPerson" EntitySet="SystemPersons" />
+          </AssociationSet>
+          <EntitySet Name="medicines" EntityType="ClinicWallyMisrModel.medicine" />
+          <EntitySet Name="patients" EntityType="ClinicWallyMisrModel.patient" />
+          <AssociationSet Name="FK_patient_SystemPerson" Association="ClinicWallyMisrModel.FK_patient_SystemPerson">
+            <End Role="SystemPerson" EntitySet="SystemPersons" />
+            <End Role="patient" EntitySet="patients" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Specializations" Relationship="ClinicWallyMisrModel.FK_Specialization_Job" FromRole="Job" ToRole="Specialization" />
+          <NavigationProperty Name="SystemPersons" Relationship="ClinicWallyMisrModel.FK_SystemPerson_Job" FromRole="Job" ToRole="SystemPerson" />
+        </EntityType>
+        <EntityType Name="Specialization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jobId" Type="Guid" />
+          <NavigationProperty Name="Job" Relationship="ClinicWallyMisrModel.FK_Specialization_Job" FromRole="Specialization" ToRole="Job" />
+          <NavigationProperty Name="SystemPersons" Relationship="ClinicWallyMisrModel.FK_SystemPerson_Specialization" FromRole="Specialization" ToRole="SystemPerson" />
+        </EntityType>
+        <Association Name="FK_Specialization_Job">
+          <End Type="ClinicWallyMisrModel.Job" Role="Job" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.Specialization" Role="Specialization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Specialization">
+              <PropertyRef Name="jobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SystemPerson">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="religion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="maritalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="insuranceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SSN" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="DateofBirth" Type="DateTime" Precision="0" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="mobile1" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="mobile2" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="place" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="joinDate" Type="DateTime" Precision="0" />
+          <Property Name="leaveDate" Type="DateTime" Precision="0" />
+          <Property Name="leaveReason" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="scientificDegree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jobId" Type="Guid" />
+          <Property Name="specializationId" Type="Guid" />
+          <NavigationProperty Name="Job" Relationship="ClinicWallyMisrModel.FK_SystemPerson_Job" FromRole="SystemPerson" ToRole="Job" />
+          <NavigationProperty Name="Specialization" Relationship="ClinicWallyMisrModel.FK_SystemPerson_Specialization" FromRole="SystemPerson" ToRole="Specialization" />
+          <NavigationProperty Name="patients" Relationship="ClinicWallyMisrModel.FK_patient_SystemPerson" FromRole="SystemPerson" ToRole="patient" />
+        </EntityType>
+        <Association Name="FK_SystemPerson_Job">
+          <End Type="ClinicWallyMisrModel.Job" Role="Job" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.SystemPerson" Role="SystemPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SystemPerson">
+              <PropertyRef Name="jobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SystemPerson_Specialization">
+          <End Type="ClinicWallyMisrModel.Specialization" Role="Specialization" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.SystemPerson" Role="SystemPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specialization">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SystemPerson">
+              <PropertyRef Name="specializationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="medicine">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="scientificName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="commercialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="activeIngredient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dose" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sideEffects" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="notes" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="patient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="diagnosis" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="diagnosisCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="notes" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="masterStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dateofDiagnosis" Type="DateTime" Precision="0" />
+          <Property Name="firstStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dateofRelapse" Type="DateTime" Precision="0" />
+          <Property Name="firstPresentationDate" Type="DateTime" Precision="0" />
+          <Property Name="birthDate" Type="DateTime" Precision="0" />
+          <Property Name="doctorId" Type="Guid" />
+          <Property Name="age" Type="Int32" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="referredFrom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="education" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="maritalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="occupation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="noofChildren" Type="Int32" />
+          <Property Name="ageofOldest" Type="Int32" />
+          <Property Name="ageofYoungest" Type="Int32" />
+          <Property Name="phone1" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="phone2" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="phone3" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="governorate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="relationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="relation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="relationPhone1" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="relationPhone2" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="relationPhone3" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="relationAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="relationGovernorate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="demographic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="demographicType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="demographicSince" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="packsNumber" Type="Int32" />
+          <Property Name="alcoholIntake" Type="Boolean" Nullable="false" />
+          <Property Name="menstrual" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LMP" Type="Boolean" Nullable="false" />
+          <Property Name="LMPDate" Type="DateTime" Precision="0" />
+          <Property Name="contraception" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pregnancyatDiagnosis" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="SystemPerson" Relationship="ClinicWallyMisrModel.FK_patient_SystemPerson" FromRole="patient" ToRole="SystemPerson" />
+        </EntityType>
+        <Association Name="FK_patient_SystemPerson">
+          <End Type="ClinicWallyMisrModel.SystemPerson" Role="SystemPerson" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.patient" Role="patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemPerson">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="patient">
+              <PropertyRef Name="doctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ClinicWallyMisrModelStoreContainer" CdmEntityContainer="ClinicWallyMisrEntities">
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Job">
+              <MappingFragment StoreEntitySet="Job">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Specializations">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Specialization">
+              <MappingFragment StoreEntitySet="Specialization">
+                <ScalarProperty Name="jobId" ColumnName="jobId" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemPersons">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.SystemPerson">
+              <MappingFragment StoreEntitySet="SystemPerson">
+                <ScalarProperty Name="specializationId" ColumnName="specializationId" />
+                <ScalarProperty Name="jobId" ColumnName="jobId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="scientificDegree" ColumnName="scientificDegree" />
+                <ScalarProperty Name="leaveReason" ColumnName="leaveReason" />
+                <ScalarProperty Name="leaveDate" ColumnName="leaveDate" />
+                <ScalarProperty Name="joinDate" ColumnName="joinDate" />
+                <ScalarProperty Name="cv" ColumnName="cv" />
+                <ScalarProperty Name="place" ColumnName="place" />
+                <ScalarProperty Name="mobile2" ColumnName="mobile2" />
+                <ScalarProperty Name="mobile1" ColumnName="mobile1" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="insuranceNo" ColumnName="insuranceNo" />
+                <ScalarProperty Name="maritalStatus" ColumnName="maritalStatus" />
+                <ScalarProperty Name="nationality" ColumnName="nationality" />
+                <ScalarProperty Name="religion" ColumnName="religion" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="medicines">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.medicine">
+              <MappingFragment StoreEntitySet="medicine">
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="sideEffects" ColumnName="sideEffects" />
+                <ScalarProperty Name="dose" ColumnName="dose" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="activeIngredient" ColumnName="activeIngredient" />
+                <ScalarProperty Name="commercialName" ColumnName="commercialName" />
+                <ScalarProperty Name="scientificName" ColumnName="scientificName" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="patients">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.patient">
+              <MappingFragment StoreEntitySet="patient">
+                <ScalarProperty Name="pregnancyatDiagnosis" ColumnName="pregnancyatDiagnosis" />
+                <ScalarProperty Name="contraception" ColumnName="contraception" />
+                <ScalarProperty Name="LMPDate" ColumnName="LMPDate" />
+                <ScalarProperty Name="LMP" ColumnName="LMP" />
+                <ScalarProperty Name="menstrual" ColumnName="menstrual" />
+                <ScalarProperty Name="alcoholIntake" ColumnName="alcoholIntake" />
+                <ScalarProperty Name="packsNumber" ColumnName="packsNumber" />
+                <ScalarProperty Name="demographicSince" ColumnName="demographicSince" />
+                <ScalarProperty Name="demographicType" ColumnName="demographicType" />
+                <ScalarProperty Name="demographic" ColumnName="demographic" />
+                <ScalarProperty Name="relationGovernorate" ColumnName="relationGovernorate" />
+                <ScalarProperty Name="relationAddress" ColumnName="relationAddress" />
+                <ScalarProperty Name="relationPhone3" ColumnName="relationPhone3" />
+                <ScalarProperty Name="relationPhone2" ColumnName="relationPhone2" />
+                <ScalarProperty Name="relationPhone1" ColumnName="relationPhone1" />
+                <ScalarProperty Name="relation" ColumnName="relation" />
+                <ScalarProperty Name="relationName" ColumnName="relationName" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="governorate" ColumnName="governorate" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone3" ColumnName="phone3" />
+                <ScalarProperty Name="phone2" ColumnName="phone2" />
+                <ScalarProperty Name="phone1" ColumnName="phone1" />
+                <ScalarProperty Name="ageofYoungest" ColumnName="ageofYoungest" />
+                <ScalarProperty Name="ageofOldest" ColumnName="ageofOldest" />
+                <ScalarProperty Name="noofChildren" ColumnName="noofChildren" />
+                <ScalarProperty Name="occupation" ColumnName="occupation" />
+                <ScalarProperty Name="maritalStatus" ColumnName="maritalStatus" />
+                <ScalarProperty Name="nationality" ColumnName="nationality" />
+                <ScalarProperty Name="education" ColumnName="education" />
+                <ScalarProperty Name="referredFrom" ColumnName="referredFrom" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="doctorId" ColumnName="doctorId" />
+                <ScalarProperty Name="birthDate" ColumnName="birthDate" />
+                <ScalarProperty Name="firstPresentationDate" ColumnName="firstPresentationDate" />
+                <ScalarProperty Name="dateofRelapse" ColumnName="dateofRelapse" />
+                <ScalarProperty Name="firstStatus" ColumnName="firstStatus" />
+                <ScalarProperty Name="dateofDiagnosis" ColumnName="dateofDiagnosis" />
+                <ScalarProperty Name="masterStatus" ColumnName="masterStatus" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="diagnosisCode" ColumnName="diagnosisCode" />
+                <ScalarProperty Name="diagnosis" ColumnName="diagnosis" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

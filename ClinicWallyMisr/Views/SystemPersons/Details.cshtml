@@ -1,0 +1,192 @@
+﻿@model ClinicWallyMisr.SystemPerson
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SystemPerson</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.religion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.religion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nationality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nationality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.maritalStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.maritalStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.insuranceNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.insuranceNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SSN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SSN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateofBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateofBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mobile1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mobile1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mobile2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mobile2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.place)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.place)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cv)
+        </dt>
+
+        <dd>
+            @if (Model.cv != null)
+            {
+                if (Model.cv.Contains(Model.id.ToString()))
+                {
+                    @Html.ActionLink(Model.cv.Substring(Model.id.ToString().Length), "displayFile", "SystemPersons", new { @filePath = @Model.cv }, null)
+                }
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.joinDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.joinDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.leaveDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.leaveDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.leaveReason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.leaveReason)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.scientificDegree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.scientificDegree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Job.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Job.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specialization.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specialization.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
