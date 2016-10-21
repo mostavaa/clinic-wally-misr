@@ -573,17 +573,113 @@
         </tr>
     }
     <tr>
-        <td ><input id="newOperationName" class="form-control" name="newOperationName" type="text" /></td>
+        <td><input id="newOperationName" class="form-control" name="newOperationName" type="text" /></td>
         <td><input type="text" id="newOperationDate" name="newOperationDate" class="form-control" data-datepicker="true" /></td>
 
-                    <td id="addOperation"><a class="btn btn-primary">Add</a></td>
-                    </tr>
+        <td id="addOperation"><a class="btn btn-primary">Add</a></td>
+    </tr>
                     }
                 </tbody>
 
             </table>
 
 
+        </div>
+        <!--medical history-->
+        <div class="">
+            <div class="form-group">
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.Diabetes)
+                    @Html.LabelFor(model => model.Diabetes)
+                </div>
+                <div class="col-md-3">
+                    Since
+                    @Html.EditorFor(model => model.diabetesSince, new { htmlAttributes = new { @class = "form-control", data_datepicker = "true" } })
+                </div>
+                <div class="col-md-3">
+                    Type
+                    @Html.EditorFor(model => model.diabetesType, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.hypertension)
+                    @Html.LabelFor(model => model.hypertension)
+                </div>
+                <div class="col-md-3">
+                    Since
+                    @Html.EditorFor(model => model.hypertensionSince, new { htmlAttributes = new { @class = "form-control", data_datepicker = "true" } })
+                </div>
+                <div class="col-md-3">
+                    Type
+                    @Html.EditorFor(model => model.hypertensionType, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div><div class="form-group">
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.hepatitiesC)
+                    @Html.LabelFor(model => model.hepatitiesC)
+                </div>
+                <div class="col-md-3">
+                    Since
+                    @Html.EditorFor(model => model.hepatitiesCSince, new { htmlAttributes = new { @class = "form-control", data_datepicker = "true" } })
+                </div>
+                <div class="col-md-3">
+                    Type
+                    @Html.EditorFor(model => model.hepatitiesCType, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div><div class="form-group">
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.bilharziasis)
+                    @Html.LabelFor(model => model.bilharziasis)
+                </div>
+                <div class="col-md-3">
+                    Since
+                    @Html.EditorFor(model => model.bilharziasisSince, new { htmlAttributes = new { @class = "form-control", data_datepicker = "true" } })
+                </div>
+                <div class="col-md-3">
+                    Type
+                    @Html.EditorFor(model => model.bilharziasisType, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div><div class="form-group">
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.cardiac)
+                    @Html.LabelFor(model => model.cardiac)
+                </div>
+                <div class="col-md-3">
+                    Since
+                    @Html.EditorFor(model => model.cardiacSince, new { htmlAttributes = new { @class = "form-control", data_datepicker = "true" } })
+                </div>
+                <div class="col-md-3">
+                    Type
+                    @Html.EditorFor(model => model.cardiacType, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div><div class="form-group">
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.autoImmuneDisease)
+                    @Html.LabelFor(model => model.autoImmuneDisease)
+                </div>
+                <div class="col-md-3">
+                    Since
+                    @Html.EditorFor(model => model.autoImmuneDiseaseSince, new { htmlAttributes = new { @class = "form-control", data_datepicker = "true" } })
+                </div>
+                <div class="col-md-3">
+                    Type
+                    @Html.EditorFor(model => model.autoImmuneDiseaseType, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div><div class="form-group">
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.allergy)
+                    @Html.LabelFor(model => model.allergy)
+                </div>
+                <div class="col-md-3">
+                    Since
+                    @Html.EditorFor(model => model.allergySince, new { htmlAttributes = new { @class = "form-control", data_datepicker = "true" } })
+                </div>
+                <div class="col-md-3">
+                    Type
+                    @Html.EditorFor(model => model.allergyType, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -600,36 +696,36 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script>
-    $(document).ready(function () {
-        $("#gender").change(function () {
-            if ($(this).val() == "Female") {
-                $("#pregnancyatDiagnosis").removeAttr("readonly");
-                $("#contraception").removeAttr("readonly");
-                $("#LMPDate").removeAttr("readonly");
-                $("#LMP").removeAttr("readonly");
-                $("#menstrual").removeAttr("readonly");
-                $("#pregnancyatDiagnosis").removeAttr("disabled");
-                $("#contraception").removeAttr("disabled");
-                $("#LMPDate").removeAttr("disabled");
-                $("#LMP").removeAttr("disabled");
-                $("#menstrual").removeAttr("disabled");
-            } else {
-                $("#pregnancyatDiagnosis").attr("readonly", "readonly");
-                $("#contraception").attr("readonly", "readonly");
-                $("#LMPDate").attr("readonly", "readonly");
-                $("#LMP").attr("readonly", "readonly");
-                $("#menstrual").attr("readonly", "readonly");
-                $("#pregnancyatDiagnosis").attr("disabled", "disabled");
-                $("#contraception").attr("disabled", "disabled");
-                $("#LMPDate").attr("disabled", "disabled");
-                $("#LMP").attr("disabled", "disabled");
-                $("#menstrual").attr("disabled", "disabled");
-            }
-        });
-        $(".removeOperation").click(function () {
-            id = $(this).attr("data-id");
-            row = $(this).parent();
-            $.post("@Url.Action("RemoveOperation")", "id=" + id, function (res) {
+        $(document).ready(function () {
+            $("#gender").change(function () {
+                if ($(this).val() == "Female") {
+                    $("#pregnancyatDiagnosis").removeAttr("readonly");
+                    $("#contraception").removeAttr("readonly");
+                    $("#LMPDate").removeAttr("readonly");
+                    $("#LMP").removeAttr("readonly");
+                    $("#menstrual").removeAttr("readonly");
+                    $("#pregnancyatDiagnosis").removeAttr("disabled");
+                    $("#contraception").removeAttr("disabled");
+                    $("#LMPDate").removeAttr("disabled");
+                    $("#LMP").removeAttr("disabled");
+                    $("#menstrual").removeAttr("disabled");
+                } else {
+                    $("#pregnancyatDiagnosis").attr("readonly", "readonly");
+                    $("#contraception").attr("readonly", "readonly");
+                    $("#LMPDate").attr("readonly", "readonly");
+                    $("#LMP").attr("readonly", "readonly");
+                    $("#menstrual").attr("readonly", "readonly");
+                    $("#pregnancyatDiagnosis").attr("disabled", "disabled");
+                    $("#contraception").attr("disabled", "disabled");
+                    $("#LMPDate").attr("disabled", "disabled");
+                    $("#LMP").attr("disabled", "disabled");
+                    $("#menstrual").attr("disabled", "disabled");
+                }
+            });
+            $(".removeOperation").click(function () {
+                id = $(this).attr("data-id");
+                row = $(this).parent();
+                $.post("@Url.Action("RemoveOperation")", "id=" + id, function (res) {
                     if (res == "1") {
                         $(row).remove();
                     }
@@ -639,9 +735,9 @@
                 newOperationDate = $("#newOperationDate").val();
                 newOperationName = $("#newOperationName").val();
                 body = $(this).parent().parent();
-                $.post("@Url.Action("AddOperation","patients")", "name=" + newOperationName + "&opDate=" + newOperationDate+"&id="+"@Model.id" , function (res) {
+                $.post("@Url.Action("AddOperation","patients")", "name=" + newOperationName + "&opDate=" + newOperationDate + "&id=" + "@Model.id", function (res) {
                     if (res == "1") {
-                        $(body).append("<tr><td>"+newOperationName+"</td><td>"+newOperationDate+"</td><td class='btn btn-danger'>Remove</td></tr>");
+                        $(body).append("<tr><td>" + newOperationName + "</td><td>" + newOperationDate + "</td><td class='btn btn-danger'>Remove</td></tr>");
                     }
                 })
             });

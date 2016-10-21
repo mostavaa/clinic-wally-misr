@@ -209,6 +209,63 @@ namespace ClinicWallyMisr
         public string contraception { get; set; }
         [Display(Name = "Pregnancy at Diagnosis")]
         public bool pregnancyatDiagnosis { get; set; }
+
+        public bool Diabetes { get; set; }
+        [DataType(System.ComponentModel.DataAnnotations.DataType.DateTime)]
+
+        public Nullable<System.DateTime> diabetesSince { get; set; }
+        [RegularExpression(@"^[a-zA-Z0-9\u0600-\u06FF\s_-]*$")]
+
+        public string diabetesType { get; set; }
+        [Display(Name = "Hypertension")]
+        public bool hypertension { get; set; }
+        [DataType(System.ComponentModel.DataAnnotations.DataType.DateTime)]
+
+        public Nullable<System.DateTime> hypertensionSince { get; set; }
+        [RegularExpression(@"^[a-zA-Z0-9\u0600-\u06FF\s_-]*$")]
+
+        public string hypertensionType { get; set; }
+        [Display(Name = "Hepatities C")]
+
+        public bool hepatitiesC { get; set; }
+        [DataType(System.ComponentModel.DataAnnotations.DataType.DateTime)]
+
+        public Nullable<System.DateTime> hepatitiesCSince { get; set; }
+        [RegularExpression(@"^[a-zA-Z0-9\u0600-\u06FF\s_-]*$")]
+
+        public string hepatitiesCType { get; set; }
+        [Display(Name = "Bilharziasis")]
+        public Nullable<bool> bilharziasis { get; set; }
+        [DataType(System.ComponentModel.DataAnnotations.DataType.DateTime)]
+
+        public Nullable<System.DateTime> bilharziasisSince { get; set; }
+        [RegularExpression(@"^[a-zA-Z0-9\u0600-\u06FF\s_-]*$")]
+
+        public string bilharziasisType { get; set; }
+        [Display(Name = "Cardiac")]
+
+        public bool cardiac { get; set; }
+        [DataType(System.ComponentModel.DataAnnotations.DataType.DateTime)]
+
+        public Nullable<System.DateTime> cardiacSince { get; set; }
+        [RegularExpression(@"^[a-zA-Z0-9\u0600-\u06FF\s_-]*$")]
+        
+        public string cardiacType { get; set; }
+        [Display(Name = "Auto-Immune Disease")]
+        public bool autoImmuneDisease { get; set; }
+        [DataType(System.ComponentModel.DataAnnotations.DataType.DateTime)]
+
+        public Nullable<System.DateTime> autoImmuneDiseaseSince { get; set; }
+        [RegularExpression(@"^[a-zA-Z0-9\u0600-\u06FF\s_-]*$")]
+
+        public string autoImmuneDiseaseType { get; set; }
+        [Display(Name = "Allergy")]
+
+        public bool allergy { get; set; }
+        [DataType(System.ComponentModel.DataAnnotations.DataType.DateTime)]
+        public Nullable<System.DateTime> allergySince { get; set; }
+        [RegularExpression(@"^[a-zA-Z0-9\u0600-\u06FF\s_-]*$")]
+        public string allergyType { get; set; }
     }
     public class patientService
     {

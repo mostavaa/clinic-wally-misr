@@ -77,6 +77,27 @@
           <Property Name="pregnancyatDiagnosis" Type="bit" Nullable="false" />
           <Property Name="RelationDisease" Type="nvarchar" MaxLength="50" />
           <Property Name="RelationAgeatDiagnosis" Type="int" />
+          <Property Name="Diabetes" Type="bit" Nullable="false" />
+          <Property Name="diabetesSince" Type="date" />
+          <Property Name="diabetesType" Type="nvarchar" MaxLength="50" />
+          <Property Name="hypertension" Type="bit" Nullable="false" />
+          <Property Name="hypertensionSince" Type="date" />
+          <Property Name="hypertensionType" Type="nvarchar" MaxLength="50" />
+          <Property Name="hepatitiesC" Type="bit" Nullable="false" />
+          <Property Name="hepatitiesCSince" Type="date" />
+          <Property Name="hepatitiesCType" Type="nvarchar" MaxLength="50" />
+          <Property Name="bilharziasis" Type="bit" Nullable="false" />
+          <Property Name="bilharziasisSince" Type="date" />
+          <Property Name="bilharziasisType" Type="nvarchar" MaxLength="50" />
+          <Property Name="cardiac" Type="bit" Nullable="false" />
+          <Property Name="cardiacSince" Type="date" />
+          <Property Name="cardiacType" Type="nvarchar" MaxLength="50" />
+          <Property Name="autoImmuneDisease" Type="bit" Nullable="false" />
+          <Property Name="autoImmuneDiseaseSince" Type="date" />
+          <Property Name="autoImmuneDiseaseType" Type="nvarchar" MaxLength="50" />
+          <Property Name="allergy" Type="bit" Nullable="false" />
+          <Property Name="allergySince" Type="date" />
+          <Property Name="allergyType" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Specialization">
           <Key>
@@ -394,6 +415,27 @@
           <Property Name="RelationAgeatDiagnosis" Type="Int32" />
           <NavigationProperty Name="SystemPerson" Relationship="ClinicWallyMisrModel.FK_patient_SystemPerson" FromRole="patient" ToRole="SystemPerson" />
           <NavigationProperty Name="surgicalHistories" Relationship="ClinicWallyMisrModel.FK_surgicalHistory_patient" FromRole="patient" ToRole="surgicalHistory" />
+          <Property Name="Diabetes" Type="Boolean" Nullable="false" />
+          <Property Name="diabetesSince" Type="DateTime" Precision="0" />
+          <Property Name="diabetesType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hypertension" Type="Boolean" Nullable="false" />
+          <Property Name="hypertensionSince" Type="DateTime" Precision="0" />
+          <Property Name="hypertensionType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hepatitiesC" Type="Boolean" Nullable="false" />
+          <Property Name="hepatitiesCSince" Type="DateTime" Precision="0" />
+          <Property Name="hepatitiesCType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bilharziasis" Type="Boolean" Nullable="false" />
+          <Property Name="bilharziasisSince" Type="DateTime" Precision="0" />
+          <Property Name="bilharziasisType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cardiac" Type="Boolean" Nullable="false" />
+          <Property Name="cardiacSince" Type="DateTime" Precision="0" />
+          <Property Name="cardiacType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="autoImmuneDisease" Type="Boolean" Nullable="false" />
+          <Property Name="autoImmuneDiseaseSince" Type="DateTime" Precision="0" />
+          <Property Name="autoImmuneDiseaseType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="allergy" Type="Boolean" Nullable="false" />
+          <Property Name="allergySince" Type="DateTime" Precision="0" />
+          <Property Name="allergyType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_patient_SystemPerson">
           <End Type="ClinicWallyMisrModel.SystemPerson" Role="SystemPerson" Multiplicity="0..1" />
@@ -498,6 +540,27 @@
           <EntitySetMapping Name="patients">
             <EntityTypeMapping TypeName="ClinicWallyMisrModel.patient">
               <MappingFragment StoreEntitySet="patient">
+                <ScalarProperty Name="allergyType" ColumnName="allergyType" />
+                <ScalarProperty Name="allergySince" ColumnName="allergySince" />
+                <ScalarProperty Name="allergy" ColumnName="allergy" />
+                <ScalarProperty Name="autoImmuneDiseaseType" ColumnName="autoImmuneDiseaseType" />
+                <ScalarProperty Name="autoImmuneDiseaseSince" ColumnName="autoImmuneDiseaseSince" />
+                <ScalarProperty Name="autoImmuneDisease" ColumnName="autoImmuneDisease" />
+                <ScalarProperty Name="cardiacType" ColumnName="cardiacType" />
+                <ScalarProperty Name="cardiacSince" ColumnName="cardiacSince" />
+                <ScalarProperty Name="cardiac" ColumnName="cardiac" />
+                <ScalarProperty Name="bilharziasisType" ColumnName="bilharziasisType" />
+                <ScalarProperty Name="bilharziasisSince" ColumnName="bilharziasisSince" />
+                <ScalarProperty Name="bilharziasis" ColumnName="bilharziasis" />
+                <ScalarProperty Name="hepatitiesCType" ColumnName="hepatitiesCType" />
+                <ScalarProperty Name="hepatitiesCSince" ColumnName="hepatitiesCSince" />
+                <ScalarProperty Name="hepatitiesC" ColumnName="hepatitiesC" />
+                <ScalarProperty Name="hypertensionType" ColumnName="hypertensionType" />
+                <ScalarProperty Name="hypertensionSince" ColumnName="hypertensionSince" />
+                <ScalarProperty Name="hypertension" ColumnName="hypertension" />
+                <ScalarProperty Name="diabetesType" ColumnName="diabetesType" />
+                <ScalarProperty Name="diabetesSince" ColumnName="diabetesSince" />
+                <ScalarProperty Name="Diabetes" ColumnName="Diabetes" />
                 <ScalarProperty Name="RelationAgeatDiagnosis" ColumnName="RelationAgeatDiagnosis" />
                 <ScalarProperty Name="RelationDisease" ColumnName="RelationDisease" />
                 <ScalarProperty Name="pregnancyatDiagnosis" ColumnName="pregnancyatDiagnosis" />

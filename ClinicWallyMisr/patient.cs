@@ -66,6 +66,27 @@ namespace ClinicWallyMisr
         public bool pregnancyatDiagnosis { get; set; }
         public string RelationDisease { get; set; }
         public Nullable<int> RelationAgeatDiagnosis { get; set; }
+        public bool Diabetes { get; set; }
+        public Nullable<System.DateTime> diabetesSince { get; set; }
+        public string diabetesType { get; set; }
+        public bool hypertension { get; set; }
+        public Nullable<System.DateTime> hypertensionSince { get; set; }
+        public string hypertensionType { get; set; }
+        public bool hepatitiesC { get; set; }
+        public Nullable<System.DateTime> hepatitiesCSince { get; set; }
+        public string hepatitiesCType { get; set; }
+        public bool bilharziasis { get; set; }
+        public Nullable<System.DateTime> bilharziasisSince { get; set; }
+        public string bilharziasisType { get; set; }
+        public bool cardiac { get; set; }
+        public Nullable<System.DateTime> cardiacSince { get; set; }
+        public string cardiacType { get; set; }
+        public bool autoImmuneDisease { get; set; }
+        public Nullable<System.DateTime> autoImmuneDiseaseSince { get; set; }
+        public string autoImmuneDiseaseType { get; set; }
+        public bool allergy { get; set; }
+        public Nullable<System.DateTime> allergySince { get; set; }
+        public string allergyType { get; set; }
     
         public virtual SystemPerson SystemPerson { get; set; }
         public virtual ICollection<surgicalHistory> surgicalHistories { get; set; }
