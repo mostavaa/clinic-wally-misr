@@ -12,8 +12,10 @@
         <AssociationConnector Association="ClinicWallyMisrModel.FK_SystemPerson_Job" />
         <AssociationConnector Association="ClinicWallyMisrModel.FK_SystemPerson_Specialization" />
         <EntityTypeShape EntityType="ClinicWallyMisrModel.medicine" Width="1.5" PointX="0.75" PointY="5.75" />
-        <EntityTypeShape EntityType="ClinicWallyMisrModel.patient" Width="1.5" PointX="7.5" PointY="14.5" />
+        <EntityTypeShape EntityType="ClinicWallyMisrModel.patient" Width="1.5" PointX="7.5" PointY="14.875" />
         <AssociationConnector Association="ClinicWallyMisrModel.FK_patient_SystemPerson" />
+        <EntityTypeShape EntityType="ClinicWallyMisrModel.surgicalHistory" Width="1.5" PointX="9.75" PointY="19.125" />
+        <AssociationConnector Association="ClinicWallyMisrModel.FK_surgicalHistory_patient" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

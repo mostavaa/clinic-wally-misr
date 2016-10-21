@@ -18,7 +18,7 @@ namespace ClinicWallyMisr
     {
         public static void Log(string msg, LogType type)
         {
-
+            //TODO append
             string str = AppDomain.CurrentDomain.BaseDirectory;
             File.WriteAllLines(str + "log.txt", new string[]{
             msg,

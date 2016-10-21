@@ -9,10 +9,7 @@ namespace ClinicWallyMisr
     [MetadataType(typeof(patientMetaData))]
     public partial class patient
     {
-        public patient()
-        {
-            id = Guid.NewGuid();
-        }
+
     }
     public class patientMetaData
     {
@@ -145,7 +142,7 @@ namespace ClinicWallyMisr
         [MaxLength(250)]
         [RegularExpression(@"^[a-zA-Z0-9\u0600-\u06FF\s_-]*$")]
         public string address { get; set; }
-        [Display(Name = "Name")]
+        [Display(Name = "Relation Name")]
         [MinLength(2)]
         [MaxLength(50)]
         [RegularExpression(@"^[a-zA-Z0-9\u0600-\u06FF\s_-]*$")]

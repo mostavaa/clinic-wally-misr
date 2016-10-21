@@ -14,6 +14,11 @@ namespace ClinicWallyMisr
     
     public partial class patient
     {
+        public patient()
+        {
+            this.surgicalHistories = new HashSet<surgicalHistory>();
+        }
+    
         public System.Guid id { get; set; }
         public string name { get; set; }
         public string diagnosis { get; set; }
@@ -59,7 +64,10 @@ namespace ClinicWallyMisr
         public Nullable<System.DateTime> LMPDate { get; set; }
         public string contraception { get; set; }
         public bool pregnancyatDiagnosis { get; set; }
+        public string RelationDisease { get; set; }
+        public Nullable<int> RelationAgeatDiagnosis { get; set; }
     
         public virtual SystemPerson SystemPerson { get; set; }
+        public virtual ICollection<surgicalHistory> surgicalHistories { get; set; }
     }
 }

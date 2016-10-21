@@ -75,6 +75,8 @@
           <Property Name="LMPDate" Type="date" />
           <Property Name="contraception" Type="nvarchar" MaxLength="50" />
           <Property Name="pregnancyatDiagnosis" Type="bit" Nullable="false" />
+          <Property Name="RelationDisease" Type="nvarchar" MaxLength="50" />
+          <Property Name="RelationAgeatDiagnosis" Type="int" />
         </EntityType>
         <EntityType Name="Specialization">
           <Key>
@@ -83,6 +85,15 @@
           <Property Name="id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" />
           <Property Name="jobId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="surgicalHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="operationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="operationDate" Type="date" />
+          <Property Name="patientId" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="SystemPerson">
           <Key>
@@ -135,6 +146,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_surgicalHistory_patient">
+          <End Role="patient" Type="Self.patient" Multiplicity="0..1" />
+          <End Role="surgicalHistory" Type="Self.surgicalHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="patient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="surgicalHistory">
+              <PropertyRef Name="patientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SystemPerson_Job">
           <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
           <End Role="SystemPerson" Type="Self.SystemPerson" Multiplicity="*" />
@@ -164,6 +187,7 @@
           <EntitySet Name="medicine" EntityType="Self.medicine" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="patient" EntityType="Self.patient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Specialization" EntityType="Self.Specialization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="surgicalHistory" EntityType="Self.surgicalHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SystemPerson" EntityType="Self.SystemPerson" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_patient_SystemPerson" Association="Self.FK_patient_SystemPerson">
             <End Role="SystemPerson" EntitySet="SystemPerson" />
@@ -172,6 +196,10 @@
           <AssociationSet Name="FK_Specialization_Job" Association="Self.FK_Specialization_Job">
             <End Role="Job" EntitySet="Job" />
             <End Role="Specialization" EntitySet="Specialization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_surgicalHistory_patient" Association="Self.FK_surgicalHistory_patient">
+            <End Role="patient" EntitySet="patient" />
+            <End Role="surgicalHistory" EntitySet="surgicalHistory" />
           </AssociationSet>
           <AssociationSet Name="FK_SystemPerson_Job" Association="Self.FK_SystemPerson_Job">
             <End Role="Job" EntitySet="Job" />
@@ -207,6 +235,11 @@
           <AssociationSet Name="FK_patient_SystemPerson" Association="ClinicWallyMisrModel.FK_patient_SystemPerson">
             <End Role="SystemPerson" EntitySet="SystemPersons" />
             <End Role="patient" EntitySet="patients" />
+          </AssociationSet>
+          <EntitySet Name="surgicalHistories" EntityType="ClinicWallyMisrModel.surgicalHistory" />
+          <AssociationSet Name="FK_surgicalHistory_patient" Association="ClinicWallyMisrModel.FK_surgicalHistory_patient">
+            <End Role="patient" EntitySet="patients" />
+            <End Role="surgicalHistory" EntitySet="surgicalHistories" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Job">
@@ -357,7 +390,10 @@
           <Property Name="LMPDate" Type="DateTime" Precision="0" />
           <Property Name="contraception" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="pregnancyatDiagnosis" Type="Boolean" Nullable="false" />
+          <Property Name="RelationDisease" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RelationAgeatDiagnosis" Type="Int32" />
           <NavigationProperty Name="SystemPerson" Relationship="ClinicWallyMisrModel.FK_patient_SystemPerson" FromRole="patient" ToRole="SystemPerson" />
+          <NavigationProperty Name="surgicalHistories" Relationship="ClinicWallyMisrModel.FK_surgicalHistory_patient" FromRole="patient" ToRole="surgicalHistory" />
         </EntityType>
         <Association Name="FK_patient_SystemPerson">
           <End Type="ClinicWallyMisrModel.SystemPerson" Role="SystemPerson" Multiplicity="0..1" />
@@ -368,6 +404,28 @@
             </Principal>
             <Dependent Role="patient">
               <PropertyRef Name="doctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="surgicalHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="operationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="operationDate" Type="DateTime" Precision="0" />
+          <Property Name="patientId" Type="Guid" />
+          <NavigationProperty Name="patient" Relationship="ClinicWallyMisrModel.FK_surgicalHistory_patient" FromRole="surgicalHistory" ToRole="patient" />
+        </EntityType>
+        <Association Name="FK_surgicalHistory_patient">
+          <End Type="ClinicWallyMisrModel.patient" Role="patient" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.surgicalHistory" Role="surgicalHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="patient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="surgicalHistory">
+              <PropertyRef Name="patientId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -440,6 +498,8 @@
           <EntitySetMapping Name="patients">
             <EntityTypeMapping TypeName="ClinicWallyMisrModel.patient">
               <MappingFragment StoreEntitySet="patient">
+                <ScalarProperty Name="RelationAgeatDiagnosis" ColumnName="RelationAgeatDiagnosis" />
+                <ScalarProperty Name="RelationDisease" ColumnName="RelationDisease" />
                 <ScalarProperty Name="pregnancyatDiagnosis" ColumnName="pregnancyatDiagnosis" />
                 <ScalarProperty Name="contraception" ColumnName="contraception" />
                 <ScalarProperty Name="LMPDate" ColumnName="LMPDate" />
@@ -484,6 +544,16 @@
                 <ScalarProperty Name="diagnosisCode" ColumnName="diagnosisCode" />
                 <ScalarProperty Name="diagnosis" ColumnName="diagnosis" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="surgicalHistories">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.surgicalHistory">
+              <MappingFragment StoreEntitySet="surgicalHistory">
+                <ScalarProperty Name="patientId" ColumnName="patientId" />
+                <ScalarProperty Name="operationDate" ColumnName="operationDate" />
+                <ScalarProperty Name="operationName" ColumnName="operationName" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

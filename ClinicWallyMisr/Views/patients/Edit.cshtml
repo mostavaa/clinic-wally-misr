@@ -52,7 +52,15 @@
         <div class="form-group">
             @Html.LabelFor(model => model.masterStatus, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.masterStatus, new { htmlAttributes = new { @class = "form-control" } })
+                <select id="masterStatus" name="masterStatus" class="form-control">
+                    @{
+    foreach (var item in Constants.masterStatus)
+    {
+        <option value="@item.Key">@item.Value</option>
+
+    }
+                    }
+                </select>
                 @Html.ValidationMessageFor(model => model.masterStatus, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -60,7 +68,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.dateofDiagnosis, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.dateofDiagnosis, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.dateofDiagnosis, new { htmlAttributes = new { @class = "form-control", data_datepicker = "true" } })
                 @Html.ValidationMessageFor(model => model.dateofDiagnosis, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -68,15 +76,22 @@
         <div class="form-group">
             @Html.LabelFor(model => model.firstStatus, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.firstStatus, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.firstStatus, "", new { @class = "text-danger" })
+                <select id="firstStatus" name="firstStatus" class="form-control">
+                    @{
+    foreach (var item in Constants.firstStatus)
+    {
+        <option value="@item.Key">@item.Value</option>
+
+    }
+                    }
+                </select>                @Html.ValidationMessageFor(model => model.firstStatus, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.dateofRelapse, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.dateofRelapse, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.dateofRelapse, new { htmlAttributes = new { @class = "form-control", data_datepicker = "true" } })
                 @Html.ValidationMessageFor(model => model.dateofRelapse, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -84,7 +99,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.firstPresentationDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.firstPresentationDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.firstPresentationDate, new { htmlAttributes = new { @class = "form-control", data_datepicker = "true" } })
                 @Html.ValidationMessageFor(model => model.firstPresentationDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -92,7 +107,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.birthDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.birthDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.birthDate, new { htmlAttributes = new { @class = "form-control", data_datepicker = "true" } })
                 @Html.ValidationMessageFor(model => model.birthDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -116,8 +131,13 @@
             @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <select name="gender" id="gender" class="form-control">
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
+                    @{
+    foreach (var item in Constants.gender)
+    {
+        <option value="@item.Key">@item.Value</option>
+
+    }
+                    }
                 </select>
                 @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
             </div>
@@ -126,32 +146,60 @@
         <div class="form-group">
             @Html.LabelFor(model => model.referredFrom, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.referredFrom, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.referredFrom, "", new { @class = "text-danger" })
+                <select id="referredFrom" name="referredFrom" class="form-control">
+                    @{
+    foreach (var item in Constants.referredFrom)
+    {
+        <option value="@item.Key">@item.Value</option>
+
+    }
+                    }
+                </select>                  @Html.ValidationMessageFor(model => model.referredFrom, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.education, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.education, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.education, "", new { @class = "text-danger" })
+                <select id="education" name="education" class="form-control">
+                    @{
+    foreach (var item in Constants.education)
+    {
+        <option value="@item.Key">@item.Value</option>
+
+    }
+                    }
+                </select>                  @Html.ValidationMessageFor(model => model.education, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.nationality, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.nationality, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.nationality, "", new { @class = "text-danger" })
+                <select id="nationality" name="nationality" class="form-control">
+                    @{
+    foreach (var item in Constants.nationality)
+    {
+        <option value="@item.Key">@item.Value</option>
+
+    }
+                    }
+                </select>                @Html.ValidationMessageFor(model => model.nationality, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.maritalStatus, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.maritalStatus, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.maritalStatus, "", new { @class = "text-danger" })
+                <select id="maritalStatus" name="maritalStatus" class="form-control">
+                    @{
+    foreach (var item in Constants.maritalStatus)
+    {
+        <option value="@item.Key">@item.Value</option>
+
+    }
+                    }
+                </select>                @Html.ValidationMessageFor(model => model.maritalStatus, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -222,8 +270,15 @@
         <div class="form-group">
             @Html.LabelFor(model => model.governorate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.governorate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.governorate, "", new { @class = "text-danger" })
+                <select id="governorate" name="governorate" class="form-control">
+                    @{
+    foreach (var item in Constants.governorate)
+    {
+        <option value="@item.Key">@item.Value</option>
+
+    }
+                    }
+                </select>                  @Html.ValidationMessageFor(model => model.governorate, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -246,8 +301,15 @@
         <div class="form-group">
             @Html.LabelFor(model => model.relation, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.relation, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.relation, "", new { @class = "text-danger" })
+                <select id="relation" name="relation" class="form-control">
+                    @{
+    foreach (var item in Constants.relation)
+    {
+        <option value="@item.Key">@item.Value</option>
+
+    }
+                    }
+                </select>                      @Html.ValidationMessageFor(model => model.relation, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -286,31 +348,52 @@
         <div class="form-group">
             @Html.LabelFor(model => model.relationGovernorate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.relationGovernorate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.relationGovernorate, "", new { @class = "text-danger" })
+                <select id="relationGovernorate" name="relationGovernorate" class="form-control">
+                    @{
+    foreach (var item in Constants.governorate)
+    {
+        <option value="@item.Key">@item.Value</option>
+
+    }
+                    }
+                </select>                  @Html.ValidationMessageFor(model => model.relationGovernorate, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.demographic, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.demographic, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.demographic, "", new { @class = "text-danger" })
+                <select id="demographic" name="demographic" class="form-control">
+                    @{
+    foreach (var item in Constants.demographicPationtIs)
+    {
+        <option value="@item.Key">@item.Value</option>
+
+    }
+                    }
+                </select>                    @Html.ValidationMessageFor(model => model.demographic, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.demographicType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.demographicType, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.demographicType, "", new { @class = "text-danger" })
+                <select id="demographicType" name="demographicType" class="form-control">
+                    @{
+    foreach (var item in Constants.demographicType)
+    {
+        <option value="@item.Key">@item.Value</option>
+
+    }
+                    }
+                </select>                      @Html.ValidationMessageFor(model => model.demographicType, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.demographicSince, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.demographicSince, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.demographicSince, new { htmlAttributes = new { @class = "form-control", data_datepicker = "true" } })
                 @Html.ValidationMessageFor(model => model.demographicSince, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -339,13 +422,28 @@
                 @{
     if (Model.gender != "Female")
     {
-        @Html.EditorFor(model => model.menstrual, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", disabled = "disabled" } })
+        <select id="menstrual" name="menstrual" class="form-control" readonly="readonly" disabled="disabled">
+            @{
+        foreach (var item in Constants.menstrual)
+        {
+            <option value="@item.Key">@item.Value</option>
+
+        }
+            }
+        </select>
 
     }
     else
     {
-        @Html.EditorFor(model => model.menstrual, new { htmlAttributes = new { @class = "form-control" } })
-    }
+        <select id="menstrual" name="menstrual" class="form-control">
+            @{
+        foreach (var item in Constants.menstrual)
+        {
+            <option value="@item.Key">@item.Value</option>
+
+        }
+            }
+        </select>    }
                 }
                 @Html.ValidationMessageFor(model => model.menstrual, "", new { @class = "text-danger" })
             </div>
@@ -377,12 +475,12 @@
                 @{
     if (Model.gender != "Female")
     {
-        @Html.EditorFor(model => model.LMPDate, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", disabled = "disabled" } })
+        @Html.EditorFor(model => model.LMPDate, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", disabled = "disabled", data_datepicker = "true" } })
 
     }
     else
     {
-        @Html.EditorFor(model => model.LMPDate, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.EditorFor(model => model.LMPDate, new { htmlAttributes = new { @class = "form-control", data_datepicker = "true" } })
     }
                 }
 
@@ -396,12 +494,26 @@
                 @{
     if (Model.gender != "Female")
     {
-        @Html.EditorFor(model => model.contraception, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", disabled = "disabled" } })
-    }
+        <select id="contraception" name="contraception" class="form-control" readonly="readonly" disabled="disabled">
+            @{
+        foreach (var item in Constants.contraception)
+        {
+            <option value="@item.Key">@item.Value</option>
+
+        }
+            }
+        </select>    }
     else
     {
-        @Html.EditorFor(model => model.contraception, new { htmlAttributes = new { @class = "form-control" } })
-    }
+        <select id="contraception" name="contraception" class="form-control">
+            @{
+        foreach (var item in Constants.contraception)
+        {
+            <option value="@item.Key">@item.Value</option>
+
+        }
+            }
+        </select>     }
                 }
 
                 @Html.ValidationMessageFor(model => model.contraception, "", new { @class = "text-danger" })
@@ -427,6 +539,52 @@
             </div>
         </div>
 
+
+        <div class="row">
+            <label>Relation : @Model.relation @Model.relationName </label>
+            <br />
+            <label for="RelationDisease">Disease</label>
+            <select id="RelationDisease" name="RelationDisease" class="form-control">
+                <option></option>
+            </select>
+            <label for="RelationAgeatDiagnosis">Age at Diagnosis</label>
+            @Html.EditorFor(model => model.RelationAgeatDiagnosis, new { htmlAttributes = new { @class = "form-control" } })
+
+
+        </div>
+        <div class="row">
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <th>Operation Name</th>
+                        <th>Operation Date</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @{
+    foreach (var item in Model.surgicalHistories)
+    {
+        <tr>
+            <td>@item.operationName</td>
+            <td>@item.operationDate.Value</td>
+            <td data-id="@item.id" class="removeOperation btn btn-danger">Remove</td>
+        </tr>
+    }
+    <tr>
+        <td ><input id="newOperationName" class="form-control" name="newOperationName" type="text" /></td>
+        <td><input type="text" id="newOperationDate" name="newOperationDate" class="form-control" data-datepicker="true" /></td>
+
+                    <td id="addOperation"><a class="btn btn-primary">Add</a></td>
+                    </tr>
+                    }
+                </tbody>
+
+            </table>
+
+
+        </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
@@ -442,31 +600,50 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script>
-        $(document).ready(function () {
-            $("#gender").change(function () {
-                if ($(this).val() == "Female") {
-                    $("#pregnancyatDiagnosis").removeAttr("readonly");
-                    $("#contraception").removeAttr("readonly");
-                    $("#LMPDate").removeAttr("readonly");
-                    $("#LMP").removeAttr("readonly");
-                    $("#menstrual").removeAttr("readonly");
-                    $("#pregnancyatDiagnosis").removeAttr("disabled");
-                    $("#contraception").removeAttr("disabled");
-                    $("#LMPDate").removeAttr("disabled");
-                    $("#LMP").removeAttr("disabled");
-                    $("#menstrual").removeAttr("disabled");
-                } else {
-                    $("#pregnancyatDiagnosis").attr("readonly", "readonly");
-                    $("#contraception").attr("readonly", "readonly");
-                    $("#LMPDate").attr("readonly", "readonly");
-                    $("#LMP").attr("readonly", "readonly");
-                    $("#menstrual").attr("readonly", "readonly");
-                    $("#pregnancyatDiagnosis").attr("disabled", "disabled");
-                    $("#contraception").attr("disabled", "disabled");
-                    $("#LMPDate").attr("disabled", "disabled");
-                    $("#LMP").attr("disabled", "disabled");
-                    $("#menstrual").attr("disabled", "disabled");
-                }
+    $(document).ready(function () {
+        $("#gender").change(function () {
+            if ($(this).val() == "Female") {
+                $("#pregnancyatDiagnosis").removeAttr("readonly");
+                $("#contraception").removeAttr("readonly");
+                $("#LMPDate").removeAttr("readonly");
+                $("#LMP").removeAttr("readonly");
+                $("#menstrual").removeAttr("readonly");
+                $("#pregnancyatDiagnosis").removeAttr("disabled");
+                $("#contraception").removeAttr("disabled");
+                $("#LMPDate").removeAttr("disabled");
+                $("#LMP").removeAttr("disabled");
+                $("#menstrual").removeAttr("disabled");
+            } else {
+                $("#pregnancyatDiagnosis").attr("readonly", "readonly");
+                $("#contraception").attr("readonly", "readonly");
+                $("#LMPDate").attr("readonly", "readonly");
+                $("#LMP").attr("readonly", "readonly");
+                $("#menstrual").attr("readonly", "readonly");
+                $("#pregnancyatDiagnosis").attr("disabled", "disabled");
+                $("#contraception").attr("disabled", "disabled");
+                $("#LMPDate").attr("disabled", "disabled");
+                $("#LMP").attr("disabled", "disabled");
+                $("#menstrual").attr("disabled", "disabled");
+            }
+        });
+        $(".removeOperation").click(function () {
+            id = $(this).attr("data-id");
+            row = $(this).parent();
+            $.post("@Url.Action("RemoveOperation")", "id=" + id, function (res) {
+                    if (res == "1") {
+                        $(row).remove();
+                    }
+                })
+            });
+            $("#addOperation").click(function () {
+                newOperationDate = $("#newOperationDate").val();
+                newOperationName = $("#newOperationName").val();
+                body = $(this).parent().parent();
+                $.post("@Url.Action("AddOperation","patients")", "name=" + newOperationName + "&opDate=" + newOperationDate+"&id="+"@Model.id" , function (res) {
+                    if (res == "1") {
+                        $(body).append("<tr><td>"+newOperationName+"</td><td>"+newOperationDate+"</td><td class='btn btn-danger'>Remove</td></tr>");
+                    }
+                })
             });
         });
     </script>

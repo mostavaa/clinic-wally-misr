@@ -30,5 +30,6 @@ namespace ClinicWallyMisr
         public virtual DbSet<SystemPerson> SystemPersons { get; set; }
         public virtual DbSet<medicine> medicines { get; set; }
         public virtual DbSet<patient> patients { get; set; }
+        public virtual DbSet<surgicalHistory> surgicalHistories { get; set; }
     }
 }

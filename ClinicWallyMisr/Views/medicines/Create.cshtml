@@ -7,10 +7,10 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>medicine</h4>
         <hr />
@@ -50,15 +50,30 @@
         <div class="form-group">
             @Html.LabelFor(model => model.type, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.type, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.type, "", new { @class = "text-danger" })
+                <select id="type" name="type" class="form-control">
+                    @{
+    foreach (var item in Constants.MedicineType)
+    {
+        <option value="@item.Key">@item.Value</option>
+
+    }
+                    }
+                </select>                @Html.ValidationMessageFor(model => model.type, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.dose, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.dose, new { htmlAttributes = new { @class = "form-control" } })
+                <select id="dose" name="dose" class="form-control">
+                    @{
+    foreach (var item in Constants.Dose)
+    {
+        <option value="@item.Key">@item.Value</option>
+
+    }
+                    }
+                </select>
                 @Html.ValidationMessageFor(model => model.dose, "", new { @class = "text-danger" })
             </div>
         </div>
