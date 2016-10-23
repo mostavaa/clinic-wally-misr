@@ -1,0 +1,184 @@
+﻿@model ClinicWallyMisr.visit
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>visit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.visitDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.visitDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.visitStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.visitStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.visitSite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.visitSite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.complaintType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.complaintType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PresentHistory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PresentHistory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.decision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.decision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.requestedInvestigations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.requestedInvestigations)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GeneralAppearance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GeneralAppearance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mentality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mentality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Built)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Built)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pallor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pallor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.jaundice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.jaundice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cyanosis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cyanosis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postureDuringWalking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postureDuringWalking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postureStanding)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postureStanding)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postureSitting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postureSitting)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postureLyingSupineorPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postureLyingSupineorPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vitalSigns)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vitalSigns)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patient.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patient.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SystemPerson.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SystemPerson.name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

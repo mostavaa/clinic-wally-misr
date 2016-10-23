@@ -17,6 +17,7 @@ namespace ClinicWallyMisr
         public SystemPerson()
         {
             this.patients = new HashSet<patient>();
+            this.visits = new HashSet<visit>();
         }
     
         public System.Guid id { get; set; }
@@ -45,5 +46,6 @@ namespace ClinicWallyMisr
         public virtual Job Job { get; set; }
         public virtual Specialization Specialization { get; set; }
         public virtual ICollection<patient> patients { get; set; }
+        public virtual ICollection<visit> visits { get; set; }
     }
 }

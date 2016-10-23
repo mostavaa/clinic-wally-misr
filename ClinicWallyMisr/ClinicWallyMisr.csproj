@@ -159,16 +159,35 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Complaint.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\medicinesController.cs" />
     <Compile Include="Controllers\patientsController.cs" />
     <Compile Include="Controllers\SpecializationsController.cs" />
     <Compile Include="Controllers\SystemPersonsController.cs" />
+    <Compile Include="Controllers\visitsController.cs" />
+    <Compile Include="Endoscopy.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="examination.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Imaging.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Job.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Lab.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Laboratory.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="medicine.cs">
@@ -190,6 +209,13 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ClinicWallyMisrEntities.cs" />
+    <Compile Include="Models\examination.cs" />
+    <Compile Include="Models\Imaging.cs" />
+    <Compile Include="Models\Lab.cs" />
+    <Compile Include="Models\Laboratory.cs" />
+    <Compile Include="Models\visit.cs" />
+    <Compile Include="Models\Endoscopy.cs" />
+    <Compile Include="Models\Complaint.cs" />
     <Compile Include="Models\medicine.cs" />
     <Compile Include="Models\patient.cs" />
     <Compile Include="Models\surgicalHistory.cs" />
@@ -210,6 +236,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="SystemPerson.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="visit.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -301,6 +330,11 @@
     <Content Include="Views\patients\Edit.cshtml" />
     <Content Include="Views\patients\Index.cshtml" />
     <Content Include="Views\Home\constants.cshtml" />
+    <Content Include="Views\visits\Create.cshtml" />
+    <Content Include="Views\visits\Delete.cshtml" />
+    <Content Include="Views\visits\Details.cshtml" />
+    <Content Include="Views\visits\Edit.cshtml" />
+    <Content Include="Views\visits\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\fileUploads\" />

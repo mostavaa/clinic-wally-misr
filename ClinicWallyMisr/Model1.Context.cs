@@ -31,5 +31,12 @@ namespace ClinicWallyMisr
         public virtual DbSet<medicine> medicines { get; set; }
         public virtual DbSet<patient> patients { get; set; }
         public virtual DbSet<surgicalHistory> surgicalHistories { get; set; }
+        public virtual DbSet<Complaint> Complaints { get; set; }
+        public virtual DbSet<Endoscopy> Endoscopies { get; set; }
+        public virtual DbSet<examination> examinations { get; set; }
+        public virtual DbSet<Imaging> Imagings { get; set; }
+        public virtual DbSet<Laboratory> Laboratories { get; set; }
+        public virtual DbSet<Lab> Labs { get; set; }
+        public virtual DbSet<visit> visits { get; set; }
     }
 }
