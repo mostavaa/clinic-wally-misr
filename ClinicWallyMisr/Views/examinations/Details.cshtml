@@ -1,0 +1,162 @@
+﻿@model ClinicWallyMisr.examination
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>examination</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.redness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.redness)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.swelling)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.swelling)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.scars)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.scars)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LTWastingofQuadriceps)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LTWastingofQuadriceps)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RTWastingofQuadriceps)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RTWastingofQuadriceps)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LTWastingofQuadricepsCompare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LTWastingofQuadricepsCompare)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RTWastingofQuadricepsCompare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RTWastingofQuadricepsCompare)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LTWastingofScapula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LTWastingofScapula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RTWastingofScapula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RTWastingofScapula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LTLognThoracicNerveInjury)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LTLognThoracicNerveInjury)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RTLognThoracicNerveInjury1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RTLognThoracicNerveInjury1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Effusion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Effusion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EffusionType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EffusionType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NearByJoints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NearByJoints)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NearByJointsType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NearByJointsType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GaitPattern)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GaitPattern)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GaitPatternType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GaitPatternType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.visit.visitStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.visit.visitStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

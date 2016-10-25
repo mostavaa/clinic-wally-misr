@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ClinicWallyMisr.examination>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create" , new{id=ViewBag.visit.id})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.redness)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.swelling)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.scars)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Effusion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.visit.visitStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.redness)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.swelling)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.scars)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Effusion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.visit.visitStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
