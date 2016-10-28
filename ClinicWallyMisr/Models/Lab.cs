@@ -22,7 +22,6 @@ namespace ClinicWallyMisr
 
         [Display(Name = "Result")]
         public Nullable<int> result { get; set; }
-        [RegularExpression(@"^[a-zA-Z0-9\u0600-\u06FF\s_-]*$")]
         public string Unit { get; set; }
         [RegularExpression(@"^[a-zA-Z0-9\u0600-\u06FF\s_-]*$")]
         [Display(Name = "Result")]

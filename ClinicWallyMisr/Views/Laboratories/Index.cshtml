@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ClinicWallyMisr.Laboratory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { id=ViewBag.visit.id})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Laboratory1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateofLab)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.visit.visitStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Laboratory1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateofLab)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.visit.visitStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,140 @@
+﻿@model ClinicWallyMisr.Laboratory
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Laboratory</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Laboratory1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Laboratory1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Laboratory1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateofLab, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateofLab, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateofLab, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <input type="hidden" value="@Model.visitId" id="visitId" name="visitId" />
+
+
+        @* new *@
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Lab Type</th>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <th>Unit</th>
+                        <th>Result</th>
+                        <th>Graph</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+    foreach (var item in Model.Labs)
+    {
+        <tr>
+            <td>@item.LabType</td>
+            <td>@item.Name</td>
+            <td>@item.result</td>
+            <td>@item.Unit</td>
+            <td>@item.ResultStatus</td>
+            @{
+        if (item.graph != null && item.graph != string.Empty)
+        {
+            <td><a href="~/App_Data/labGraphs/@item.graph">Graph</a></td>
+        }
+        else
+        {
+            <td>Graph</td>
+        }
+            }
+            <td data-id="@item.id" class="removeLab btn btn-danger">Remove</td>
+
+        </tr>
+    }
+    <tr>
+        <td><input id="newLabType" class="form-control" name="newLabType" type="text" /></td>
+        <td><input type="text" id="newLabName" name="newLabName" class="form-control" /></td>
+        <td><input type="number" id="newLabResult" name="newLabResult" class="form-control" /></td>
+        <td><input type="text" id="newLabUnit" name="newLabUnit" class="form-control" /></td>
+        <td>
+            <select id="newLabResultStatus" name="newLabResultStatus" class="form-control">
+                <option value="Low">Low</option>
+                <option value="Normal">Normal</option>
+                <option value="High">High</option>
+            </select>
+        </td>
+        <td>Graph</td>
+        <td id="addLab"><a class="btn btn-primary">Add</a></td>
+    </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new { @id = Model.visitId })
+</div>
+@section scripts{
+    <script>
+        $(".removeLab").click(function () {
+            id = $(this).attr("data-id");
+            row = $(this).parent();
+            $.post("@Url.Action("removeLab")", "id=" + id, function (res) {
+                if (res == "1") {
+                    $(row).remove();
+                }
+            })
+        });
+        $("#addLab").click(function () {
+            newLabName = $("#newLabName").val();
+            newLabType = $("#newLabType").val();
+            newLabResult = $("#newLabResult").val();
+            newLabUnit = $("#newLabUnit").val();
+            newLabResultStatus = $("#newLabResultStatus").val();
+            body = $(this).parent().parent();
+            $.post("@Url.Action("addLab")",
+                "newLabType=" + newLabType
+                + "&newLabName=" + newLabName
+                + "&newLabResult=" + newLabResult
+                + "&newLabUnit=" + newLabUnit
+                + "&newLabResultStatus=" + newLabResultStatus
+                + "&id=" + "@Model.id"
+                , function (res) {
+                    if (res == "1") {
+                        $(body).append("<tr><td>" + newLabType + "</td><td>" + newLabName + "</td><td>" + newLabResult + "</td><td>" + newLabUnit + "</td><td>" + newLabResultStatus + "</td><td class='btn btn-danger'>Remove</td></tr>");
+                    }
+                })
+        });
+    </script>
+}

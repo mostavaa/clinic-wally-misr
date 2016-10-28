@@ -165,6 +165,7 @@
     <Compile Include="Controllers\examinationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
+    <Compile Include="Controllers\LaboratoriesController.cs" />
     <Compile Include="Controllers\medicinesController.cs" />
     <Compile Include="Controllers\patientsController.cs" />
     <Compile Include="Controllers\SpecializationsController.cs" />
@@ -341,9 +342,16 @@
     <Content Include="Views\examinations\Details.cshtml" />
     <Content Include="Views\examinations\Edit.cshtml" />
     <Content Include="Views\examinations\Index.cshtml" />
+    <Content Include="Views\visits\investigations.cshtml" />
+    <Content Include="Views\Laboratories\Create.cshtml" />
+    <Content Include="Views\Laboratories\Delete.cshtml" />
+    <Content Include="Views\Laboratories\Details.cshtml" />
+    <Content Include="Views\Laboratories\Edit.cshtml" />
+    <Content Include="Views\Laboratories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\fileUploads\" />
+    <Folder Include="App_Data\labGraphs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

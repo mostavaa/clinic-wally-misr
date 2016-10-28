@@ -15,6 +15,7 @@ namespace ClinicWallyMisr.Controllers
         private ClinicWallyMisrEntities db = new ClinicWallyMisrEntities();
         patientService _patientService = new patientService();
         ComplaintService _ComplaintService = new ComplaintService();
+        visitService _visitService = new visitService();
         // GET: visits
         public ActionResult Index(Guid? id)
         {
@@ -30,22 +31,6 @@ namespace ClinicWallyMisr.Controllers
             return View(visits.ToList());
         }
 
-        // GET: visits/Details/5
-        /*
-        public ActionResult Details(Guid? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            visit visit = db.visits.Find(id);
-            if (visit == null)
-            {
-                return HttpNotFound();
-            }
-            return View(visit);
-        }
-        */
         // GET: visits/Create
         public ActionResult Create(Guid? id)
         {
@@ -147,6 +132,18 @@ namespace ClinicWallyMisr.Controllers
             return RedirectToAction("Index", new { @id = patientId });
         }
 
+        public ActionResult investigations(Guid id)
+        {
+            if (id == null || id == Guid.Empty)
+                return HttpNotFound();
+            visit visit= _visitService.get(id);
+            if (visit == null)
+                return HttpNotFound();
+            //TODO override httpnotfound page 
+
+            ViewBag.visit = visit;
+            return View();
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

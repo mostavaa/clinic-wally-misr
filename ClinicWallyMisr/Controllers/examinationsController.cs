@@ -54,8 +54,13 @@ namespace ClinicWallyMisr.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index", new { id=examination.visitId});
             }
+            if (examination.visitId == null)
+                return HttpNotFound();
 
-            ViewBag.visitId = new SelectList(db.visits, "id", "visitStatus", examination.visitId);
+            visit visit = _visitService.get(examination.visitId);
+            if (visit == null)
+                return HttpNotFound();
+            ViewBag.visit = visit;
             return View(examination);
         }
 
