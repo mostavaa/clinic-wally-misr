@@ -5,6 +5,6 @@
 
 <div class="row">
     <div class="col-md-2">@Html.ActionLink("Laboratory", "Index", "Laboratories", new { id=ViewBag.visit.id}, null)</div>
-    <div class="col-md-2">@Html.ActionLink("Imaging", "Index", "Imaging")</div>
-    <div class="col-md-2">@Html.ActionLink("Endoscopy", "Index", "Endoscopy")</div>
+    <div class="col-md-2">@Html.ActionLink("Imaging", "Index", "Imagings", new { id = ViewBag.visit.id }, null)</div>
+    <div class="col-md-2">@Html.ActionLink("Endoscopy", "Index", "Endoscopies", new { id = ViewBag.visit.id }, null)</div>
 </div>

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ClinicWallyMisr.Endoscopy>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { id = ViewBag.visit.id })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Endoscopy1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndoscopyType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.site)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.graph)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.visit.visitStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Endoscopy1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndoscopyType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.site)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.graph)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.visit.visitStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

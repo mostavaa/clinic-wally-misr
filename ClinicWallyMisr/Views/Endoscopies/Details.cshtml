@@ -1,0 +1,66 @@
+﻿@model ClinicWallyMisr.Endoscopy
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Endoscopy</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Endoscopy1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Endoscopy1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndoscopyType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndoscopyType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.site)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.site)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.graph)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.graph)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.visit.visitStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.visit.visitStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

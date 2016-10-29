@@ -162,8 +162,10 @@
     <Compile Include="Complaint.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\EndoscopiesController.cs" />
     <Compile Include="Controllers\examinationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImagingsController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\LaboratoriesController.cs" />
     <Compile Include="Controllers\medicinesController.cs" />
@@ -348,6 +350,16 @@
     <Content Include="Views\Laboratories\Details.cshtml" />
     <Content Include="Views\Laboratories\Edit.cshtml" />
     <Content Include="Views\Laboratories\Index.cshtml" />
+    <Content Include="Views\Imagings\Create.cshtml" />
+    <Content Include="Views\Imagings\Delete.cshtml" />
+    <Content Include="Views\Imagings\Details.cshtml" />
+    <Content Include="Views\Imagings\Edit.cshtml" />
+    <Content Include="Views\Imagings\Index.cshtml" />
+    <Content Include="Views\Endoscopies\Create.cshtml" />
+    <Content Include="Views\Endoscopies\Delete.cshtml" />
+    <Content Include="Views\Endoscopies\Details.cshtml" />
+    <Content Include="Views\Endoscopies\Edit.cshtml" />
+    <Content Include="Views\Endoscopies\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\fileUploads\" />
