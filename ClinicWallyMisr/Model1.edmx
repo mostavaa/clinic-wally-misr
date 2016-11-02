@@ -104,6 +104,11 @@
           <Property Name="dose" Type="nvarchar" MaxLength="50" />
           <Property Name="sideEffects" Type="nvarchar" MaxLength="150" />
           <Property Name="notes" Type="nvarchar" MaxLength="150" />
+          <Property Name="UOM" Type="nvarchar" MaxLength="50" />
+          <Property Name="Route" Type="nvarchar" MaxLength="50" />
+          <Property Name="Duration" Type="nvarchar" MaxLength="50" />
+          <Property Name="Frequency" Type="nvarchar" MaxLength="50" />
+          <Property Name="prescriptionId" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="patient">
           <Key>
@@ -177,6 +182,14 @@
           <Property Name="allergy" Type="bit" Nullable="false" />
           <Property Name="allergySince" Type="date" />
           <Property Name="allergyType" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="prescription">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="notes" Type="nvarchar(max)" />
+          <Property Name="visitId" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="Specialization">
           <Key>
@@ -320,6 +333,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_medicine_prescription">
+          <End Role="prescription" Type="Self.prescription" Multiplicity="0..1" />
+          <End Role="medicine" Type="Self.medicine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prescription">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="medicine">
+              <PropertyRef Name="prescriptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_patient_SystemPerson">
           <End Role="SystemPerson" Type="Self.SystemPerson" Multiplicity="0..1" />
           <End Role="patient" Type="Self.patient" Multiplicity="*" />
@@ -329,6 +354,18 @@
             </Principal>
             <Dependent Role="patient">
               <PropertyRef Name="doctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_prescription_visits">
+          <End Role="visits" Type="Self.visits" Multiplicity="0..1" />
+          <End Role="prescription" Type="Self.prescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="visits">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="prescription">
+              <PropertyRef Name="visitId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -414,6 +451,7 @@
           <EntitySet Name="Labs" EntityType="Self.Labs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="medicine" EntityType="Self.medicine" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="patient" EntityType="Self.patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="prescription" EntityType="Self.prescription" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Specialization" EntityType="Self.Specialization" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="surgicalHistory" EntityType="Self.surgicalHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SystemPerson" EntityType="Self.SystemPerson" Schema="dbo" store:Type="Tables" />
@@ -442,9 +480,17 @@
             <End Role="Laboratory" EntitySet="Laboratory" />
             <End Role="Labs" EntitySet="Labs" />
           </AssociationSet>
+          <AssociationSet Name="FK_medicine_prescription" Association="Self.FK_medicine_prescription">
+            <End Role="prescription" EntitySet="prescription" />
+            <End Role="medicine" EntitySet="medicine" />
+          </AssociationSet>
           <AssociationSet Name="FK_patient_SystemPerson" Association="Self.FK_patient_SystemPerson">
             <End Role="SystemPerson" EntitySet="SystemPerson" />
             <End Role="patient" EntitySet="patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_prescription_visits" Association="Self.FK_prescription_visits">
+            <End Role="visits" EntitySet="visits" />
+            <End Role="prescription" EntitySet="prescription" />
           </AssociationSet>
           <AssociationSet Name="FK_Specialization_Job" Association="Self.FK_Specialization_Job">
             <End Role="Job" EntitySet="Job" />
@@ -540,6 +586,15 @@
           <AssociationSet Name="FK_visits_SystemPerson" Association="ClinicWallyMisrModel.FK_visits_SystemPerson">
             <End Role="SystemPerson" EntitySet="SystemPersons" />
             <End Role="visit" EntitySet="visits" />
+          </AssociationSet>
+          <EntitySet Name="prescriptions" EntityType="ClinicWallyMisrModel.prescription" />
+          <AssociationSet Name="FK_medicine_prescription" Association="ClinicWallyMisrModel.FK_medicine_prescription">
+            <End Role="prescription" EntitySet="prescriptions" />
+            <End Role="medicine" EntitySet="medicines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_prescription_visits" Association="ClinicWallyMisrModel.FK_prescription_visits">
+            <End Role="visit" EntitySet="visits" />
+            <End Role="prescription" EntitySet="prescriptions" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Job">
@@ -641,6 +696,12 @@
           <Property Name="dose" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="sideEffects" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="notes" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="UOM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Route" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Frequency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="prescriptionId" Type="Guid" />
+          <NavigationProperty Name="prescription" Relationship="ClinicWallyMisrModel.FK_medicine_prescription" FromRole="medicine" ToRole="prescription" />
         </EntityType>
         <EntityType Name="patient">
           <Key>
@@ -870,6 +931,7 @@
           <NavigationProperty Name="Laboratories" Relationship="ClinicWallyMisrModel.FK_Laboratory_visits" FromRole="visit" ToRole="Laboratory" />
           <NavigationProperty Name="patient" Relationship="ClinicWallyMisrModel.FK_visits_patient" FromRole="visit" ToRole="patient" />
           <NavigationProperty Name="SystemPerson" Relationship="ClinicWallyMisrModel.FK_visits_SystemPerson" FromRole="visit" ToRole="SystemPerson" />
+          <NavigationProperty Name="prescriptions" Relationship="ClinicWallyMisrModel.FK_prescription_visits" FromRole="visit" ToRole="prescription" />
         </EntityType>
         <Association Name="FK_Complaint_visits">
           <End Type="ClinicWallyMisrModel.visit" Role="visit" Multiplicity="0..1" />
@@ -967,6 +1029,40 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="prescription">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="visitId" Type="Guid" />
+          <NavigationProperty Name="medicines" Relationship="ClinicWallyMisrModel.FK_medicine_prescription" FromRole="prescription" ToRole="medicine" />
+          <NavigationProperty Name="visit" Relationship="ClinicWallyMisrModel.FK_prescription_visits" FromRole="prescription" ToRole="visit" />
+        </EntityType>
+        <Association Name="FK_medicine_prescription">
+          <End Type="ClinicWallyMisrModel.prescription" Role="prescription" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.medicine" Role="medicine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prescription">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="medicine">
+              <PropertyRef Name="prescriptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_prescription_visits">
+          <End Type="ClinicWallyMisrModel.visit" Role="visit" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.prescription" Role="prescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="visit">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="prescription">
+              <PropertyRef Name="visitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1021,6 +1117,11 @@
           <EntitySetMapping Name="medicines">
             <EntityTypeMapping TypeName="ClinicWallyMisrModel.medicine">
               <MappingFragment StoreEntitySet="medicine">
+                <ScalarProperty Name="prescriptionId" ColumnName="prescriptionId" />
+                <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Route" ColumnName="Route" />
+                <ScalarProperty Name="UOM" ColumnName="UOM" />
                 <ScalarProperty Name="notes" ColumnName="notes" />
                 <ScalarProperty Name="sideEffects" ColumnName="sideEffects" />
                 <ScalarProperty Name="dose" ColumnName="dose" />
@@ -1225,6 +1326,15 @@
                 <ScalarProperty Name="visitSite" ColumnName="visitSite" />
                 <ScalarProperty Name="visitStatus" ColumnName="visitStatus" />
                 <ScalarProperty Name="visitDate" ColumnName="visitDate" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="prescriptions">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.prescription">
+              <MappingFragment StoreEntitySet="prescription">
+                <ScalarProperty Name="visitId" ColumnName="visitId" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

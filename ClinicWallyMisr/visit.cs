@@ -21,6 +21,7 @@ namespace ClinicWallyMisr
             this.examinations = new HashSet<examination>();
             this.Imagings = new HashSet<Imaging>();
             this.Laboratories = new HashSet<Laboratory>();
+            this.prescriptions = new HashSet<prescription>();
         }
     
         public System.Guid id { get; set; }
@@ -52,5 +53,6 @@ namespace ClinicWallyMisr
         public virtual ICollection<Laboratory> Laboratories { get; set; }
         public virtual patient patient { get; set; }
         public virtual SystemPerson SystemPerson { get; set; }
+        public virtual ICollection<prescription> prescriptions { get; set; }
     }
 }

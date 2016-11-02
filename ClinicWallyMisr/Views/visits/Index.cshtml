@@ -19,6 +19,7 @@
         </th>
         <th>Examinations</th>
         <th>Investigations</th>
+        <th>Prescriptions</th>
         <th></th>
     </tr>
 
@@ -35,6 +36,9 @@
         </td>
         <td>
             @Html.ActionLink("Investigations", "investigations", "visits", new { id = item.id }, null)
+        </td>
+        <td>
+            @Html.ActionLink("Prescriptions", "Index", "prescriptions", new { id = item.id }, null)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |

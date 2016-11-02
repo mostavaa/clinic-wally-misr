@@ -10,114 +10,116 @@ using ClinicWallyMisr;
 
 namespace ClinicWallyMisr.Controllers
 {
-    public class medicinesController : Controller
+    public class prescriptionsController : Controller
     {
         private ClinicWallyMisrEntities db = new ClinicWallyMisrEntities();
+        visitService _visitService = new visitService();
 
-        // GET: medicines
+
+        // GET: prescriptions
         public ActionResult Index(Guid? id)
         {
             if (id == null || id == Guid.Empty)
                 return HttpNotFound();
-            prescription presc =  db.prescriptions.FirstOrDefault(i => i.id == id);
-            if (presc == null)
+            visit visit = _visitService.get(id);
+            if (visit == null)
                 return HttpNotFound();
-            ViewBag.prescription = presc;
-            return View(db.medicines.Where(o=>o.prescriptionId==id).ToList());
+            ViewBag.visit = visit;
+            var prescriptions = db.prescriptions.Where(o=>o.visitId==id).Include(p => p.visit);
+            return View(prescriptions.ToList());
         }
 
 
-
-        // GET: medicines/Create
-        public ActionResult Create(Guid?id)
+        // GET: prescriptions/Create
+        public ActionResult Create(Guid? id)
         {
             if (id == null || id == Guid.Empty)
                 return HttpNotFound();
-            prescription presc = db.prescriptions.FirstOrDefault(i => i.id == id);
-            if (presc == null)
+            visit visit = _visitService.get(id);
+            if (visit == null)
                 return HttpNotFound();
-            ViewBag.prescription = presc;
+            ViewBag.visit = visit;
             return View();
         }
 
-        // POST: medicines/Create
+        // POST: prescriptions/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( medicine medicine)
+        public ActionResult Create([Bind(Include = "id,notes,visitId")] prescription prescription)
         {
             if (ModelState.IsValid)
             {
-                medicine.id = Guid.NewGuid();
-                db.medicines.Add(medicine);
+                prescription.id = Guid.NewGuid();
+                db.prescriptions.Add(prescription);
                 db.SaveChanges();
-                return RedirectToAction("Index", new { @id = medicine.prescriptionId });
+                return RedirectToAction("Index", new { @id = prescription.visitId });
             }
-            prescription presc = db.prescriptions.FirstOrDefault(i => i.id == medicine.prescriptionId);
-            if (presc == null)
+            visit visit = _visitService.get(prescription.visitId);
+            if (visit == null)
                 return HttpNotFound();
-            ViewBag.prescription = presc;
-            return View(medicine);
+            ViewBag.visit = visit;
+            return View(prescription);
         }
 
-        // GET: medicines/Edit/5
+        // GET: prescriptions/Edit/5
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            medicine medicine = db.medicines.Find(id);
-            if (medicine == null)
+            prescription prescription = db.prescriptions.Find(id);
+            if (prescription == null)
             {
                 return HttpNotFound();
             }
-            return View(medicine);
+            return View(prescription);
         }
 
-        // POST: medicines/Edit/5
+        // POST: prescriptions/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(medicine medicine)
+        public ActionResult Edit([Bind(Include = "id,notes,visitId")] prescription prescription)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(medicine).State = EntityState.Modified;
+                db.Entry(prescription).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index", new { id = medicine.prescriptionId });
+                return RedirectToAction("Index", new { id = prescription.visitId });
             }
-            return View(medicine);
+            return View(prescription);
         }
 
-        // GET: medicines/Delete/5
+        // GET: prescriptions/Delete/5
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            medicine medicine = db.medicines.Find(id);
-            if (medicine == null)
+            prescription prescription = db.prescriptions.Find(id);
+            if (prescription == null)
             {
                 return HttpNotFound();
             }
-            return View(medicine);
+            return View(prescription);
         }
 
-        // POST: medicines/Delete/5
+        // POST: prescriptions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            medicine medicine = db.medicines.Find(id);
-            Guid prescId = (Guid)medicine.prescriptionId;
+            prescription prescription = db.prescriptions.Find(id);
+            Guid visitId = (Guid)prescription.visitId;
 
-            db.medicines.Remove(medicine);
+            db.prescriptions.Remove(prescription);
             db.SaveChanges();
-            return RedirectToAction("Index", new { @id = prescId });
+            return RedirectToAction("Index", new { @id = visitId });
         }
 
         protected override void Dispose(bool disposing)

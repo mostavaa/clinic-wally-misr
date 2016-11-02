@@ -31,6 +31,9 @@
         <AssociationConnector Association="ClinicWallyMisrModel.FK_Labs_Laboratory" />
         <AssociationConnector Association="ClinicWallyMisrModel.FK_visits_patient" />
         <AssociationConnector Association="ClinicWallyMisrModel.FK_visits_SystemPerson" />
+        <EntityTypeShape EntityType="ClinicWallyMisrModel.prescription" Width="1.5" PointX="12" PointY="24.375" />
+        <AssociationConnector Association="ClinicWallyMisrModel.FK_medicine_prescription" />
+        <AssociationConnector Association="ClinicWallyMisrModel.FK_prescription_visits" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

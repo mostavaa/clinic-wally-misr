@@ -35,18 +35,6 @@
         <th>
             @Html.DisplayNameFor(model => model.notes)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UOM)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Route)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Duration)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Frequency)
-        </th>
         <th></th>
     </tr>
 
@@ -75,18 +63,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.notes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UOM)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Route)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Duration)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Frequency)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |

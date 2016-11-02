@@ -23,5 +23,12 @@ namespace ClinicWallyMisr
         public string dose { get; set; }
         public string sideEffects { get; set; }
         public string notes { get; set; }
+        public string UOM { get; set; }
+        public string Route { get; set; }
+        public string Duration { get; set; }
+        public string Frequency { get; set; }
+        public Nullable<System.Guid> prescriptionId { get; set; }
+    
+        public virtual prescription prescription { get; set; }
     }
 }

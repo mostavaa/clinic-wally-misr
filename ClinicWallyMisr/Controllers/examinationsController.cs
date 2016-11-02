@@ -67,7 +67,7 @@ namespace ClinicWallyMisr.Controllers
         // GET: examinations/Edit/5
         public ActionResult Edit(Guid? id)
         {
-            //TODO Edit problem
+            //TODO Edit problem , wl medicine kman
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

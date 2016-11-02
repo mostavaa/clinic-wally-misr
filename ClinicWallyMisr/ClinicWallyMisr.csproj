@@ -170,6 +170,7 @@
     <Compile Include="Controllers\LaboratoriesController.cs" />
     <Compile Include="Controllers\medicinesController.cs" />
     <Compile Include="Controllers\patientsController.cs" />
+    <Compile Include="Controllers\prescriptionsController.cs" />
     <Compile Include="Controllers\SpecializationsController.cs" />
     <Compile Include="Controllers\SystemPersonsController.cs" />
     <Compile Include="Controllers\visitsController.cs" />
@@ -229,6 +230,9 @@
     <Compile Include="Models\tools\Constants.cs" />
     <Compile Include="Models\tools\Logger.cs" />
     <Compile Include="patient.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="prescription.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -360,6 +364,16 @@
     <Content Include="Views\Endoscopies\Details.cshtml" />
     <Content Include="Views\Endoscopies\Edit.cshtml" />
     <Content Include="Views\Endoscopies\Index.cshtml" />
+    <Content Include="Views\prescriptions\Create.cshtml" />
+    <Content Include="Views\prescriptions\Delete.cshtml" />
+    <Content Include="Views\prescriptions\Details.cshtml" />
+    <Content Include="Views\prescriptions\Edit.cshtml" />
+    <Content Include="Views\prescriptions\Index.cshtml" />
+    <Content Include="Views\medicines - Copy\Create.cshtml" />
+    <Content Include="Views\medicines - Copy\Delete.cshtml" />
+    <Content Include="Views\medicines - Copy\Details.cshtml" />
+    <Content Include="Views\medicines - Copy\Edit.cshtml" />
+    <Content Include="Views\medicines - Copy\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\fileUploads\" />
