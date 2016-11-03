@@ -18,6 +18,7 @@ namespace ClinicWallyMisr
         {
             this.patients = new HashSet<patient>();
             this.visits = new HashSet<visit>();
+            this.Reservations = new HashSet<Reservation>();
         }
     
         public System.Guid id { get; set; }
@@ -47,5 +48,6 @@ namespace ClinicWallyMisr
         public virtual Specialization Specialization { get; set; }
         public virtual ICollection<patient> patients { get; set; }
         public virtual ICollection<visit> visits { get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }

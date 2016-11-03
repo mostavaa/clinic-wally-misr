@@ -1,0 +1,82 @@
+﻿@model ClinicWallyMisr.Reservation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reservation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.patientName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patientName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fromTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fromTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.toTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.toTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reservationType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reservationType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.roomNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.roomNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SystemPerson.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SystemPerson.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

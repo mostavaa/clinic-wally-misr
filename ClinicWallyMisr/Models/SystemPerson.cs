@@ -56,11 +56,11 @@ namespace ClinicWallyMisr
         [Display(Name = "Insurance Number")]
         [MinLength(2)]
         [MaxLength(50)]
-        [RegularExpression(@"^\d$")]
+        
         public string insuranceNo { get; set; }
         [Display(Name = "Social Security Number")]
         [StringLength(14)]
-        [RegularExpression(@"^\d$")]
+        
         public string SSN { get; set; }
         [DataType(DataType.DateTime)]
         [Display(Name = "Birth Date")]
@@ -68,17 +68,17 @@ namespace ClinicWallyMisr
         [Display(Name = "Phone Number")]
         [MinLength(7)]
         [MaxLength(11)]
-        [RegularExpression(@"^\d$")]
+        
         public string Phone { get; set; }
         [Display(Name = "Mobile Number")]
         [MinLength(7)]
         [MaxLength(11)]
-        [RegularExpression(@"^\d$")]
+        
         public string mobile1 { get; set; }
         [Display(Name = "Mobile Number2")]
         [MinLength(7)]
         [MaxLength(11)]
-        [RegularExpression(@"^\d$")]
+        
         public string mobile2 { get; set; }
 
         [Display(Name = "Scientific Degree")]

@@ -39,5 +39,6 @@ namespace ClinicWallyMisr
         public virtual DbSet<Lab> Labs { get; set; }
         public virtual DbSet<visit> visits { get; set; }
         public virtual DbSet<prescription> prescriptions { get; set; }
+        public virtual DbSet<Reservation> Reservations { get; set; }
     }
 }

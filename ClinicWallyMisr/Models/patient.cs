@@ -68,7 +68,7 @@ namespace ClinicWallyMisr
         public Nullable<System.Guid> doctorId { get; set; }
         [Display(Name = "Age")]
 
-        [RegularExpression(@"^\d$")]
+        
         public Nullable<int> age { get; set; }
         [Display(Name = "Gender")]
         [MinLength(2)]
@@ -102,29 +102,29 @@ namespace ClinicWallyMisr
         public string occupation { get; set; }
         [Display(Name = "No of Children")]
 
-        [RegularExpression(@"^\d$")]
+        
 
         public Nullable<int> noofChildren { get; set; }
         [Display(Name = "Age of Oldest")]
 
-        [RegularExpression(@"^\d$")]
+        
 
         public Nullable<int> ageofOldest { get; set; }
-        [RegularExpression(@"^\d$")]
+        
         [Display(Name = "Age of Youngest")]
 
         public Nullable<int> ageofYoungest { get; set; }
-        [RegularExpression(@"^\d$")]
+        
         [Display(Name = "Phone1")]
         [MinLength(7)]
         [MaxLength(15)]
         public string phone1 { get; set; }
-        [RegularExpression(@"^\d$")]
+        
         [Display(Name = "Phone2")]
         [MinLength(7)]
         [MaxLength(15)]
         public string phone2 { get; set; }
-        [RegularExpression(@"^\d$")]
+        
         [Display(Name = "Phone3")]
         [MinLength(7)]
         [MaxLength(15)]
@@ -152,17 +152,17 @@ namespace ClinicWallyMisr
         [MaxLength(50)]
         [RegularExpression(@"^[a-zA-Z0-9\u0600-\u06FF\s_-]*$")]
         public string relation { get; set; }
-        [RegularExpression(@"^\d$")]
+        
         [Display(Name = "Phone1")]
         [MinLength(7)]
         [MaxLength(15)]
         public string relationPhone1 { get; set; }
-        [RegularExpression(@"^\d$")]
+        
         [Display(Name = "Phone2")]
         [MinLength(7)]
         [MaxLength(15)]
         public string relationPhone2 { get; set; }
-        [RegularExpression(@"^\d$")]
+        
         [Display(Name = "Phone3")]
         [MinLength(7)]
         [MaxLength(15)]
@@ -187,10 +187,10 @@ namespace ClinicWallyMisr
         [MaxLength(50)]
         [RegularExpression(@"^[a-zA-Z0-9\u0600-\u06FF\s_-]*$")]
         public string demographicType { get; set; }
-        [RegularExpression(@"^\d$")]
+        
         [Display(Name = "Since")]
         public string demographicSince { get; set; }
-        [RegularExpression(@"^\d$")]
+        
         [Display(Name = "Pack#")]
         public Nullable<int> packsNumber { get; set; }
         [Display(Name = "Alcohol Intake")]

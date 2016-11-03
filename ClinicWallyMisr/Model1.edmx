@@ -191,6 +191,20 @@
           <Property Name="notes" Type="nvarchar(max)" />
           <Property Name="visitId" Type="uniqueidentifier" />
         </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="patientName" Type="nvarchar" MaxLength="50" />
+          <Property Name="fromTime" Type="date" />
+          <Property Name="toTime" Type="date" />
+          <Property Name="reservationType" Type="nvarchar" MaxLength="50" />
+          <Property Name="notes" Type="nvarchar" MaxLength="50" />
+          <Property Name="status" Type="nvarchar" MaxLength="50" />
+          <Property Name="doctorId" Type="uniqueidentifier" />
+          <Property Name="roomNumber" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Specialization">
           <Key>
             <PropertyRef Name="id" />
@@ -369,6 +383,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Reservation_SystemPerson">
+          <End Role="SystemPerson" Type="Self.SystemPerson" Multiplicity="0..1" />
+          <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemPerson">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="doctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Specialization_Job">
           <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
           <End Role="Specialization" Type="Self.Specialization" Multiplicity="*" />
@@ -452,6 +478,7 @@
           <EntitySet Name="medicine" EntityType="Self.medicine" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="patient" EntityType="Self.patient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="prescription" EntityType="Self.prescription" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Specialization" EntityType="Self.Specialization" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="surgicalHistory" EntityType="Self.surgicalHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SystemPerson" EntityType="Self.SystemPerson" Schema="dbo" store:Type="Tables" />
@@ -491,6 +518,10 @@
           <AssociationSet Name="FK_prescription_visits" Association="Self.FK_prescription_visits">
             <End Role="visits" EntitySet="visits" />
             <End Role="prescription" EntitySet="prescription" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservation_SystemPerson" Association="Self.FK_Reservation_SystemPerson">
+            <End Role="SystemPerson" EntitySet="SystemPerson" />
+            <End Role="Reservation" EntitySet="Reservation" />
           </AssociationSet>
           <AssociationSet Name="FK_Specialization_Job" Association="Self.FK_Specialization_Job">
             <End Role="Job" EntitySet="Job" />
@@ -596,6 +627,11 @@
             <End Role="visit" EntitySet="visits" />
             <End Role="prescription" EntitySet="prescriptions" />
           </AssociationSet>
+          <EntitySet Name="Reservations" EntityType="ClinicWallyMisrModel.Reservation" />
+          <AssociationSet Name="FK_Reservation_SystemPerson" Association="ClinicWallyMisrModel.FK_Reservation_SystemPerson">
+            <End Role="SystemPerson" EntitySet="SystemPersons" />
+            <End Role="Reservation" EntitySet="Reservations" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Job">
           <Key>
@@ -658,6 +694,7 @@
           <NavigationProperty Name="Specialization" Relationship="ClinicWallyMisrModel.FK_SystemPerson_Specialization" FromRole="SystemPerson" ToRole="Specialization" />
           <NavigationProperty Name="patients" Relationship="ClinicWallyMisrModel.FK_patient_SystemPerson" FromRole="SystemPerson" ToRole="patient" />
           <NavigationProperty Name="visits" Relationship="ClinicWallyMisrModel.FK_visits_SystemPerson" FromRole="SystemPerson" ToRole="visit" />
+          <NavigationProperty Name="Reservations" Relationship="ClinicWallyMisrModel.FK_Reservation_SystemPerson" FromRole="SystemPerson" ToRole="Reservation" />
         </EntityType>
         <Association Name="FK_SystemPerson_Job">
           <End Type="ClinicWallyMisrModel.Job" Role="Job" Multiplicity="0..1" />
@@ -1063,6 +1100,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="patientName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fromTime" Type="DateTime" Precision="0" />
+          <Property Name="toTime" Type="DateTime" Precision="0" />
+          <Property Name="reservationType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="notes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="doctorId" Type="Guid" />
+          <Property Name="roomNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SystemPerson" Relationship="ClinicWallyMisrModel.FK_Reservation_SystemPerson" FromRole="Reservation" ToRole="SystemPerson" />
+        </EntityType>
+        <Association Name="FK_Reservation_SystemPerson">
+          <End Type="ClinicWallyMisrModel.SystemPerson" Role="SystemPerson" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.Reservation" Role="Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemPerson">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="doctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1335,6 +1399,21 @@
               <MappingFragment StoreEntitySet="prescription">
                 <ScalarProperty Name="visitId" ColumnName="visitId" />
                 <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservations">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Reservation">
+              <MappingFragment StoreEntitySet="Reservation">
+                <ScalarProperty Name="roomNumber" ColumnName="roomNumber" />
+                <ScalarProperty Name="doctorId" ColumnName="doctorId" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="reservationType" ColumnName="reservationType" />
+                <ScalarProperty Name="toTime" ColumnName="toTime" />
+                <ScalarProperty Name="fromTime" ColumnName="fromTime" />
+                <ScalarProperty Name="patientName" ColumnName="patientName" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
