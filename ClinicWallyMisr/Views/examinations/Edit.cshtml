@@ -175,7 +175,8 @@
                 @Html.ValidationMessageFor(model => model.GaitPatternType, "", new { @class = "text-danger" })
             </div>
         </div>
-        <input type="hidden" value="@ViewBag.visit.id" id="visitId" name="visitId" />
+        <input type="hidden" value="@Model.visitId" id="visitId" name="visitId" />
+
 
 
         <div class="form-group">
@@ -187,6 +188,5 @@
 }
 
 <div>
-
-    @Html.ActionLink("Back to List", "Index", new { id = Model.visitId})
+    @Html.ActionLink("Back to List", "Index", new { id = Model.visitId })
 </div>

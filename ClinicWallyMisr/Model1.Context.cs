@@ -28,17 +28,17 @@ namespace ClinicWallyMisr
         public virtual DbSet<Job> Jobs { get; set; }
         public virtual DbSet<Specialization> Specializations { get; set; }
         public virtual DbSet<SystemPerson> SystemPersons { get; set; }
-        public virtual DbSet<medicine> medicines { get; set; }
         public virtual DbSet<patient> patients { get; set; }
         public virtual DbSet<surgicalHistory> surgicalHistories { get; set; }
         public virtual DbSet<Complaint> Complaints { get; set; }
         public virtual DbSet<Endoscopy> Endoscopies { get; set; }
-        public virtual DbSet<examination> examinations { get; set; }
         public virtual DbSet<Imaging> Imagings { get; set; }
         public virtual DbSet<Laboratory> Laboratories { get; set; }
         public virtual DbSet<Lab> Labs { get; set; }
         public virtual DbSet<visit> visits { get; set; }
         public virtual DbSet<prescription> prescriptions { get; set; }
         public virtual DbSet<Reservation> Reservations { get; set; }
+        public virtual DbSet<examination> examinations { get; set; }
+        public virtual DbSet<medicine> medicines { get; set; }
     }
 }

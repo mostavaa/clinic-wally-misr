@@ -18,10 +18,10 @@ namespace ClinicWallyMisr
         {
             this.Complaints = new HashSet<Complaint>();
             this.Endoscopies = new HashSet<Endoscopy>();
-            this.examinations = new HashSet<examination>();
             this.Imagings = new HashSet<Imaging>();
             this.Laboratories = new HashSet<Laboratory>();
             this.prescriptions = new HashSet<prescription>();
+            this.examinations = new HashSet<examination>();
         }
     
         public System.Guid id { get; set; }
@@ -48,11 +48,11 @@ namespace ClinicWallyMisr
     
         public virtual ICollection<Complaint> Complaints { get; set; }
         public virtual ICollection<Endoscopy> Endoscopies { get; set; }
-        public virtual ICollection<examination> examinations { get; set; }
         public virtual ICollection<Imaging> Imagings { get; set; }
         public virtual ICollection<Laboratory> Laboratories { get; set; }
         public virtual patient patient { get; set; }
         public virtual SystemPerson SystemPerson { get; set; }
         public virtual ICollection<prescription> prescriptions { get; set; }
+        public virtual ICollection<examination> examinations { get; set; }
     }
 }

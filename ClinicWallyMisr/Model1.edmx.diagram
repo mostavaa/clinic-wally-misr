@@ -11,31 +11,31 @@
         <EntityTypeShape EntityType="ClinicWallyMisrModel.SystemPerson" Width="1.5" PointX="5.25" PointY="1" />
         <AssociationConnector Association="ClinicWallyMisrModel.FK_SystemPerson_Job" />
         <AssociationConnector Association="ClinicWallyMisrModel.FK_SystemPerson_Specialization" />
-        <EntityTypeShape EntityType="ClinicWallyMisrModel.medicine" Width="1.5" PointX="0.75" PointY="5.75" />
         <EntityTypeShape EntityType="ClinicWallyMisrModel.patient" Width="1.5" PointX="7.5" PointY="14.875" />
         <AssociationConnector Association="ClinicWallyMisrModel.FK_patient_SystemPerson" />
         <EntityTypeShape EntityType="ClinicWallyMisrModel.surgicalHistory" Width="1.5" PointX="9.75" PointY="19.125" />
         <AssociationConnector Association="ClinicWallyMisrModel.FK_surgicalHistory_patient" />
         <EntityTypeShape EntityType="ClinicWallyMisrModel.Complaint" Width="1.5" PointX="12" PointY="14.375" />
         <EntityTypeShape EntityType="ClinicWallyMisrModel.Endoscopy" Width="1.5" PointX="12" PointY="11" />
-        <EntityTypeShape EntityType="ClinicWallyMisrModel.examination" Width="1.5" PointX="12" PointY="5.375" />
         <EntityTypeShape EntityType="ClinicWallyMisrModel.Imaging" Width="1.5" PointX="12" PointY="20.375" />
         <EntityTypeShape EntityType="ClinicWallyMisrModel.Laboratory" Width="1.5" PointX="12" PointY="17.125" />
         <EntityTypeShape EntityType="ClinicWallyMisrModel.Lab" Width="1.5" PointX="14.25" PointY="16.875" />
         <EntityTypeShape EntityType="ClinicWallyMisrModel.visit" Width="1.5" PointX="9.75" PointY="11.125" />
         <AssociationConnector Association="ClinicWallyMisrModel.FK_Complaint_visits" />
         <AssociationConnector Association="ClinicWallyMisrModel.FK_Endoscopy_visits" />
-        <AssociationConnector Association="ClinicWallyMisrModel.FK_examination_visits" />
         <AssociationConnector Association="ClinicWallyMisrModel.FK_Imaging_visits" />
         <AssociationConnector Association="ClinicWallyMisrModel.FK_Laboratory_visits" />
         <AssociationConnector Association="ClinicWallyMisrModel.FK_Labs_Laboratory" />
         <AssociationConnector Association="ClinicWallyMisrModel.FK_visits_patient" />
         <AssociationConnector Association="ClinicWallyMisrModel.FK_visits_SystemPerson" />
         <EntityTypeShape EntityType="ClinicWallyMisrModel.prescription" Width="1.5" PointX="12" PointY="24.375" />
-        <AssociationConnector Association="ClinicWallyMisrModel.FK_medicine_prescription" />
         <AssociationConnector Association="ClinicWallyMisrModel.FK_prescription_visits" />
         <EntityTypeShape EntityType="ClinicWallyMisrModel.Reservation" Width="1.5" PointX="7.5" PointY="2.625" />
         <AssociationConnector Association="ClinicWallyMisrModel.FK_Reservation_SystemPerson" />
+        <EntityTypeShape EntityType="ClinicWallyMisrModel.examination" Width="1.5" PointX="12" PointY="4.625" />
+        <EntityTypeShape EntityType="ClinicWallyMisrModel.medicine" Width="1.5" PointX="14.25" PointY="23.375" />
+        <AssociationConnector Association="ClinicWallyMisrModel.FK_examination_visits" />
+        <AssociationConnector Association="ClinicWallyMisrModel.FK_medicine_prescription" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

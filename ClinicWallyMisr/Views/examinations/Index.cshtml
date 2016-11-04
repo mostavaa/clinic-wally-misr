@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create" , new{id=ViewBag.visit.id})
+    @Html.ActionLink("Create New", "Create", new { id = ViewBag.visit.id })
 </p>
 <table class="table">
     <tr>
@@ -30,28 +30,29 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.redness)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.swelling)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.scars)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Effusion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.visit.visitStatus)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.redness)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.swelling)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.scars)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Effusion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.visit.visitStatus)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
 
 </table>

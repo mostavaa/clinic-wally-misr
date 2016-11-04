@@ -13,7 +13,7 @@ namespace ClinicWallyMisr.Controllers
     public class examinationsController : Controller
     {
         private ClinicWallyMisrEntities db = new ClinicWallyMisrEntities();
-        visitService _visitService = new visitService();
+               visitService _visitService = new visitService();
         // GET: examinations
         public ActionResult Index(Guid? id)
         {
@@ -23,9 +23,10 @@ namespace ClinicWallyMisr.Controllers
             if (visit == null)
                 return HttpNotFound();
             ViewBag.visit = visit;
-            var examinations = db.examinations.Where(v=>v.visitId==id).Include(e => e.visit);
+            var examinations = db.examinations.Where(v => v.visitId == id).Include(e => e.visit);
             return View(examinations.ToList());
         }
+
 
         // GET: examinations/Create
         public ActionResult Create(Guid id)
@@ -45,14 +46,14 @@ namespace ClinicWallyMisr.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,redness,swelling,scars,LTWastingofQuadriceps,RTWastingofQuadriceps,LTWastingofQuadricepsCompare,RTWastingofQuadricepsCompare,LTWastingofScapula,RTWastingofScapula,LTLognThoracicNerveInjury,RTLognThoracicNerveInjury1,Effusion,EffusionType,NearByJoints,NearByJointsType,GaitPattern,GaitPatternType,visitId")] examination examination)
+        public ActionResult Create(examination examination)
         {
             if (ModelState.IsValid)
             {
                 examination.id = Guid.NewGuid();
                 db.examinations.Add(examination);
                 db.SaveChanges();
-                return RedirectToAction("Index", new { id=examination.visitId});
+                return RedirectToAction("Index", new { id = examination.visitId });
             }
             if (examination.visitId == null)
                 return HttpNotFound();
@@ -64,10 +65,10 @@ namespace ClinicWallyMisr.Controllers
             return View(examination);
         }
 
+
         // GET: examinations/Edit/5
         public ActionResult Edit(Guid? id)
         {
-            //TODO Edit problem , wl medicine kman
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -85,7 +86,7 @@ namespace ClinicWallyMisr.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,redness,swelling,scars,LTWastingofQuadriceps,RTWastingofQuadriceps,LTWastingofQuadricepsCompare,RTWastingofQuadricepsCompare,LTWastingofScapula,RTWastingofScapula,LTLognThoracicNerveInjury,RTLognThoracicNerveInjury1,Effusion,EffusionType,NearByJoints,NearByJointsType,GaitPattern,GaitPatternType,visitId")] examination examination)
+        public ActionResult Edit( examination examination)
         {
             if (ModelState.IsValid)
             {
@@ -117,7 +118,7 @@ namespace ClinicWallyMisr.Controllers
         public ActionResult DeleteConfirmed(Guid id)
         {
             examination examination = db.examinations.Find(id);
-            Guid visitId =(Guid) examination.visitId;
+            Guid visitId = (Guid)examination.visitId;
             db.examinations.Remove(examination);
             db.SaveChanges();
             return RedirectToAction("Index", new { id = visitId });

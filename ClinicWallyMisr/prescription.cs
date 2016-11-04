@@ -23,7 +23,7 @@ namespace ClinicWallyMisr
         public string notes { get; set; }
         public Nullable<System.Guid> visitId { get; set; }
     
-        public virtual ICollection<medicine> medicines { get; set; }
         public virtual visit visit { get; set; }
+        public virtual ICollection<medicine> medicines { get; set; }
     }
 }
