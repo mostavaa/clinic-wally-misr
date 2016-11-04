@@ -18,15 +18,29 @@ namespace ClinicWallyMisr
     {
         public static void Log(string msg, LogType type)
         {
-            //TODO append
-            string str = AppDomain.CurrentDomain.BaseDirectory;
-            File.WriteAllLines(str + "log.txt", new string[]{
+            string str = AppDomain.CurrentDomain.BaseDirectory + "App_Data"+"/log/";
+            if (File.Exists(str + "log" + DateTime.Now.ToString("dd-MM-yy") + ".txt"))
+            {
+                FileStream fs = new FileStream(str + "log" + DateTime.Now.ToString("dd-MM-yy") + ".txt",FileMode.Append);
+                StreamWriter sw = new StreamWriter(fs);
+                sw.WriteLine(msg);
+                sw.WriteLine(type.ToString());
+                sw.WriteLine(DateTime.Now);
+                sw.WriteLine("-----------------------------------------");
+
+                sw.Close();
+                fs.Close();
+            }
+            else
+            {
+                File.WriteAllLines(str + "log" + DateTime.Now.ToString("dd-MM-yy") + ".txt", new string[]{
             msg,
-            "-----------------------------------------",
             type.ToString()
             ,
-            DateTime.Now.ToLongDateString()
+            ""+DateTime.Now ,
+            "-----------------------------------------"
             });
+            }
         }
     }
 }

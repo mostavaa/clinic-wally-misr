@@ -392,6 +392,7 @@
   <ItemGroup>
     <Folder Include="App_Data\fileUploads\" />
     <Folder Include="App_Data\labGraphs\" />
+    <Folder Include="App_Data\log\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
