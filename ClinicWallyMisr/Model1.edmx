@@ -54,7 +54,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ImageDate" Type="date" />
+          <Property Name="ImageDate" Type="datetime" />
           <Property Name="ImageCenter" Type="nvarchar" MaxLength="50" />
           <Property Name="TypeofImage" Type="nvarchar" MaxLength="50" />
           <Property Name="Site" Type="nvarchar" MaxLength="50" />
@@ -75,7 +75,7 @@
           </Key>
           <Property Name="id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Laboratory" Type="nvarchar" MaxLength="50" />
-          <Property Name="DateofLab" Type="date" />
+          <Property Name="DateofLab" Type="datetime" />
           <Property Name="visitId" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="Labs">
@@ -120,11 +120,11 @@
           <Property Name="diagnosisCode" Type="nvarchar" MaxLength="50" />
           <Property Name="notes" Type="nvarchar" MaxLength="150" />
           <Property Name="masterStatus" Type="nvarchar" MaxLength="50" />
-          <Property Name="dateofDiagnosis" Type="date" />
+          <Property Name="dateofDiagnosis" Type="datetime" />
           <Property Name="firstStatus" Type="nvarchar" MaxLength="50" />
-          <Property Name="dateofRelapse" Type="date" />
-          <Property Name="firstPresentationDate" Type="date" />
-          <Property Name="birthDate" Type="date" />
+          <Property Name="dateofRelapse" Type="datetime" />
+          <Property Name="firstPresentationDate" Type="datetime" />
+          <Property Name="birthDate" Type="datetime" />
           <Property Name="doctorId" Type="uniqueidentifier" />
           <Property Name="age" Type="int" />
           <Property Name="gender" Type="nvarchar" MaxLength="10" />
@@ -156,31 +156,31 @@
           <Property Name="alcoholIntake" Type="bit" Nullable="false" />
           <Property Name="menstrual" Type="nvarchar" MaxLength="50" />
           <Property Name="LMP" Type="bit" Nullable="false" />
-          <Property Name="LMPDate" Type="date" />
+          <Property Name="LMPDate" Type="datetime" />
           <Property Name="contraception" Type="nvarchar" MaxLength="50" />
           <Property Name="pregnancyatDiagnosis" Type="bit" Nullable="false" />
           <Property Name="RelationDisease" Type="nvarchar" MaxLength="50" />
           <Property Name="RelationAgeatDiagnosis" Type="int" />
           <Property Name="Diabetes" Type="bit" Nullable="false" />
-          <Property Name="diabetesSince" Type="date" />
+          <Property Name="diabetesSince" Type="datetime" />
           <Property Name="diabetesType" Type="nvarchar" MaxLength="50" />
           <Property Name="hypertension" Type="bit" Nullable="false" />
-          <Property Name="hypertensionSince" Type="date" />
+          <Property Name="hypertensionSince" Type="datetime" />
           <Property Name="hypertensionType" Type="nvarchar" MaxLength="50" />
           <Property Name="hepatitiesC" Type="bit" Nullable="false" />
-          <Property Name="hepatitiesCSince" Type="date" />
+          <Property Name="hepatitiesCSince" Type="datetime" />
           <Property Name="hepatitiesCType" Type="nvarchar" MaxLength="50" />
           <Property Name="bilharziasis" Type="bit" Nullable="false" />
-          <Property Name="bilharziasisSince" Type="date" />
+          <Property Name="bilharziasisSince" Type="datetime" />
           <Property Name="bilharziasisType" Type="nvarchar" MaxLength="50" />
           <Property Name="cardiac" Type="bit" Nullable="false" />
-          <Property Name="cardiacSince" Type="date" />
+          <Property Name="cardiacSince" Type="datetime" />
           <Property Name="cardiacType" Type="nvarchar" MaxLength="50" />
           <Property Name="autoImmuneDisease" Type="bit" Nullable="false" />
-          <Property Name="autoImmuneDiseaseSince" Type="date" />
+          <Property Name="autoImmuneDiseaseSince" Type="datetime" />
           <Property Name="autoImmuneDiseaseType" Type="nvarchar" MaxLength="50" />
           <Property Name="allergy" Type="bit" Nullable="false" />
-          <Property Name="allergySince" Type="date" />
+          <Property Name="allergySince" Type="datetime" />
           <Property Name="allergyType" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="prescription">
@@ -197,8 +197,8 @@
           </Key>
           <Property Name="id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="patientName" Type="nvarchar" MaxLength="50" />
-          <Property Name="fromTime" Type="date" />
-          <Property Name="toTime" Type="date" />
+          <Property Name="fromTime" Type="datetime" />
+          <Property Name="toTime" Type="datetime" />
           <Property Name="reservationType" Type="nvarchar" MaxLength="50" />
           <Property Name="notes" Type="nvarchar" MaxLength="50" />
           <Property Name="status" Type="nvarchar" MaxLength="50" />
@@ -219,7 +219,7 @@
           </Key>
           <Property Name="id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="operationName" Type="nvarchar" MaxLength="50" />
-          <Property Name="operationDate" Type="date" />
+          <Property Name="operationDate" Type="datetime" />
           <Property Name="patientId" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="SystemPerson">
@@ -235,14 +235,14 @@
           <Property Name="maritalStatus" Type="nvarchar" MaxLength="50" />
           <Property Name="insuranceNo" Type="nvarchar" MaxLength="50" />
           <Property Name="SSN" Type="nvarchar" MaxLength="14" />
-          <Property Name="DateofBirth" Type="date" />
+          <Property Name="DateofBirth" Type="datetime" />
           <Property Name="Phone" Type="nvarchar" MaxLength="10" />
           <Property Name="mobile1" Type="nvarchar" MaxLength="15" />
           <Property Name="mobile2" Type="nvarchar" MaxLength="15" />
           <Property Name="place" Type="nvarchar" MaxLength="50" />
           <Property Name="cv" Type="nvarchar" MaxLength="50" />
-          <Property Name="joinDate" Type="date" />
-          <Property Name="leaveDate" Type="date" />
+          <Property Name="joinDate" Type="datetime" />
+          <Property Name="leaveDate" Type="datetime" />
           <Property Name="leaveReason" Type="nvarchar" MaxLength="150" />
           <Property Name="scientificDegree" Type="nvarchar" MaxLength="50" />
           <Property Name="Type" Type="nvarchar" MaxLength="50" />
@@ -254,7 +254,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="visitDate" Type="date" />
+          <Property Name="visitDate" Type="datetime" />
           <Property Name="visitStatus" Type="nvarchar" MaxLength="50" />
           <Property Name="visitSite" Type="nvarchar" MaxLength="50" />
           <Property Name="complaintType" Type="nvarchar" MaxLength="50" />
@@ -553,36 +553,20 @@
     <edmx:ConceptualModels>
       <Schema Namespace="ClinicWallyMisrModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ClinicWallyMisrEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Jobs" EntityType="ClinicWallyMisrModel.Job" />
-          <EntitySet Name="Specializations" EntityType="ClinicWallyMisrModel.Specialization" />
-          <AssociationSet Name="FK_Specialization_Job" Association="ClinicWallyMisrModel.FK_Specialization_Job">
-            <End Role="Job" EntitySet="Jobs" />
-            <End Role="Specialization" EntitySet="Specializations" />
-          </AssociationSet>
-          <EntitySet Name="SystemPersons" EntityType="ClinicWallyMisrModel.SystemPerson" />
-          <AssociationSet Name="FK_SystemPerson_Job" Association="ClinicWallyMisrModel.FK_SystemPerson_Job">
-            <End Role="Job" EntitySet="Jobs" />
-            <End Role="SystemPerson" EntitySet="SystemPersons" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SystemPerson_Specialization" Association="ClinicWallyMisrModel.FK_SystemPerson_Specialization">
-            <End Role="Specialization" EntitySet="Specializations" />
-            <End Role="SystemPerson" EntitySet="SystemPersons" />
-          </AssociationSet>
-          <EntitySet Name="patients" EntityType="ClinicWallyMisrModel.patient" />
-          <AssociationSet Name="FK_patient_SystemPerson" Association="ClinicWallyMisrModel.FK_patient_SystemPerson">
-            <End Role="SystemPerson" EntitySet="SystemPersons" />
-            <End Role="patient" EntitySet="patients" />
-          </AssociationSet>
-          <EntitySet Name="surgicalHistories" EntityType="ClinicWallyMisrModel.surgicalHistory" />
-          <AssociationSet Name="FK_surgicalHistory_patient" Association="ClinicWallyMisrModel.FK_surgicalHistory_patient">
-            <End Role="patient" EntitySet="patients" />
-            <End Role="surgicalHistory" EntitySet="surgicalHistories" />
-          </AssociationSet>
           <EntitySet Name="Complaints" EntityType="ClinicWallyMisrModel.Complaint" />
           <EntitySet Name="Endoscopies" EntityType="ClinicWallyMisrModel.Endoscopy" />
+          <EntitySet Name="examinations" EntityType="ClinicWallyMisrModel.examination" />
           <EntitySet Name="Imagings" EntityType="ClinicWallyMisrModel.Imaging" />
+          <EntitySet Name="Jobs" EntityType="ClinicWallyMisrModel.Job" />
           <EntitySet Name="Laboratories" EntityType="ClinicWallyMisrModel.Laboratory" />
           <EntitySet Name="Labs" EntityType="ClinicWallyMisrModel.Lab" />
+          <EntitySet Name="medicines" EntityType="ClinicWallyMisrModel.medicine" />
+          <EntitySet Name="patients" EntityType="ClinicWallyMisrModel.patient" />
+          <EntitySet Name="prescriptions" EntityType="ClinicWallyMisrModel.prescription" />
+          <EntitySet Name="Reservations" EntityType="ClinicWallyMisrModel.Reservation" />
+          <EntitySet Name="Specializations" EntityType="ClinicWallyMisrModel.Specialization" />
+          <EntitySet Name="surgicalHistories" EntityType="ClinicWallyMisrModel.surgicalHistory" />
+          <EntitySet Name="SystemPersons" EntityType="ClinicWallyMisrModel.SystemPerson" />
           <EntitySet Name="visits" EntityType="ClinicWallyMisrModel.visit" />
           <AssociationSet Name="FK_Complaint_visits" Association="ClinicWallyMisrModel.FK_Complaint_visits">
             <End Role="visit" EntitySet="visits" />
@@ -592,9 +576,21 @@
             <End Role="visit" EntitySet="visits" />
             <End Role="Endoscopy" EntitySet="Endoscopies" />
           </AssociationSet>
+          <AssociationSet Name="FK_examination_visits" Association="ClinicWallyMisrModel.FK_examination_visits">
+            <End Role="visit" EntitySet="visits" />
+            <End Role="examination" EntitySet="examinations" />
+          </AssociationSet>
           <AssociationSet Name="FK_Imaging_visits" Association="ClinicWallyMisrModel.FK_Imaging_visits">
             <End Role="visit" EntitySet="visits" />
             <End Role="Imaging" EntitySet="Imagings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specialization_Job" Association="ClinicWallyMisrModel.FK_Specialization_Job">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="Specialization" EntitySet="Specializations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SystemPerson_Job" Association="ClinicWallyMisrModel.FK_SystemPerson_Job">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="SystemPerson" EntitySet="SystemPersons" />
           </AssociationSet>
           <AssociationSet Name="FK_Laboratory_visits" Association="ClinicWallyMisrModel.FK_Laboratory_visits">
             <End Role="visit" EntitySet="visits" />
@@ -604,35 +600,100 @@
             <End Role="Laboratory" EntitySet="Laboratories" />
             <End Role="Lab" EntitySet="Labs" />
           </AssociationSet>
+          <AssociationSet Name="FK_medicine_prescription" Association="ClinicWallyMisrModel.FK_medicine_prescription">
+            <End Role="prescription" EntitySet="prescriptions" />
+            <End Role="medicine" EntitySet="medicines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_patient_SystemPerson" Association="ClinicWallyMisrModel.FK_patient_SystemPerson">
+            <End Role="SystemPerson" EntitySet="SystemPersons" />
+            <End Role="patient" EntitySet="patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_surgicalHistory_patient" Association="ClinicWallyMisrModel.FK_surgicalHistory_patient">
+            <End Role="patient" EntitySet="patients" />
+            <End Role="surgicalHistory" EntitySet="surgicalHistories" />
+          </AssociationSet>
           <AssociationSet Name="FK_visits_patient" Association="ClinicWallyMisrModel.FK_visits_patient">
             <End Role="patient" EntitySet="patients" />
             <End Role="visit" EntitySet="visits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_prescription_visits" Association="ClinicWallyMisrModel.FK_prescription_visits">
+            <End Role="visit" EntitySet="visits" />
+            <End Role="prescription" EntitySet="prescriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservation_SystemPerson" Association="ClinicWallyMisrModel.FK_Reservation_SystemPerson">
+            <End Role="SystemPerson" EntitySet="SystemPersons" />
+            <End Role="Reservation" EntitySet="Reservations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SystemPerson_Specialization" Association="ClinicWallyMisrModel.FK_SystemPerson_Specialization">
+            <End Role="Specialization" EntitySet="Specializations" />
+            <End Role="SystemPerson" EntitySet="SystemPersons" />
           </AssociationSet>
           <AssociationSet Name="FK_visits_SystemPerson" Association="ClinicWallyMisrModel.FK_visits_SystemPerson">
             <End Role="SystemPerson" EntitySet="SystemPersons" />
             <End Role="visit" EntitySet="visits" />
           </AssociationSet>
-          <EntitySet Name="prescriptions" EntityType="ClinicWallyMisrModel.prescription" />
-          <AssociationSet Name="FK_prescription_visits" Association="ClinicWallyMisrModel.FK_prescription_visits">
-            <End Role="visit" EntitySet="visits" />
-            <End Role="prescription" EntitySet="prescriptions" />
-          </AssociationSet>
-          <EntitySet Name="Reservations" EntityType="ClinicWallyMisrModel.Reservation" />
-          <AssociationSet Name="FK_Reservation_SystemPerson" Association="ClinicWallyMisrModel.FK_Reservation_SystemPerson">
-            <End Role="SystemPerson" EntitySet="SystemPersons" />
-            <End Role="Reservation" EntitySet="Reservations" />
-          </AssociationSet>
-          <EntitySet Name="examinations" EntityType="ClinicWallyMisrModel.examination" />
-          <EntitySet Name="medicines" EntityType="ClinicWallyMisrModel.medicine" />
-          <AssociationSet Name="FK_examination_visits" Association="ClinicWallyMisrModel.FK_examination_visits">
-            <End Role="visit" EntitySet="visits" />
-            <End Role="examination" EntitySet="examinations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_medicine_prescription" Association="ClinicWallyMisrModel.FK_medicine_prescription">
-            <End Role="prescription" EntitySet="prescriptions" />
-            <End Role="medicine" EntitySet="medicines" />
-          </AssociationSet>
-          </EntityContainer>
+        </EntityContainer>
+        <EntityType Name="Complaint">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="complaintName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="visitId" Type="Guid" />
+          <NavigationProperty Name="visit" Relationship="ClinicWallyMisrModel.FK_Complaint_visits" FromRole="Complaint" ToRole="visit" />
+        </EntityType>
+        <EntityType Name="Endoscopy">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="Endoscopy1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EndoscopyType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="site" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="graph" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="visitId" Type="Guid" />
+          <NavigationProperty Name="visit" Relationship="ClinicWallyMisrModel.FK_Endoscopy_visits" FromRole="Endoscopy" ToRole="visit" />
+        </EntityType>
+        <EntityType Name="examination">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="redness" Type="Boolean" Nullable="false" />
+          <Property Name="swelling" Type="Boolean" Nullable="false" />
+          <Property Name="scars" Type="Boolean" Nullable="false" />
+          <Property Name="LTWastingofQuadriceps" Type="Boolean" Nullable="false" />
+          <Property Name="RTWastingofQuadriceps" Type="Boolean" Nullable="false" />
+          <Property Name="LTWastingofQuadricepsCompare" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RTWastingofQuadricepsCompare" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LTWastingofScapula" Type="Boolean" Nullable="false" />
+          <Property Name="RTWastingofScapula" Type="Boolean" Nullable="false" />
+          <Property Name="LTLognThoracicNerveInjury" Type="Boolean" Nullable="false" />
+          <Property Name="RTLognThoracicNerveInjury1" Type="Boolean" Nullable="false" />
+          <Property Name="Effusion" Type="Boolean" Nullable="false" />
+          <Property Name="EffusionType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NearByJoints" Type="Boolean" Nullable="false" />
+          <Property Name="NearByJointsType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GaitPattern" Type="Boolean" Nullable="false" />
+          <Property Name="GaitPatternType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="visitId" Type="Guid" />
+          <NavigationProperty Name="visit" Relationship="ClinicWallyMisrModel.FK_examination_visits" FromRole="examination" ToRole="visit" />
+        </EntityType>
+        <EntityType Name="Imaging">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="ImageDate" Type="DateTime" Precision="3" />
+          <Property Name="ImageCenter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TypeofImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Site" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VisitId" Type="Guid" />
+          <NavigationProperty Name="visit" Relationship="ClinicWallyMisrModel.FK_Imaging_visits" FromRole="Imaging" ToRole="visit" />
+        </EntityType>
         <EntityType Name="Job">
           <Key>
             <PropertyRef Name="id" />
@@ -642,84 +703,51 @@
           <NavigationProperty Name="Specializations" Relationship="ClinicWallyMisrModel.FK_Specialization_Job" FromRole="Job" ToRole="Specialization" />
           <NavigationProperty Name="SystemPersons" Relationship="ClinicWallyMisrModel.FK_SystemPerson_Job" FromRole="Job" ToRole="SystemPerson" />
         </EntityType>
-        <EntityType Name="Specialization">
+        <EntityType Name="Laboratory">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Guid" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="jobId" Type="Guid" />
-          <NavigationProperty Name="Job" Relationship="ClinicWallyMisrModel.FK_Specialization_Job" FromRole="Specialization" ToRole="Job" />
-          <NavigationProperty Name="SystemPersons" Relationship="ClinicWallyMisrModel.FK_SystemPerson_Specialization" FromRole="Specialization" ToRole="SystemPerson" />
+          <Property Name="Laboratory1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateofLab" Type="DateTime" Precision="3" />
+          <Property Name="visitId" Type="Guid" />
+          <NavigationProperty Name="visit" Relationship="ClinicWallyMisrModel.FK_Laboratory_visits" FromRole="Laboratory" ToRole="visit" />
+          <NavigationProperty Name="Labs" Relationship="ClinicWallyMisrModel.FK_Labs_Laboratory" FromRole="Laboratory" ToRole="Lab" />
         </EntityType>
-        <Association Name="FK_Specialization_Job">
-          <End Type="ClinicWallyMisrModel.Job" Role="Job" Multiplicity="0..1" />
-          <End Type="ClinicWallyMisrModel.Specialization" Role="Specialization" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Job">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Specialization">
-              <PropertyRef Name="jobId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="SystemPerson">
+        <EntityType Name="Lab">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Guid" Nullable="false" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="gender" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="religion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="maritalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="insuranceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SSN" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
-          <Property Name="DateofBirth" Type="DateTime" Precision="0" />
-          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="mobile1" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="mobile2" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="place" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="cv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="joinDate" Type="DateTime" Precision="0" />
-          <Property Name="leaveDate" Type="DateTime" Precision="0" />
-          <Property Name="leaveReason" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="scientificDegree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="jobId" Type="Guid" />
-          <Property Name="specializationId" Type="Guid" />
-          <NavigationProperty Name="Job" Relationship="ClinicWallyMisrModel.FK_SystemPerson_Job" FromRole="SystemPerson" ToRole="Job" />
-          <NavigationProperty Name="Specialization" Relationship="ClinicWallyMisrModel.FK_SystemPerson_Specialization" FromRole="SystemPerson" ToRole="Specialization" />
-          <NavigationProperty Name="patients" Relationship="ClinicWallyMisrModel.FK_patient_SystemPerson" FromRole="SystemPerson" ToRole="patient" />
-          <NavigationProperty Name="visits" Relationship="ClinicWallyMisrModel.FK_visits_SystemPerson" FromRole="SystemPerson" ToRole="visit" />
-          <NavigationProperty Name="Reservations" Relationship="ClinicWallyMisrModel.FK_Reservation_SystemPerson" FromRole="SystemPerson" ToRole="Reservation" />
+          <Property Name="LabType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="result" Type="Int32" />
+          <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResultStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="graph" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LaboratoryId" Type="Guid" />
+          <NavigationProperty Name="Laboratory" Relationship="ClinicWallyMisrModel.FK_Labs_Laboratory" FromRole="Lab" ToRole="Laboratory" />
         </EntityType>
-        <Association Name="FK_SystemPerson_Job">
-          <End Type="ClinicWallyMisrModel.Job" Role="Job" Multiplicity="0..1" />
-          <End Type="ClinicWallyMisrModel.SystemPerson" Role="SystemPerson" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Job">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="SystemPerson">
-              <PropertyRef Name="jobId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SystemPerson_Specialization">
-          <End Type="ClinicWallyMisrModel.Specialization" Role="Specialization" Multiplicity="0..1" />
-          <End Type="ClinicWallyMisrModel.SystemPerson" Role="SystemPerson" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Specialization">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="SystemPerson">
-              <PropertyRef Name="specializationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <EntityType Name="medicine">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="scientificName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="commercialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="activeIngredient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dose" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sideEffects" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="notes" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="UOM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Route" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Frequency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="prescriptionId" Type="Guid" />
+          <NavigationProperty Name="prescription" Relationship="ClinicWallyMisrModel.FK_medicine_prescription" FromRole="medicine" ToRole="prescription" />
+        </EntityType>
         <EntityType Name="patient">
           <Key>
             <PropertyRef Name="id" />
@@ -730,11 +758,11 @@
           <Property Name="diagnosisCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="notes" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="masterStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="dateofDiagnosis" Type="DateTime" Precision="0" />
+          <Property Name="dateofDiagnosis" Type="DateTime" Precision="3" />
           <Property Name="firstStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="dateofRelapse" Type="DateTime" Precision="0" />
-          <Property Name="firstPresentationDate" Type="DateTime" Precision="0" />
-          <Property Name="birthDate" Type="DateTime" Precision="0" />
+          <Property Name="dateofRelapse" Type="DateTime" Precision="3" />
+          <Property Name="firstPresentationDate" Type="DateTime" Precision="3" />
+          <Property Name="birthDate" Type="DateTime" Precision="3" />
           <Property Name="doctorId" Type="Guid" />
           <Property Name="age" Type="Int32" />
           <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
@@ -766,137 +794,119 @@
           <Property Name="alcoholIntake" Type="Boolean" Nullable="false" />
           <Property Name="menstrual" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LMP" Type="Boolean" Nullable="false" />
-          <Property Name="LMPDate" Type="DateTime" Precision="0" />
+          <Property Name="LMPDate" Type="DateTime" Precision="3" />
           <Property Name="contraception" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="pregnancyatDiagnosis" Type="Boolean" Nullable="false" />
           <Property Name="RelationDisease" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="RelationAgeatDiagnosis" Type="Int32" />
-          <NavigationProperty Name="SystemPerson" Relationship="ClinicWallyMisrModel.FK_patient_SystemPerson" FromRole="patient" ToRole="SystemPerson" />
-          <NavigationProperty Name="surgicalHistories" Relationship="ClinicWallyMisrModel.FK_surgicalHistory_patient" FromRole="patient" ToRole="surgicalHistory" />
           <Property Name="Diabetes" Type="Boolean" Nullable="false" />
-          <Property Name="diabetesSince" Type="DateTime" Precision="0" />
+          <Property Name="diabetesSince" Type="DateTime" Precision="3" />
           <Property Name="diabetesType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="hypertension" Type="Boolean" Nullable="false" />
-          <Property Name="hypertensionSince" Type="DateTime" Precision="0" />
+          <Property Name="hypertensionSince" Type="DateTime" Precision="3" />
           <Property Name="hypertensionType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="hepatitiesC" Type="Boolean" Nullable="false" />
-          <Property Name="hepatitiesCSince" Type="DateTime" Precision="0" />
+          <Property Name="hepatitiesCSince" Type="DateTime" Precision="3" />
           <Property Name="hepatitiesCType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="bilharziasis" Type="Boolean" Nullable="false" />
-          <Property Name="bilharziasisSince" Type="DateTime" Precision="0" />
+          <Property Name="bilharziasisSince" Type="DateTime" Precision="3" />
           <Property Name="bilharziasisType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="cardiac" Type="Boolean" Nullable="false" />
-          <Property Name="cardiacSince" Type="DateTime" Precision="0" />
+          <Property Name="cardiacSince" Type="DateTime" Precision="3" />
           <Property Name="cardiacType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="autoImmuneDisease" Type="Boolean" Nullable="false" />
-          <Property Name="autoImmuneDiseaseSince" Type="DateTime" Precision="0" />
+          <Property Name="autoImmuneDiseaseSince" Type="DateTime" Precision="3" />
           <Property Name="autoImmuneDiseaseType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="allergy" Type="Boolean" Nullable="false" />
-          <Property Name="allergySince" Type="DateTime" Precision="0" />
+          <Property Name="allergySince" Type="DateTime" Precision="3" />
           <Property Name="allergyType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SystemPerson" Relationship="ClinicWallyMisrModel.FK_patient_SystemPerson" FromRole="patient" ToRole="SystemPerson" />
+          <NavigationProperty Name="surgicalHistories" Relationship="ClinicWallyMisrModel.FK_surgicalHistory_patient" FromRole="patient" ToRole="surgicalHistory" />
           <NavigationProperty Name="visits" Relationship="ClinicWallyMisrModel.FK_visits_patient" FromRole="patient" ToRole="visit" />
         </EntityType>
-        <Association Name="FK_patient_SystemPerson">
-          <End Type="ClinicWallyMisrModel.SystemPerson" Role="SystemPerson" Multiplicity="0..1" />
-          <End Type="ClinicWallyMisrModel.patient" Role="patient" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SystemPerson">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="patient">
-              <PropertyRef Name="doctorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <EntityType Name="prescription">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="visitId" Type="Guid" />
+          <NavigationProperty Name="medicines" Relationship="ClinicWallyMisrModel.FK_medicine_prescription" FromRole="prescription" ToRole="medicine" />
+          <NavigationProperty Name="visit" Relationship="ClinicWallyMisrModel.FK_prescription_visits" FromRole="prescription" ToRole="visit" />
+        </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="patientName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fromTime" Type="DateTime" Precision="3" />
+          <Property Name="toTime" Type="DateTime" Precision="3" />
+          <Property Name="reservationType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="notes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="doctorId" Type="Guid" />
+          <Property Name="roomNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SystemPerson" Relationship="ClinicWallyMisrModel.FK_Reservation_SystemPerson" FromRole="Reservation" ToRole="SystemPerson" />
+        </EntityType>
+        <EntityType Name="Specialization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jobId" Type="Guid" />
+          <NavigationProperty Name="Job" Relationship="ClinicWallyMisrModel.FK_Specialization_Job" FromRole="Specialization" ToRole="Job" />
+          <NavigationProperty Name="SystemPersons" Relationship="ClinicWallyMisrModel.FK_SystemPerson_Specialization" FromRole="Specialization" ToRole="SystemPerson" />
+        </EntityType>
         <EntityType Name="surgicalHistory">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Guid" Nullable="false" />
           <Property Name="operationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="operationDate" Type="DateTime" Precision="0" />
+          <Property Name="operationDate" Type="DateTime" Precision="3" />
           <Property Name="patientId" Type="Guid" />
           <NavigationProperty Name="patient" Relationship="ClinicWallyMisrModel.FK_surgicalHistory_patient" FromRole="surgicalHistory" ToRole="patient" />
         </EntityType>
-        <Association Name="FK_surgicalHistory_patient">
-          <End Type="ClinicWallyMisrModel.patient" Role="patient" Multiplicity="0..1" />
-          <End Type="ClinicWallyMisrModel.surgicalHistory" Role="surgicalHistory" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="patient">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="surgicalHistory">
-              <PropertyRef Name="patientId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Complaint">
+        <EntityType Name="SystemPerson">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Guid" Nullable="false" />
-          <Property Name="complaintName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="visitId" Type="Guid" />
-          <NavigationProperty Name="visit" Relationship="ClinicWallyMisrModel.FK_Complaint_visits" FromRole="Complaint" ToRole="visit" />
-        </EntityType>
-        <EntityType Name="Endoscopy">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Guid" Nullable="false" />
-          <Property Name="Endoscopy1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="EndoscopyType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="site" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="graph" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="visitId" Type="Guid" />
-          <NavigationProperty Name="visit" Relationship="ClinicWallyMisrModel.FK_Endoscopy_visits" FromRole="Endoscopy" ToRole="visit" />
-        </EntityType>
-        <EntityType Name="Imaging">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Guid" Nullable="false" />
-          <Property Name="ImageDate" Type="DateTime" Precision="0" />
-          <Property Name="ImageCenter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TypeofImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Site" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ImageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="VisitId" Type="Guid" />
-          <NavigationProperty Name="visit" Relationship="ClinicWallyMisrModel.FK_Imaging_visits" FromRole="Imaging" ToRole="visit" />
-        </EntityType>
-        <EntityType Name="Laboratory">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Guid" Nullable="false" />
-          <Property Name="Laboratory1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DateofLab" Type="DateTime" Precision="0" />
-          <Property Name="visitId" Type="Guid" />
-          <NavigationProperty Name="visit" Relationship="ClinicWallyMisrModel.FK_Laboratory_visits" FromRole="Laboratory" ToRole="visit" />
-          <NavigationProperty Name="Labs" Relationship="ClinicWallyMisrModel.FK_Labs_Laboratory" FromRole="Laboratory" ToRole="Lab" />
-        </EntityType>
-        <EntityType Name="Lab">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Guid" Nullable="false" />
-          <Property Name="LabType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="result" Type="Int32" />
-          <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ResultStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="graph" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LaboratoryId" Type="Guid" />
-          <NavigationProperty Name="Laboratory" Relationship="ClinicWallyMisrModel.FK_Labs_Laboratory" FromRole="Lab" ToRole="Laboratory" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="religion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="maritalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="insuranceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SSN" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="DateofBirth" Type="DateTime" Precision="3" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="mobile1" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="mobile2" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="place" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="joinDate" Type="DateTime" Precision="3" />
+          <Property Name="leaveDate" Type="DateTime" Precision="3" />
+          <Property Name="leaveReason" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="scientificDegree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jobId" Type="Guid" />
+          <Property Name="specializationId" Type="Guid" />
+          <NavigationProperty Name="Job" Relationship="ClinicWallyMisrModel.FK_SystemPerson_Job" FromRole="SystemPerson" ToRole="Job" />
+          <NavigationProperty Name="patients" Relationship="ClinicWallyMisrModel.FK_patient_SystemPerson" FromRole="SystemPerson" ToRole="patient" />
+          <NavigationProperty Name="Reservations" Relationship="ClinicWallyMisrModel.FK_Reservation_SystemPerson" FromRole="SystemPerson" ToRole="Reservation" />
+          <NavigationProperty Name="Specialization" Relationship="ClinicWallyMisrModel.FK_SystemPerson_Specialization" FromRole="SystemPerson" ToRole="Specialization" />
+          <NavigationProperty Name="visits" Relationship="ClinicWallyMisrModel.FK_visits_SystemPerson" FromRole="SystemPerson" ToRole="visit" />
         </EntityType>
         <EntityType Name="visit">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Guid" Nullable="false" />
-          <Property Name="visitDate" Type="DateTime" Precision="0" />
+          <Property Name="visitDate" Type="DateTime" Precision="3" />
           <Property Name="visitStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="visitSite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="complaintType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -918,12 +928,12 @@
           <Property Name="patientId" Type="Guid" />
           <NavigationProperty Name="Complaints" Relationship="ClinicWallyMisrModel.FK_Complaint_visits" FromRole="visit" ToRole="Complaint" />
           <NavigationProperty Name="Endoscopies" Relationship="ClinicWallyMisrModel.FK_Endoscopy_visits" FromRole="visit" ToRole="Endoscopy" />
+          <NavigationProperty Name="examinations" Relationship="ClinicWallyMisrModel.FK_examination_visits" FromRole="visit" ToRole="examination" />
           <NavigationProperty Name="Imagings" Relationship="ClinicWallyMisrModel.FK_Imaging_visits" FromRole="visit" ToRole="Imaging" />
           <NavigationProperty Name="Laboratories" Relationship="ClinicWallyMisrModel.FK_Laboratory_visits" FromRole="visit" ToRole="Laboratory" />
           <NavigationProperty Name="patient" Relationship="ClinicWallyMisrModel.FK_visits_patient" FromRole="visit" ToRole="patient" />
-          <NavigationProperty Name="SystemPerson" Relationship="ClinicWallyMisrModel.FK_visits_SystemPerson" FromRole="visit" ToRole="SystemPerson" />
           <NavigationProperty Name="prescriptions" Relationship="ClinicWallyMisrModel.FK_prescription_visits" FromRole="visit" ToRole="prescription" />
-          <NavigationProperty Name="examinations" Relationship="ClinicWallyMisrModel.FK_examination_visits" FromRole="visit" ToRole="examination" />
+          <NavigationProperty Name="SystemPerson" Relationship="ClinicWallyMisrModel.FK_visits_SystemPerson" FromRole="visit" ToRole="SystemPerson" />
         </EntityType>
         <Association Name="FK_Complaint_visits">
           <End Type="ClinicWallyMisrModel.visit" Role="visit" Multiplicity="0..1" />
@@ -949,6 +959,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_examination_visits">
+          <End Type="ClinicWallyMisrModel.visit" Role="visit" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.examination" Role="examination" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="visit">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="examination">
+              <PropertyRef Name="visitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Imaging_visits">
           <End Type="ClinicWallyMisrModel.visit" Role="visit" Multiplicity="0..1" />
           <End Type="ClinicWallyMisrModel.Imaging" Role="Imaging" Multiplicity="*" />
@@ -958,6 +980,30 @@
             </Principal>
             <Dependent Role="Imaging">
               <PropertyRef Name="VisitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specialization_Job">
+          <End Type="ClinicWallyMisrModel.Job" Role="Job" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.Specialization" Role="Specialization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Specialization">
+              <PropertyRef Name="jobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SystemPerson_Job">
+          <End Type="ClinicWallyMisrModel.Job" Role="Job" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.SystemPerson" Role="SystemPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SystemPerson">
+              <PropertyRef Name="jobId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -985,6 +1031,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_medicine_prescription">
+          <End Type="ClinicWallyMisrModel.prescription" Role="prescription" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.medicine" Role="medicine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prescription">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="medicine">
+              <PropertyRef Name="prescriptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_patient_SystemPerson">
+          <End Type="ClinicWallyMisrModel.SystemPerson" Role="SystemPerson" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.patient" Role="patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemPerson">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="patient">
+              <PropertyRef Name="doctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_surgicalHistory_patient">
+          <End Type="ClinicWallyMisrModel.patient" Role="patient" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.surgicalHistory" Role="surgicalHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="patient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="surgicalHistory">
+              <PropertyRef Name="patientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_visits_patient">
           <End Type="ClinicWallyMisrModel.patient" Role="patient" Multiplicity="0..1" />
           <End Type="ClinicWallyMisrModel.visit" Role="visit" Multiplicity="*" />
@@ -994,6 +1076,42 @@
             </Principal>
             <Dependent Role="visit">
               <PropertyRef Name="patientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_prescription_visits">
+          <End Type="ClinicWallyMisrModel.visit" Role="visit" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.prescription" Role="prescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="visit">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="prescription">
+              <PropertyRef Name="visitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservation_SystemPerson">
+          <End Type="ClinicWallyMisrModel.SystemPerson" Role="SystemPerson" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.Reservation" Role="Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemPerson">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="doctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SystemPerson_Specialization">
+          <End Type="ClinicWallyMisrModel.Specialization" Role="Specialization" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.SystemPerson" Role="SystemPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specialization">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SystemPerson">
+              <PropertyRef Name="specializationId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1009,130 +1127,73 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="prescription">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Guid" Nullable="false" />
-          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="visitId" Type="Guid" />
-          <NavigationProperty Name="visit" Relationship="ClinicWallyMisrModel.FK_prescription_visits" FromRole="prescription" ToRole="visit" />
-          <NavigationProperty Name="medicines" Relationship="ClinicWallyMisrModel.FK_medicine_prescription" FromRole="prescription" ToRole="medicine" />
-        </EntityType>
-        <Association Name="FK_prescription_visits">
-          <End Type="ClinicWallyMisrModel.visit" Role="visit" Multiplicity="0..1" />
-          <End Type="ClinicWallyMisrModel.prescription" Role="prescription" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="visit">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="prescription">
-              <PropertyRef Name="visitId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Reservation">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Guid" Nullable="false" />
-          <Property Name="patientName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="fromTime" Type="DateTime" Precision="0" />
-          <Property Name="toTime" Type="DateTime" Precision="0" />
-          <Property Name="reservationType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="notes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="doctorId" Type="Guid" />
-          <Property Name="roomNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="SystemPerson" Relationship="ClinicWallyMisrModel.FK_Reservation_SystemPerson" FromRole="Reservation" ToRole="SystemPerson" />
-        </EntityType>
-        <Association Name="FK_Reservation_SystemPerson">
-          <End Type="ClinicWallyMisrModel.SystemPerson" Role="SystemPerson" Multiplicity="0..1" />
-          <End Type="ClinicWallyMisrModel.Reservation" Role="Reservation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SystemPerson">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Reservation">
-              <PropertyRef Name="doctorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="examination">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Guid" Nullable="false" />
-          <Property Name="redness" Type="Boolean" Nullable="false" />
-          <Property Name="swelling" Type="Boolean" Nullable="false" />
-          <Property Name="scars" Type="Boolean" Nullable="false" />
-          <Property Name="LTWastingofQuadriceps" Type="Boolean" Nullable="false" />
-          <Property Name="RTWastingofQuadriceps" Type="Boolean" Nullable="false" />
-          <Property Name="LTWastingofQuadricepsCompare" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="RTWastingofQuadricepsCompare" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LTWastingofScapula" Type="Boolean" Nullable="false" />
-          <Property Name="RTWastingofScapula" Type="Boolean" Nullable="false" />
-          <Property Name="LTLognThoracicNerveInjury" Type="Boolean" Nullable="false" />
-          <Property Name="RTLognThoracicNerveInjury1" Type="Boolean" Nullable="false" />
-          <Property Name="Effusion" Type="Boolean" Nullable="false" />
-          <Property Name="EffusionType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NearByJoints" Type="Boolean" Nullable="false" />
-          <Property Name="NearByJointsType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GaitPattern" Type="Boolean" Nullable="false" />
-          <Property Name="GaitPatternType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="visitId" Type="Guid" />
-          <NavigationProperty Name="visit" Relationship="ClinicWallyMisrModel.FK_examination_visits" FromRole="examination" ToRole="visit" />
-        </EntityType>
-        <EntityType Name="medicine">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Guid" Nullable="false" />
-          <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="scientificName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="commercialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="activeIngredient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="dose" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="sideEffects" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="notes" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="UOM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Route" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Frequency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="prescriptionId" Type="Guid" />
-          <NavigationProperty Name="prescription" Relationship="ClinicWallyMisrModel.FK_medicine_prescription" FromRole="medicine" ToRole="prescription" />
-        </EntityType>
-        <Association Name="FK_examination_visits">
-          <End Type="ClinicWallyMisrModel.visit" Role="visit" Multiplicity="0..1" />
-          <End Type="ClinicWallyMisrModel.examination" Role="examination" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="visit">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="examination">
-              <PropertyRef Name="visitId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_medicine_prescription">
-          <End Type="ClinicWallyMisrModel.prescription" Role="prescription" Multiplicity="0..1" />
-          <End Type="ClinicWallyMisrModel.medicine" Role="medicine" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="prescription">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="medicine">
-              <PropertyRef Name="prescriptionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ClinicWallyMisrModelStoreContainer" CdmEntityContainer="ClinicWallyMisrEntities">
+          <EntitySetMapping Name="Complaints">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Complaint">
+              <MappingFragment StoreEntitySet="Complaint">
+                <ScalarProperty Name="visitId" ColumnName="visitId" />
+                <ScalarProperty Name="complaintName" ColumnName="complaintName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Endoscopies">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Endoscopy">
+              <MappingFragment StoreEntitySet="Endoscopy">
+                <ScalarProperty Name="visitId" ColumnName="visitId" />
+                <ScalarProperty Name="graph" ColumnName="graph" />
+                <ScalarProperty Name="comments" ColumnName="comments" />
+                <ScalarProperty Name="site" ColumnName="site" />
+                <ScalarProperty Name="EndoscopyType" ColumnName="EndoscopyType" />
+                <ScalarProperty Name="Endoscopy1" ColumnName="Endoscopy" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="examinations">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.examination">
+              <MappingFragment StoreEntitySet="examination">
+                <ScalarProperty Name="visitId" ColumnName="visitId" />
+                <ScalarProperty Name="GaitPatternType" ColumnName="GaitPatternType" />
+                <ScalarProperty Name="GaitPattern" ColumnName="GaitPattern" />
+                <ScalarProperty Name="NearByJointsType" ColumnName="NearByJointsType" />
+                <ScalarProperty Name="NearByJoints" ColumnName="NearByJoints" />
+                <ScalarProperty Name="EffusionType" ColumnName="EffusionType" />
+                <ScalarProperty Name="Effusion" ColumnName="Effusion" />
+                <ScalarProperty Name="RTLognThoracicNerveInjury1" ColumnName="RTLognThoracicNerveInjury1" />
+                <ScalarProperty Name="LTLognThoracicNerveInjury" ColumnName="LTLognThoracicNerveInjury" />
+                <ScalarProperty Name="RTWastingofScapula" ColumnName="RTWastingofScapula" />
+                <ScalarProperty Name="LTWastingofScapula" ColumnName="LTWastingofScapula" />
+                <ScalarProperty Name="RTWastingofQuadricepsCompare" ColumnName="RTWastingofQuadricepsCompare" />
+                <ScalarProperty Name="LTWastingofQuadricepsCompare" ColumnName="LTWastingofQuadricepsCompare" />
+                <ScalarProperty Name="RTWastingofQuadriceps" ColumnName="RTWastingofQuadriceps" />
+                <ScalarProperty Name="LTWastingofQuadriceps" ColumnName="LTWastingofQuadriceps" />
+                <ScalarProperty Name="scars" ColumnName="scars" />
+                <ScalarProperty Name="swelling" ColumnName="swelling" />
+                <ScalarProperty Name="redness" ColumnName="redness" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Imagings">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Imaging">
+              <MappingFragment StoreEntitySet="Imaging">
+                <ScalarProperty Name="VisitId" ColumnName="VisitId" />
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="TypeofImage" ColumnName="TypeofImage" />
+                <ScalarProperty Name="ImageCenter" ColumnName="ImageCenter" />
+                <ScalarProperty Name="ImageDate" ColumnName="ImageDate" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Jobs">
             <EntityTypeMapping TypeName="ClinicWallyMisrModel.Job">
               <MappingFragment StoreEntitySet="Job">
@@ -1141,39 +1202,46 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Specializations">
-            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Specialization">
-              <MappingFragment StoreEntitySet="Specialization">
-                <ScalarProperty Name="jobId" ColumnName="jobId" />
-                <ScalarProperty Name="name" ColumnName="name" />
+          <EntitySetMapping Name="Laboratories">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Laboratory">
+              <MappingFragment StoreEntitySet="Laboratory">
+                <ScalarProperty Name="visitId" ColumnName="visitId" />
+                <ScalarProperty Name="DateofLab" ColumnName="DateofLab" />
+                <ScalarProperty Name="Laboratory1" ColumnName="Laboratory" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SystemPersons">
-            <EntityTypeMapping TypeName="ClinicWallyMisrModel.SystemPerson">
-              <MappingFragment StoreEntitySet="SystemPerson">
-                <ScalarProperty Name="specializationId" ColumnName="specializationId" />
-                <ScalarProperty Name="jobId" ColumnName="jobId" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="scientificDegree" ColumnName="scientificDegree" />
-                <ScalarProperty Name="leaveReason" ColumnName="leaveReason" />
-                <ScalarProperty Name="leaveDate" ColumnName="leaveDate" />
-                <ScalarProperty Name="joinDate" ColumnName="joinDate" />
-                <ScalarProperty Name="cv" ColumnName="cv" />
-                <ScalarProperty Name="place" ColumnName="place" />
-                <ScalarProperty Name="mobile2" ColumnName="mobile2" />
-                <ScalarProperty Name="mobile1" ColumnName="mobile1" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
-                <ScalarProperty Name="SSN" ColumnName="SSN" />
-                <ScalarProperty Name="insuranceNo" ColumnName="insuranceNo" />
-                <ScalarProperty Name="maritalStatus" ColumnName="maritalStatus" />
-                <ScalarProperty Name="nationality" ColumnName="nationality" />
-                <ScalarProperty Name="religion" ColumnName="religion" />
-                <ScalarProperty Name="gender" ColumnName="gender" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="name" ColumnName="name" />
+          <EntitySetMapping Name="Labs">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Lab">
+              <MappingFragment StoreEntitySet="Labs">
+                <ScalarProperty Name="LaboratoryId" ColumnName="LaboratoryId" />
+                <ScalarProperty Name="graph" ColumnName="graph" />
+                <ScalarProperty Name="ResultStatus" ColumnName="ResultStatus" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="result" ColumnName="result" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LabType" ColumnName="LabType" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="medicines">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.medicine">
+              <MappingFragment StoreEntitySet="medicine">
+                <ScalarProperty Name="prescriptionId" ColumnName="prescriptionId" />
+                <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Route" ColumnName="Route" />
+                <ScalarProperty Name="UOM" ColumnName="UOM" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="sideEffects" ColumnName="sideEffects" />
+                <ScalarProperty Name="dose" ColumnName="dose" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="activeIngredient" ColumnName="activeIngredient" />
+                <ScalarProperty Name="commercialName" ColumnName="commercialName" />
+                <ScalarProperty Name="scientificName" ColumnName="scientificName" />
+                <ScalarProperty Name="code" ColumnName="code" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1252,6 +1320,39 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="prescriptions">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.prescription">
+              <MappingFragment StoreEntitySet="prescription">
+                <ScalarProperty Name="visitId" ColumnName="visitId" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservations">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Reservation">
+              <MappingFragment StoreEntitySet="Reservation">
+                <ScalarProperty Name="roomNumber" ColumnName="roomNumber" />
+                <ScalarProperty Name="doctorId" ColumnName="doctorId" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="reservationType" ColumnName="reservationType" />
+                <ScalarProperty Name="toTime" ColumnName="toTime" />
+                <ScalarProperty Name="fromTime" ColumnName="fromTime" />
+                <ScalarProperty Name="patientName" ColumnName="patientName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Specializations">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Specialization">
+              <MappingFragment StoreEntitySet="Specialization">
+                <ScalarProperty Name="jobId" ColumnName="jobId" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="surgicalHistories">
             <EntityTypeMapping TypeName="ClinicWallyMisrModel.surgicalHistory">
               <MappingFragment StoreEntitySet="surgicalHistory">
@@ -1262,62 +1363,30 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Complaints">
-            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Complaint">
-              <MappingFragment StoreEntitySet="Complaint">
-                <ScalarProperty Name="visitId" ColumnName="visitId" />
-                <ScalarProperty Name="complaintName" ColumnName="complaintName" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Endoscopies">
-            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Endoscopy">
-              <MappingFragment StoreEntitySet="Endoscopy">
-                <ScalarProperty Name="visitId" ColumnName="visitId" />
-                <ScalarProperty Name="graph" ColumnName="graph" />
-                <ScalarProperty Name="comments" ColumnName="comments" />
-                <ScalarProperty Name="site" ColumnName="site" />
-                <ScalarProperty Name="EndoscopyType" ColumnName="EndoscopyType" />
-                <ScalarProperty Name="Endoscopy1" ColumnName="Endoscopy" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Imagings">
-            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Imaging">
-              <MappingFragment StoreEntitySet="Imaging">
-                <ScalarProperty Name="VisitId" ColumnName="VisitId" />
-                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="Site" ColumnName="Site" />
-                <ScalarProperty Name="TypeofImage" ColumnName="TypeofImage" />
-                <ScalarProperty Name="ImageCenter" ColumnName="ImageCenter" />
-                <ScalarProperty Name="ImageDate" ColumnName="ImageDate" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Laboratories">
-            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Laboratory">
-              <MappingFragment StoreEntitySet="Laboratory">
-                <ScalarProperty Name="visitId" ColumnName="visitId" />
-                <ScalarProperty Name="DateofLab" ColumnName="DateofLab" />
-                <ScalarProperty Name="Laboratory1" ColumnName="Laboratory" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Labs">
-            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Lab">
-              <MappingFragment StoreEntitySet="Labs">
-                <ScalarProperty Name="LaboratoryId" ColumnName="LaboratoryId" />
-                <ScalarProperty Name="graph" ColumnName="graph" />
-                <ScalarProperty Name="ResultStatus" ColumnName="ResultStatus" />
-                <ScalarProperty Name="Unit" ColumnName="Unit" />
-                <ScalarProperty Name="result" ColumnName="result" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="LabType" ColumnName="LabType" />
+          <EntitySetMapping Name="SystemPersons">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.SystemPerson">
+              <MappingFragment StoreEntitySet="SystemPerson">
+                <ScalarProperty Name="specializationId" ColumnName="specializationId" />
+                <ScalarProperty Name="jobId" ColumnName="jobId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="scientificDegree" ColumnName="scientificDegree" />
+                <ScalarProperty Name="leaveReason" ColumnName="leaveReason" />
+                <ScalarProperty Name="leaveDate" ColumnName="leaveDate" />
+                <ScalarProperty Name="joinDate" ColumnName="joinDate" />
+                <ScalarProperty Name="cv" ColumnName="cv" />
+                <ScalarProperty Name="place" ColumnName="place" />
+                <ScalarProperty Name="mobile2" ColumnName="mobile2" />
+                <ScalarProperty Name="mobile1" ColumnName="mobile1" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="insuranceNo" ColumnName="insuranceNo" />
+                <ScalarProperty Name="maritalStatus" ColumnName="maritalStatus" />
+                <ScalarProperty Name="nationality" ColumnName="nationality" />
+                <ScalarProperty Name="religion" ColumnName="religion" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1345,75 +1414,6 @@
                 <ScalarProperty Name="visitSite" ColumnName="visitSite" />
                 <ScalarProperty Name="visitStatus" ColumnName="visitStatus" />
                 <ScalarProperty Name="visitDate" ColumnName="visitDate" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="prescriptions">
-            <EntityTypeMapping TypeName="ClinicWallyMisrModel.prescription">
-              <MappingFragment StoreEntitySet="prescription">
-                <ScalarProperty Name="visitId" ColumnName="visitId" />
-                <ScalarProperty Name="notes" ColumnName="notes" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Reservations">
-            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Reservation">
-              <MappingFragment StoreEntitySet="Reservation">
-                <ScalarProperty Name="roomNumber" ColumnName="roomNumber" />
-                <ScalarProperty Name="doctorId" ColumnName="doctorId" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="notes" ColumnName="notes" />
-                <ScalarProperty Name="reservationType" ColumnName="reservationType" />
-                <ScalarProperty Name="toTime" ColumnName="toTime" />
-                <ScalarProperty Name="fromTime" ColumnName="fromTime" />
-                <ScalarProperty Name="patientName" ColumnName="patientName" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="examinations">
-            <EntityTypeMapping TypeName="ClinicWallyMisrModel.examination">
-              <MappingFragment StoreEntitySet="examination">
-                <ScalarProperty Name="visitId" ColumnName="visitId" />
-                <ScalarProperty Name="GaitPatternType" ColumnName="GaitPatternType" />
-                <ScalarProperty Name="GaitPattern" ColumnName="GaitPattern" />
-                <ScalarProperty Name="NearByJointsType" ColumnName="NearByJointsType" />
-                <ScalarProperty Name="NearByJoints" ColumnName="NearByJoints" />
-                <ScalarProperty Name="EffusionType" ColumnName="EffusionType" />
-                <ScalarProperty Name="Effusion" ColumnName="Effusion" />
-                <ScalarProperty Name="RTLognThoracicNerveInjury1" ColumnName="RTLognThoracicNerveInjury1" />
-                <ScalarProperty Name="LTLognThoracicNerveInjury" ColumnName="LTLognThoracicNerveInjury" />
-                <ScalarProperty Name="RTWastingofScapula" ColumnName="RTWastingofScapula" />
-                <ScalarProperty Name="LTWastingofScapula" ColumnName="LTWastingofScapula" />
-                <ScalarProperty Name="RTWastingofQuadricepsCompare" ColumnName="RTWastingofQuadricepsCompare" />
-                <ScalarProperty Name="LTWastingofQuadricepsCompare" ColumnName="LTWastingofQuadricepsCompare" />
-                <ScalarProperty Name="RTWastingofQuadriceps" ColumnName="RTWastingofQuadriceps" />
-                <ScalarProperty Name="LTWastingofQuadriceps" ColumnName="LTWastingofQuadriceps" />
-                <ScalarProperty Name="scars" ColumnName="scars" />
-                <ScalarProperty Name="swelling" ColumnName="swelling" />
-                <ScalarProperty Name="redness" ColumnName="redness" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="medicines">
-            <EntityTypeMapping TypeName="ClinicWallyMisrModel.medicine">
-              <MappingFragment StoreEntitySet="medicine">
-                <ScalarProperty Name="prescriptionId" ColumnName="prescriptionId" />
-                <ScalarProperty Name="Frequency" ColumnName="Frequency" />
-                <ScalarProperty Name="Duration" ColumnName="Duration" />
-                <ScalarProperty Name="Route" ColumnName="Route" />
-                <ScalarProperty Name="UOM" ColumnName="UOM" />
-                <ScalarProperty Name="notes" ColumnName="notes" />
-                <ScalarProperty Name="sideEffects" ColumnName="sideEffects" />
-                <ScalarProperty Name="dose" ColumnName="dose" />
-                <ScalarProperty Name="type" ColumnName="type" />
-                <ScalarProperty Name="activeIngredient" ColumnName="activeIngredient" />
-                <ScalarProperty Name="commercialName" ColumnName="commercialName" />
-                <ScalarProperty Name="scientificName" ColumnName="scientificName" />
-                <ScalarProperty Name="code" ColumnName="code" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
