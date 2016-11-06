@@ -1,4 +1,26 @@
-﻿<!DOCTYPE html>
+﻿@{
+    string home = "", employees = "", patient = "", constants = "", reservations = "";
+    if (Request.Url.AbsoluteUri.ToLower().Contains("person"))
+    {
+        employees = "active";
+    }
+    else if (Request.Url.AbsoluteUri.ToLower().Contains("patient"))
+    {
+        patient = "active";
+    }
+    else if (Request.Url.AbsoluteUri.ToLower().Contains("constant"))
+    {
+        constants = "active";
+    }
+    else if (Request.Url.AbsoluteUri.ToLower().Contains("reservation"))
+    {
+        reservations = "active";
+    }
+    else
+    {
+        home = "active";
+    }
+}<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -8,49 +30,109 @@
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/datepicker/jquery-ui.css" rel="stylesheet" />
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+<body id="">
+    <div class="extra">
+        <!--==============================header=================================-->
+        <header>
+            <div class="row-top">
+                <div class="main">
+                    <div class="wrapper">
+                        <h1>@Html.ActionLink("Home", "Index", "Home")</h1>
+                        <form id="search-form" method="post" enctype="multipart/form-data">
+                            <fieldset>
+                                <div class="search-field">
+                                    <input name="search" type="text" value="Search..." onBlur="if(this.value=='') this.value='Search...'" onFocus="if(this.value =='Search...' ) this.value=''" />
+                                    <a class="search-button" href="#" onClick="document.getElementById('search-form').submit()"></a>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+            <div class="menu-row">
+                <div class="menu-bg">
+                    <div class="main">
+                        <nav class="indent-left">
+                            <ul class="menu wrapper">
+                                <li class="@home">@Html.ActionLink("Home Page", "Index", "Home")</li>
+                                <li class="@employees">@Html.ActionLink("Employees", "Index", "SystemPersons")</li>
+                                <li class="@patient">@Html.ActionLink("Patients", "Index", "patients")</li>
+                                <li class="@reservations">@Html.ActionLink("Reservations", "Index", "Reservations")</li>
+                                <li class="@constants">@Html.ActionLink("Constants", "constants","Home")</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!--==============================content================================-->
+        <section id="content">
+            <div class="ic"></div>
+            @RenderBody()
+            <div class="block"></div>
+        </section>
+    </div>
+    <!--==============================footer=================================-->
+    <footer>
+        <div class="padding">
+            <div class="main">
+                <div class="container_12">
+                    <div class="wrapper">
+                        <article class="grid_8">
+                            <h4>Contact Form:</h4>
+                            <form id="contact-form" method="post">
+                                <fieldset>
+                                    <label><input name="email" value="Email" onBlur="if(this.value=='') this.value='Email'" onFocus="if(this.value =='Email' ) this.value=''" /></label>
+                                    <label><input name="subject" value="Subject" onBlur="if(this.value=='') this.value='Subject'" onFocus="if(this.value =='Subject' ) this.value=''" /></label>
+                                    <textarea onBlur="if(this.value=='') this.value='Message'" onFocus="if(this.value =='Message' ) this.value=''">Message</textarea>
+                                    <div class="buttons">
+                                        <a href="#" onClick="document.getElementById('contact-form').reset()">Clear</a>
+                                        <a href="#" onClick="document.getElementById('contact-form').submit()">Send</a>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </article>
+                        <article class="grid_4">
+                            <h4 class="indent-bot">Link to Us:</h4>
+                            <ul class="list-services border-bot img-indent-bot">
+                                <li><a href="#">Facebook</a></li>
+                                <li><a class="item-1" href="#">Twitter</a></li>
+                                <li><a class="item-2" href="#">Picassa</a></li>
+                                <li><a class="item-3" href="#">You Tube</a></li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content" >
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    
         @RenderSection("scripts", required: false)
         <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     <script src="~/Scripts/datepicker/jquery-1.12.4.js"></script>
     <script src="~/Scripts/datepicker/jquery-ui.js"></script>
+    <script src="~/Scripts/newScripts/cufon-yui.js"></script>
+
+    <script src="~/Scripts/newScripts/cufon-replace.js"></script>
+    <script src="~/Scripts/newScripts/NewsGoth_400.font.js"></script>
+    <script src="~/Scripts/newScripts/NewsGoth_700.font.js"></script>
+    <script src="~/Scripts/newScripts/NewsGoth_Lt_BT_italic_400.font.js"></script>
+
+    <script src="~/Scripts/newScripts/Vegur_400.font.js"></script>
+    <script src="~/Scripts/newScripts/FF-cash.js"></script>
+    
     <script>
         $(document).ready(function () {
-            
             $("input[data-datepicker='true']").datepicker({
                 dateFormat: "dd-M-yy"
             });
         });
     </script>
+    <script type="text/javascript"> Cufon.now(); </script>
+
 </body>
 </html>

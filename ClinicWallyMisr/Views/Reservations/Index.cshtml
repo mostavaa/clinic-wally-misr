@@ -4,87 +4,104 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div style="margin-top:20px;clear:both;"></div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<form class="form">
-    <div class="form-group">
-        <label class="control-label col-md-2">Room Number</label>
-        <div class="col-md-10">
-            <input type="text" name="roomNumberQ" id="roomNumberQ" class="form-control" />
+
+<div class="row">
+    <div class="col-md-offset-2 col-md-6">
+
+        <form class="form">
+            <div class="row">
+                <div class="row">
+                    <input type="text" name="roomNumberQ" id="roomNumberQ" class="myinput" placeholder="Room Number" />
+                    <p style="float:right" class="btn btn-primary">
+                        @Html.ActionLink("Create New", "Create")
+                    </p>
+
+                </div>
+                <div class="row">
+                    <label class="">Doctor</label>
+                    <div class="">
+                        @Html.DropDownList("doctorIdsearch", null, string.Empty, htmlAttributes: new { @class = "myinput" })
+                    </div>
+                </div>
+                <div class="row">
+                    <input type="submit" class="myinput glyphicon glyphicon-search" value="Search" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div style="margin-top:20px;clear:both;"></div>
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-10">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.patientName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.fromTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.toTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.reservationType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.notes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.roomNumber)
+                </th>
+                <th>
+                    Doctor
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.patientName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fromTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.toTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.reservationType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.notes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.roomNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SystemPerson.name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                    </td>
+                </tr>
+            }
+
+        </table>
         </div>
     </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">Doctor</label>        <div class="col-md-10">
-            @Html.DropDownList("doctorIdsearch", null, string.Empty, htmlAttributes: new { @class = "form-control" })
-        </div>
-    </div>
-    <input type="submit" class="form-control glyphicon glyphicon-search" value="Search" />
-</form>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.patientName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fromTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.toTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.reservationType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.notes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.roomNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SystemPerson.name)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.patientName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.fromTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.toTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.reservationType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.notes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.roomNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SystemPerson.name)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id })
-            </td>
-        </tr>
-    }
-
-</table>
+        

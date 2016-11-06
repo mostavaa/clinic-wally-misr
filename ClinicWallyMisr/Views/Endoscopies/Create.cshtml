@@ -4,71 +4,74 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<div style="margin-top:20px;clear:both;"></div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Endoscopy</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Endoscopy1, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Endoscopy1, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Endoscopy1, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Endoscopy1, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Endoscopy1, new { htmlAttributes = new { @class = "myinput" } })
+                            @Html.ValidationMessageFor(model => model.Endoscopy1, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.EndoscopyType, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EndoscopyType, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EndoscopyType, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EndoscopyType, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.EndoscopyType, new { htmlAttributes = new { @class = "myinput" } })
+                            @Html.ValidationMessageFor(model => model.EndoscopyType, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.site, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.site, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.site, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.site, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.site, new { htmlAttributes = new { @class = "myinput" } })
+                            @Html.ValidationMessageFor(model => model.site, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.comments, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.comments, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.comments, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.comments, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.comments, new { htmlAttributes = new { @class = "myinput" } })
+                            @Html.ValidationMessageFor(model => model.comments, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.graph, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.graph, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.graph, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.graph, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.graph, new { htmlAttributes = new { @class = "myinput" } })
+                            @Html.ValidationMessageFor(model => model.graph, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <input type="hidden" value="@ViewBag.visit.id" id="visitId" name="visitId" />
+                    <input type="hidden" value="@ViewBag.visit.id" id="visitId" name="visitId" />
 
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div>
+                @{
+                    Guid myId2 = ViewBag.visit.id;
+
+                }
+                @Html.ActionLink("Back to List", "Index", new { id = myId2 }, new { @class = "btn btn-default" })
             </div>
         </div>
     </div>
-}
-
-<div>
-    @{
-        Guid myId2 = ViewBag.visit.id;
-
-    }
-    @Html.ActionLink("Back to List", "Index", new { id = myId2 })
 </div>

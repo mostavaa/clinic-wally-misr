@@ -4,47 +4,50 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<div style="margin-top:20px;clear:both;"></div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Laboratory</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Laboratory1, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Laboratory1, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Laboratory1, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Laboratory1, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Laboratory1, new { htmlAttributes = new { @class = "myinput" } })
+                            @Html.ValidationMessageFor(model => model.Laboratory1, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DateofLab, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DateofLab, new { htmlAttributes = new { @class = "form-control", data_datepicker = "true" } })
-                @Html.ValidationMessageFor(model => model.DateofLab, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DateofLab, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.DateofLab, new { htmlAttributes = new { @class = "myinput", data_datepicker = "true" } })
+                            @Html.ValidationMessageFor(model => model.DateofLab, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-      
-        <input type="hidden" value="@ViewBag.visit.id" id="visitId" name="visitId" />
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="hidden" value="@ViewBag.visit.id" id="visitId" name="visitId" />
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div>
+                @{
+                    Guid myId2 = ViewBag.visit.id;
+
+                }
+                @Html.ActionLink("Back to List", "Index", new { id = myId2 }, new { @class = "btn btn-default" })
             </div>
         </div>
     </div>
-}
-
-<div>
-    @{
-        Guid myId2 = ViewBag.visit.id;
-
-    }
-    @Html.ActionLink("Back to List", "Index", new { id = myId2 })
 </div>

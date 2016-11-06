@@ -3,362 +3,437 @@
     ViewBag.Title = "constants";
 }
 
-<h2>Constants</h2>
 
+<div style="margin-top:20px;clear:both;"></div>
 <div class="row">
-    <h1>Gender</h1>
-    @{
-        foreach (var item in Constants.gender)
-        {
+    <div class="col-md-10 col-md-offset-1">
+        <div class="row">
             <div class="row">
-                <div class="col-md-3">@item.Value</div>
-                <div class="col-md-3">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "gender", @value = item.Value } , null)</div>
-            </div>
-        }
-    }
-    <form method="get" action="@Url.Action("AddConstant")">
-        <div class="form-group">
-            <input type="hidden" value="gender" name="constant" />
-            <div class="col-md-4"><input type="text" name="value" class="form-control" /> </div>
-            <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
-        </div>
-    </form>
-</div>
+                <div class="col-md-6">@Html.ActionLink("Add New Job", "Index", "Jobs", null, new { @class = "btn btn-primary" })</div>
 
-<div class="row">
-    <h1>religion</h1>
-    @{
-        foreach (var item in Constants.religion)
-        {
-            <div class="row">
-                <div class="col-md-3">@item.Value</div>
-                <div class="col-md-3">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "religion", @value = item.Value }, null)</div>
-            </div>
-        }
-    }
-    <form method="get" action="@Url.Action("AddConstant")">
-        <div class="form-group">
-            <input type="hidden" value="religion" name="constant" />
-            <div class="col-md-4"><input type="text" name="value" class="form-control" /> </div>
-            <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
-        </div>
-    </form>
-</div>
 
-<div class="row">
-    <h1>Scientific Degree</h1>
-    @{
-        foreach (var item in Constants.ScientificDegree)
-        {
-            <div class="row">
-                <div class="col-md-3">@item.Value</div>
-                <div class="col-md-3">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "ScientificDegree", @value = item.Value }, null)</div>
-            </div>
-        }
-    }
-    <form method="get" action="@Url.Action("AddConstant")">
-        <div class="form-group">
-            <input type="hidden" value="ScientificDegree" name="constant" />
-            <div class="col-md-4"><input type="text" name="value" class="form-control" /> </div>
-            <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
-        </div>
-    </form>
-</div>
+                <div class="col-md-6">@Html.ActionLink("Add New Specialization", "Index", "Specializations", null, new { @class = "btn btn-primary" })</div>
 
-<div class="row">
-    <h1>Medicine Type</h1>
-    @{
-        foreach (var item in Constants.MedicineType)
-        {
-            <div class="row">
-                <div class="col-md-3">@item.Value</div>
-                <div class="col-md-3">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "MedicineType", @value = item.Value }, null)</div>
             </div>
-        }
-    }
-    <form method="get" action="@Url.Action("AddConstant")">
-        <div class="form-group">
-            <input type="hidden" value="MedicineType" name="constant" />
-            <div class="col-md-4"><input type="text" name="value" class="form-control" /> </div>
-            <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
-        </div>
-    </form>
-</div>
+            <hr />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <h2>Gender</h2>
+                        @{
+                            foreach (var item in Constants.gender)
+                            {
+                                <div class="row">
+                                    <div class="col-md-6">@item.Value</div>
+                                    <div class="col-md-6">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "gender", @value = item.Value }, null)</div>
+                                </div>
+                            }
+                        }
+                        <form method="get" action="@Url.Action("AddConstant")">
+                            <div class="form-group row">
+                                <input type="hidden" value="gender" name="constant" />
+                                <div class="col-md-6"><input type="text" name="value" class="myinput" /> </div>
+                                <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <h2>religion</h2>
+                        @{
+                            foreach (var item in Constants.religion)
+                            {
+                                <div class="row">
+                                    <div class="col-md-6">@item.Value</div>
+                                    <div class="col-md-6">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "religion", @value = item.Value }, null)</div>
+                                </div>
+                            }
+                        }
+                        <form method="get" action="@Url.Action("AddConstant")">
+                            <div class="form-group row">
+                                <input type="hidden" value="religion" name="constant" />
+                                <div class="col-md-6"><input type="text" name="value" class="myinput" /> </div>
+                                <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-<div class="row">
-    <h1>Dose</h1>
-    @{
-        foreach (var item in Constants.Dose)
-        {
-            <div class="row">
-                <div class="col-md-3">@item.Value</div>
-                <div class="col-md-3">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "Dose", @value = item.Value }, null)</div>
-            </div>
-        }
-    }
-    <form method="get" action="@Url.Action("AddConstant")">
-        <div class="form-group">
-            <input type="hidden" value="Dose" name="constant" />
-            <div class="col-md-4"><input type="text" name="value" class="form-control" /> </div>
-            <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
-        </div>
-    </form>
-</div>
+            <hr />
 
-<div class="row">
-    <h1>master Status</h1>
-    @{
-        foreach (var item in Constants.masterStatus)
-        {
             <div class="row">
-                <div class="col-md-3">@item.Value</div>
-                <div class="col-md-3">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "masterStatus", @value = item.Value }, null)</div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <h2>Scientific Degree</h2>
+                        @{
+                            foreach (var item in Constants.ScientificDegree)
+                            {
+                                <div class="row">
+                                    <div class="col-md-6">@item.Value</div>
+                                    <div class="col-md-6">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "ScientificDegree", @value = item.Value }, null)</div>
+                                </div>
+                            }
+                        }
+                        <form method="get" action="@Url.Action("AddConstant")">
+                            <div class="form-group row">
+                                <input type="hidden" value="ScientificDegree" name="constant" />
+                                <div class="col-md-6"><input type="text" name="value" class="myinput" /> </div>
+                                <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <h2>Medicine Type</h2>
+                        @{
+                            foreach (var item in Constants.MedicineType)
+                            {
+                                <div class="row">
+                                    <div class="col-md-6">@item.Value</div>
+                                    <div class="col-md-6">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "MedicineType", @value = item.Value }, null)</div>
+                                </div>
+                            }
+                        }
+                        <form method="get" action="@Url.Action("AddConstant")">
+                            <div class="form-group row">
+                                <input type="hidden" value="MedicineType" name="constant" />
+                                <div class="col-md-6"><input type="text" name="value" class="myinput" /> </div>
+                                <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-        }
-    }
-    <form method="get" action="@Url.Action("AddConstant")">
-        <div class="form-group">
-            <input type="hidden" value="masterStatus" name="constant" />
-            <div class="col-md-4"><input type="text" name="value" class="form-control" /> </div>
-            <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
-        </div>
-    </form>
-</div>
-<div class="row">
-    <h1>site</h1>
-    @{
-        foreach (var item in Constants.site)
-        {
-            <div class="row">
-                <div class="col-md-3">@item.Value</div>
-                <div class="col-md-3">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "site", @value = item.Value }, null)</div>
-            </div>
-        }
-    }
-    <form method="get" action="@Url.Action("AddConstant")">
-        <div class="form-group">
-            <input type="hidden" value="site" name="constant" />
-            <div class="col-md-4"><input type="text" name="value" class="form-control" /> </div>
-            <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
-        </div>
-    </form>
-</div>
 
-<div class="row">
-    <h1>first Status</h1>
-    @{
-        foreach (var item in Constants.firstStatus)
-        {
-            <div class="row">
-                <div class="col-md-3">@item.Value</div>
-                <div class="col-md-3">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "firstStatus", @value = item.Value }, null)</div>
-            </div>
-        }
-    }
-    <form method="get" action="@Url.Action("AddConstant")">
-        <div class="form-group">
-            <input type="hidden" value="firstStatus" name="constant" />
-            <div class="col-md-4"><input type="text" name="value" class="form-control" /> </div>
-            <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
-        </div>
-    </form>
-</div>
+            <hr />
 
-<div class="row">
-    <h1>education</h1>
-    @{
-        foreach (var item in Constants.education)
-        {
-            <div class="row">
-                <div class="col-md-3">@item.Value</div>
-                <div class="col-md-3">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "education", @value = item.Value }, null)</div>
-            </div>
-        }
-    }
-    <form method="get" action="@Url.Action("AddConstant")">
-        <div class="form-group">
-            <input type="hidden" value="education" name="constant" />
-            <div class="col-md-4"><input type="text" name="value" class="form-control" /> </div>
-            <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
-        </div>
-    </form>
-</div>
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="row">
+                      <h2>Dose</h2>
+                      @{
+                          foreach (var item in Constants.Dose)
+                          {
+                              <div class="row">
+                                  <div class="col-md-6">@item.Value</div>
+                                  <div class="col-md-6">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "Dose", @value = item.Value }, null)</div>
+                              </div>
+                          }
+                      }
+                      <form method="get" action="@Url.Action("AddConstant")">
+                          <div class="form-group row">
+                              <input type="hidden" value="Dose" name="constant" />
+                              <div class="col-md-6"><input type="text" name="value" class="myinput" /> </div>
+                              <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="row">
+                      <h2>master Status</h2>
+                      @{
+                          foreach (var item in Constants.masterStatus)
+                          {
+                              <div class="row">
+                                  <div class="col-md-6">@item.Value</div>
+                                  <div class="col-md-6">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "masterStatus", @value = item.Value }, null)</div>
+                              </div>
+                          }
+                      }
+                      <form method="get" action="@Url.Action("AddConstant")">
+                          <div class="form-group row">
+                              <input type="hidden" value="masterStatus" name="constant" />
+                              <div class="col-md-6"><input type="text" name="value" class="myinput" /> </div>
+                              <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
 
-<div class="row">
-    <h1>nationality</h1>
-    @{
-        foreach (var item in Constants.nationality)
-        {
-            <div class="row">
-                <div class="col-md-3">@item.Value</div>
-                <div class="col-md-3">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "nationality", @value = item.Value }, null)</div>
-            </div>
-        }
-    }
-    <form method="get" action="@Url.Action("AddConstant")">
-        <div class="form-group">
-            <input type="hidden" value="nationality" name="constant" />
-            <div class="col-md-4"><input type="text" name="value" class="form-control" /> </div>
-            <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
-        </div>
-    </form>
-</div>
+            <hr />
 
-<div class="row">
-    <h1>marital Status</h1>
-    @{
-        foreach (var item in Constants.maritalStatus)
-        {
+       
             <div class="row">
-                <div class="col-md-3">@item.Value</div>
-                <div class="col-md-3">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "maritalStatus", @value = item.Value }, null)</div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <h2>site</h2>
+                        @{
+                            foreach (var item in Constants.site)
+                            {
+                                <div class="row">
+                                    <div class="col-md-6">@item.Value</div>
+                                    <div class="col-md-6">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "site", @value = item.Value }, null)</div>
+                                </div>
+                            }
+                        }
+                        <form method="get" action="@Url.Action("AddConstant")">
+                            <div class="form-group row">
+                                <input type="hidden" value="site" name="constant" />
+                                <div class="col-md-6"><input type="text" name="value" class="myinput" /> </div>
+                                <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <h2>first Status</h2>
+                        @{
+                            foreach (var item in Constants.firstStatus)
+                            {
+                                <div class="row">
+                                    <div class="col-md-6">@item.Value</div>
+                                    <div class="col-md-6">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "firstStatus", @value = item.Value }, null)</div>
+                                </div>
+                            }
+                        }
+                        <form method="get" action="@Url.Action("AddConstant")">
+                            <div class="form-group row">
+                                <input type="hidden" value="firstStatus" name="constant" />
+                                <div class="col-md-6"><input type="text" name="value" class="myinput" /> </div>
+                                <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-        }
-    }
-    <form method="get" action="@Url.Action("AddConstant")">
-        <div class="form-group">
-            <input type="hidden" value="maritalStatus" name="constant" />
-            <div class="col-md-4"><input type="text" name="value" class="form-control" /> </div>
-            <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
-        </div>
-    </form>
-</div>
 
-<div class="row">
-    <h1>referred From</h1>
-    @{
-        foreach (var item in Constants.referredFrom)
-        {
-            <div class="row">
-                <div class="col-md-3">@item.Value</div>
-                <div class="col-md-3">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "referredFrom", @value = item.Value }, null)</div>
-            </div>
-        }
-    }
-    <form method="get" action="@Url.Action("AddConstant")">
-        <div class="form-group">
-            <input type="hidden" value="referredFrom" name="constant" />
-            <div class="col-md-4"><input type="text" name="value" class="form-control" /> </div>
-            <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
-        </div>
-    </form>
-</div>
+            <hr />
 
-<div class="row">
-    <h1>governorate</h1>
-    @{
-        foreach (var item in Constants.governorate)
-        {
             <div class="row">
-                <div class="col-md-3">@item.Value</div>
-                <div class="col-md-3">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "governorate", @value = item.Value }, null)</div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <h2>education</h2>
+                        @{
+                            foreach (var item in Constants.education)
+                            {
+                                <div class="row">
+                                    <div class="col-md-6">@item.Value</div>
+                                    <div class="col-md-6">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "education", @value = item.Value }, null)</div>
+                                </div>
+                            }
+                        }
+                        <form method="get" action="@Url.Action("AddConstant")">
+                            <div class="form-group row">
+                                <input type="hidden" value="education" name="constant" />
+                                <div class="col-md-6"><input type="text" name="value" class="myinput" /> </div>
+                                <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <h2>nationality</h2>
+                        @{
+                            foreach (var item in Constants.nationality)
+                            {
+                                <div class="row">
+                                    <div class="col-md-6">@item.Value</div>
+                                    <div class="col-md-6">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "nationality", @value = item.Value }, null)</div>
+                                </div>
+                            }
+                        }
+                        <form method="get" action="@Url.Action("AddConstant")">
+                            <div class="form-group row">
+                                <input type="hidden" value="nationality" name="constant" />
+                                <div class="col-md-6"><input type="text" name="value" class="myinput" /> </div>
+                                <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-        }
-    }
-    <form method="get" action="@Url.Action("AddConstant")">
-        <div class="form-group">
-            <input type="hidden" value="governorate" name="constant" />
-            <div class="col-md-4"><input type="text" name="value" class="form-control" /> </div>
-            <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
-        </div>
-    </form>
-</div>
-<div class="row">
-    <h1>relation</h1>
-    @{
-        foreach (var item in Constants.relation)
-        {
-            <div class="row">
-                <div class="col-md-3">@item.Value</div>
-                <div class="col-md-3">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "relation", @value = item.Value }, null)</div>
-            </div>
-        }
-    }
-    <form method="get" action="@Url.Action("AddConstant")">
-        <div class="form-group">
-            <input type="hidden" value="relation" name="constant" />
-            <div class="col-md-4"><input type="text" name="value" class="form-control" /> </div>
-            <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
-        </div>
-    </form>
-</div>
 
-<div class="row">
-    <h1>demographic Pationt Is</h1>
+            
+            <hr />
+
+       
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <h2>marital Status</h2>
+                        @{
+                            foreach (var item in Constants.maritalStatus)
+                            {
+                                <div class="row">
+                                    <div class="col-md-6">@item.Value</div>
+                                    <div class="col-md-6">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "maritalStatus", @value = item.Value }, null)</div>
+                                </div>
+                            }
+                        }
+                        <form method="get" action="@Url.Action("AddConstant")">
+                            <div class="form-group row">
+                                <input type="hidden" value="maritalStatus" name="constant" />
+                                <div class="col-md-6"><input type="text" name="value" class="myinput" /> </div>
+                                <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <h2>referred From</h2>
+                        @{
+                            foreach (var item in Constants.referredFrom)
+                            {
+                                <div class="row">
+                                    <div class="col-md-6">@item.Value</div>
+                                    <div class="col-md-6">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "referredFrom", @value = item.Value }, null)</div>
+                                </div>
+                            }
+                        }
+                        <form method="get" action="@Url.Action("AddConstant")">
+                            <div class="form-group row">
+                                <input type="hidden" value="referredFrom" name="constant" />
+                                <div class="col-md-6"><input type="text" name="value" class="myinput" /> </div>
+                                <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <hr />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <h2>governorate</h2>
+                        @{
+                            foreach (var item in Constants.governorate)
+                            {
+                                <div class="row">
+                                    <div class="col-md-6">@item.Value</div>
+                                    <div class="col-md-6">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "governorate", @value = item.Value }, null)</div>
+                                </div>
+                            }
+                        }
+                        <form method="get" action="@Url.Action("AddConstant")">
+                            <div class="form-group row">
+                                <input type="hidden" value="governorate" name="constant" />
+                                <div class="col-md-6"><input type="text" name="value" class="myinput" /> </div>
+                                <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <h2>relation</h2>
+                        @{
+                            foreach (var item in Constants.relation)
+                            {
+                                <div class="row">
+                                    <div class="col-md-6">@item.Value</div>
+                                    <div class="col-md-6">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "relation", @value = item.Value }, null)</div>
+                                </div>
+                            }
+                        }
+                        <form method="get" action="@Url.Action("AddConstant")">
+                            <div class="form-group row">
+                                <input type="hidden" value="relation" name="constant" />
+                                <div class="col-md-6"><input type="text" name="value" class="myinput" /> </div>
+                                <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <hr />
+
+            <div class="row">
+                <div class="col-md-6"><div class="row">
+    <h2>demographic Pationt Is</h2>
     @{
         foreach (var item in Constants.demographicPationtIs)
         {
             <div class="row">
-                <div class="col-md-3">@item.Value</div>
-                <div class="col-md-3">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "demographicPationtIs", @value = item.Value }, null)</div>
+                <div class="col-md-6">@item.Value</div>
+                <div class="col-md-6">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "demographicPationtIs", @value = item.Value }, null)</div>
             </div>
         }
     }
     <form method="get" action="@Url.Action("AddConstant")">
-        <div class="form-group">
+        <div class="form-group row">
             <input type="hidden" value="demographicPationtIs" name="constant" />
-            <div class="col-md-4"><input type="text" name="value" class="form-control" /> </div>
+            <div class="col-md-6"><input type="text" name="value" class="myinput" /> </div>
             <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
         </div>
     </form>
-</div>
-
-<div class="row">
-    <h1>demographic Type</h1>
+</div></div>
+                <div class="col-md-6"><div class="row">
+    <h2>demographic Type</h2>
     @{
         foreach (var item in Constants.demographicType)
         {
             <div class="row">
-                <div class="col-md-3">@item.Value</div>
-                <div class="col-md-3">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "demographicType", @value = item.Value }, null)</div>
+                <div class="col-md-6">@item.Value</div>
+                <div class="col-md-6">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "demographicType", @value = item.Value }, null)</div>
             </div>
         }
     }
     <form method="get" action="@Url.Action("AddConstant")">
-        <div class="form-group">
+        <div class="form-group row">
             <input type="hidden" value="demographicType" name="constant" />
-            <div class="col-md-4"><input type="text" name="value" class="form-control" /> </div>
+            <div class="col-md-6"><input type="text" name="value" class="myinput" /> </div>
             <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
         </div>
     </form>
-</div>
-
-<div class="row">
-    <h1>menstrual</h1>
-    @{
-        foreach (var item in Constants.menstrual)
-        {
-            <div class="row">
-                <div class="col-md-3">@item.Value</div>
-                <div class="col-md-3">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "menstrual", @value = item.Value }, null)</div>
+</div></div>
             </div>
-        }
-    }
-    <form method="get" action="@Url.Action("AddConstant")">
-        <div class="form-group">
-            <input type="hidden" value="menstrual" name="constant" />
-            <div class="col-md-4"><input type="text" name="value" class="form-control" /> </div>
-            <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
-        </div>
-    </form>
-</div>
-
-<div class="row">
-    <h1>contraception</h1>
-    @{
-        foreach (var item in Constants.contraception)
-        {
+            
+            <hr />
             <div class="row">
-                <div class="col-md-3">@item.Value</div>
-                <div class="col-md-3">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "contraception", @value = item.Value }, null)</div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <h2>menstrual</h2>
+                        @{
+                            foreach (var item in Constants.menstrual)
+                            {
+                                <div class="row">
+                                    <div class="col-md-6">@item.Value</div>
+                                    <div class="col-md-6">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "menstrual", @value = item.Value }, null)</div>
+                                </div>
+                            }
+                        }
+                        <form method="get" action="@Url.Action("AddConstant")">
+                            <div class="form-group row">
+                                <input type="hidden" value="menstrual" name="constant" />
+                                <div class="col-md-6"><input type="text" name="value" class="myinput" /> </div>
+                                <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <h2>contraception</h2>
+                        @{
+                            foreach (var item in Constants.contraception)
+                            {
+                                <div class="row">
+                                    <div class="col-md-6">@item.Value</div>
+                                    <div class="col-md-6">@Html.ActionLink("Remove", "RemoveConstant", "Home", new { @constant = "contraception", @value = item.Value }, null)</div>
+                                </div>
+                            }
+                        }
+                        <form method="get" action="@Url.Action("AddConstant")">
+                            <div class="form-group row">
+                                <input type="hidden" value="contraception" name="constant" />
+                                <div class="col-md-6"><input type="text" name="value" class="myinput" /> </div>
+                                <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-        }
-    }
-    <form method="get" action="@Url.Action("AddConstant")">
-        <div class="form-group">
-            <input type="hidden" value="contraception" name="constant" />
-            <div class="col-md-4"><input type="text" name="value" class="form-control" /> </div>
-            <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Add" /> </div>
         </div>
-    </form>
+    </div>
 </div>

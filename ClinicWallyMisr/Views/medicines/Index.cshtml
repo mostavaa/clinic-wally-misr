@@ -4,95 +4,113 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div style="margin-top:20px;clear:both;"></div>
+<div class="row">
+    <div class="col-md-offset-2 col-md-6">
+        <div class="row">
 
-<p>
-    @Html.ActionLink("Create New", "Create", new { id = ViewBag.prescription.id })
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.code)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.scientificName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.commercialName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.activeIngredient)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dose)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.sideEffects)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.notes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UOM)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Route)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Duration)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Frequency)
-        </th>
-        <th></th>
-    </tr>
+            <p style="float:right" class="btn btn-primary">
+                @Html.ActionLink("Create New", "Create", new { id = ViewBag.prescription.id })
+            </p>
+        </div>
+    </div>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.code)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.scientificName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.commercialName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.activeIngredient)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dose)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.sideEffects)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.notes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UOM)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Route)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Duration)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Frequency)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+<div style="margin-top:20px;clear:both;"></div>
 
-</table>
+<div class="row">
+    <div class="col-md-offset-1 col-md-10">
+        <div class="row">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.code)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.scientificName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.commercialName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.activeIngredient)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.type)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.dose)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.sideEffects)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.notes)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UOM)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Route)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Duration)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Frequency)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.code)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.scientificName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.commercialName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.activeIngredient)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.dose)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sideEffects)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.notes)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UOM)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Route)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Duration)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Frequency)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            </div>
+        </div>
+    </div>
+
+            

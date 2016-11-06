@@ -3,192 +3,87 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-<form class="form">
-    <div class="form-group">
-        @Html.LabelFor(model => model.FirstOrDefault().name, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-             <input type="text" name="acc.name" id="acc_name" class="form-control" />
-               
-
-            @Html.ValidationMessageFor(model => model.FirstOrDefault().name, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.FirstOrDefault().jobId, "Job", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("jobId", null, string.Empty, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.FirstOrDefault().jobId, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.FirstOrDefault().specializationId, "Specialization", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("specializationId", null, string.Empty, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
-            @Html.ValidationMessageFor(model => model.FirstOrDefault().specializationId, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <input type="submit" class="form-control glyphicon glyphicon-search" value="Search"/>
-</form>
 <div style="margin-top:20px;clear:both;"></div>
-<div style=" overflow-x: auto; ">
-    <table class="table table-bordered table-hover">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.gender)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.religion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.nationality)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.maritalStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.insuranceNo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SSN)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateofBirth)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Phone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.mobile1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.mobile2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.place)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.cv)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.joinDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.leaveDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.leaveReason)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.scientificDegree)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Job.name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Specialization.name)
-            </th>
-            <th></th>
-        </tr>
+<div class="row" >
+    <div class="col-md-offset-2 col-md-6">
+        
+        <form class="form">
+            <div class="row">
+                <div class="row">
+                        <input id="acc_name" class="myinput"  name="acc.name" placeholder="Name"/>
+                    <p style="float:right" class="btn btn-primary">
+                        @Html.ActionLink("Create New", "Create")
+                    </p>
+                </div>
+                <div class="row">
+                        @Html.DropDownList("jobId", null, string.Empty, htmlAttributes: new { @class = "myinput" })
+                </div>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.address)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.gender)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.religion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.nationality)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.maritalStatus)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.insuranceNo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SSN)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateofBirth)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Phone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.mobile1)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.mobile2)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.place)
-                </td>
-                <td>
-                    @if (item.cv != null)
-                    {
-                        if (item.cv.Contains(item.id.ToString()))
-                        {
-                            @Html.ActionLink(item.cv.Substring(item.id.ToString().Length), "displayFile", "SystemPersons", new { @filePath = @item.cv }, null)
-                        }
-                    }
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.joinDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.leaveDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.leaveReason)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.scientificDegree)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Type)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Job.name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Specialization.name)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
-                </td>
-            </tr>
-        }
+                <div class="row">
+                      @Html.DropDownList("specializationId", null, string.Empty, htmlAttributes: new { @class = "myinput", @readonly = "readonly" })
+               </div>
+                <div class="row ">
+                    <input type="submit" class="myinput glyphicon glyphicon-search" value="Search" />
+                </div>
+            </div>
+         
+        </form>
+    </div>
 
-    </table>
 </div>
+
+<div style="margin-top:20px;clear:both;"></div>
+<div class="row">
+    <div class="col-md-offset-1 col-md-10">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </th>
+
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Job.name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Specialization.name)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Job.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Specialization.name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
 
 @section scripts{
 <script>

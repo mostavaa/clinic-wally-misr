@@ -24,7 +24,6 @@ namespace ClinicWallyMisr.Controllers
             {
                 string query = Request.QueryString["name"];
                 query = query.ToLower();
-                if(patients.Where(o => o.name.ToLower().Contains(query)).Count()>0)
                 patients = patients.Where(o => o.name.ToLower().Contains(query));
             }
             return View(patients.ToList());

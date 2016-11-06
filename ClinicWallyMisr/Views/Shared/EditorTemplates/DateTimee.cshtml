@@ -2,10 +2,10 @@
 @{
     if (Model.HasValue)
     {
-        @Html.TextBox("", Model.Value.ToString("dd-MMM-yyyy"), new { @class = "form-control", @readonly = "readonly", style = "cursor:pointer" })
+        @Html.TextBox("", Model.Value.ToString("dd-MMM-yyyy"), new { @class = "myinput", @readonly = "readonly", style = "cursor:pointer" })
     }
     else
     {
-        @Html.TextBox("", "", new { @class = "form-control", @readonly = "readonly", style = "cursor:pointer" })
+        @Html.TextBox("", "", new { @class = "myinput", @readonly = "readonly", style = "cursor:pointer" })
     }
 }

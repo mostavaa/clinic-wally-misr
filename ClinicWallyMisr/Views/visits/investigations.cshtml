@@ -1,10 +1,16 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "investigations";
 }
 
+<div style="margin-top:20px;clear:both;"></div>
 <div class="row">
-    <div class="col-md-2">@Html.ActionLink("Laboratory", "Index", "Laboratories", new { id=ViewBag.visit.id}, null)</div>
-    <div class="col-md-2">@Html.ActionLink("Imaging", "Index", "Imagings", new { id = ViewBag.visit.id }, null)</div>
-    <div class="col-md-2">@Html.ActionLink("Endoscopy", "Index", "Endoscopies", new { id = ViewBag.visit.id }, null)</div>
+    <div class="col-md-10 col-md-offset-1">
+
+        <div class="row">
+            <div class="col-md-2">@Html.ActionLink("Laboratory", "Index", "Laboratories", new { id = ViewBag.visit.id }, new { @class="btn btn-primary"})</div>
+            <div class="col-md-2">@Html.ActionLink("Imaging", "Index", "Imagings", new { id = ViewBag.visit.id }, new { @class = "btn btn-primary" })</div>
+            <div class="col-md-2">@Html.ActionLink("Endoscopy", "Index", "Endoscopies", new { id = ViewBag.visit.id }, new { @class = "btn btn-primary" })</div>
+        </div>
 </div>
+</div>
+<div style="margin-top:20px;clear:both;"></div>

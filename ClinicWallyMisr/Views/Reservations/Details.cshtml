@@ -4,79 +4,116 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Reservation</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.patientName)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.patientName)
-        </dd>
+<div style="margin-top:20px;clear:both;"></div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.fromTime)
-        </dt>
+        <div>
+            <dl class="dl-horizontal row">
+                <div class="row">
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.patientName)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.fromTime)
-        </dd>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.patientName)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.fromTime)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.toTime)
-        </dt>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.fromTime)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
 
-        <dd>
-            @Html.DisplayFor(model => model.toTime)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.toTime)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.reservationType)
-        </dt>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.toTime)
+                        </dd>
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.reservationType)
-        </dd>
+                <div class="row">
+                    <div class="col-md-4">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.notes)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.reservationType)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.notes)
-        </dd>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.reservationType)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.status)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.notes)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.status)
-        </dd>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.notes)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.status)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.roomNumber)
-        </dt>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.status)
+                        </dd>
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.roomNumber)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SystemPerson.name)
-        </dt>
+                <div class="row">
+                    <div class="col-md-4">
 
-        <dd>
-            @Html.DisplayFor(model => model.SystemPerson.name)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.roomNumber)
+                        </dt>
 
-    </dl>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.roomNumber)
+                        </dd>
+
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.SystemPerson.name)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.SystemPerson.name)
+                        </dd>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+
+
+
+
+
+            </dl>
+
+    
+                <div class="form-actions no-color">
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.id }, new { @class = "btn btn-primary" }) |
+                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+                    </p>
+                </div>
+            
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

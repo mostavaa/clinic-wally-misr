@@ -4,85 +4,117 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<div style="margin-top:20px;clear:both;"></div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Reservation</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.patientName)
-        </dt>
+        <h3>Are you sure you want to delete this?</h3>
+        <div>
+            <hr />
+            <dl class="dl-horizontal row">
+                <div class="row">
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.patientName)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.patientName)
-        </dd>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.patientName)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.fromTime)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.fromTime)
-        </dt>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.fromTime)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
 
-        <dd>
-            @Html.DisplayFor(model => model.fromTime)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.toTime)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.toTime)
-        </dt>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.toTime)
+                        </dd>
+                    </div>
+                </div>
+     
+                <div class="row">
+                    <div class="col-md-4">
 
-        <dd>
-            @Html.DisplayFor(model => model.toTime)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.reservationType)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.reservationType)
-        </dt>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.reservationType)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
 
-        <dd>
-            @Html.DisplayFor(model => model.reservationType)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.notes)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.notes)
-        </dt>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.notes)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.status)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.notes)
-        </dd>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.status)
+                        </dd>
+                    </div>
+                </div>
+  
 
-        <dt>
-            @Html.DisplayNameFor(model => model.status)
-        </dt>
+                <div class="row">
+                    <div class="col-md-4">
 
-        <dd>
-            @Html.DisplayFor(model => model.status)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.roomNumber)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.roomNumber)
-        </dt>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.roomNumber)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.roomNumber)
-        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.SystemPerson.name)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SystemPerson.name)
-        </dt>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.SystemPerson.name)
+                        </dd>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.SystemPerson.name)
-        </dd>
+        
 
-    </dl>
+        
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+            </dl>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-danger" /> |
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+                </div>
+            }
         </div>
-    }
+    </div>
 </div>

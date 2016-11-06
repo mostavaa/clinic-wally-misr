@@ -4,373 +4,478 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>patient</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.diagnosis)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.diagnosis)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.diagnosisCode)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.diagnosisCode)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.notes)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.notes)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.masterStatus)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.masterStatus)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.dateofDiagnosis)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.dateofDiagnosis)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.firstStatus)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.firstStatus)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.dateofRelapse)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.dateofRelapse)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.firstPresentationDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.firstPresentationDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.birthDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.birthDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.age)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.age)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.gender)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.gender)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.referredFrom)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.referredFrom)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.education)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.education)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.nationality)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.nationality)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.maritalStatus)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.maritalStatus)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.occupation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.occupation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.noofChildren)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.noofChildren)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ageofOldest)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ageofOldest)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ageofYoungest)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ageofYoungest)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.phone1)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.phone1)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.phone2)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.phone2)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.phone3)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.phone3)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.governorate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.governorate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.relationName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.relationName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.relation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.relation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.relationPhone1)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.relationPhone1)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.relationPhone2)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.relationPhone2)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.relationPhone3)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.relationPhone3)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.relationAddress)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.relationAddress)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.relationGovernorate)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.relationGovernorate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.demographic)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.demographic)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.demographicType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.demographicType)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.demographicSince)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.demographicSince)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.packsNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.packsNumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.alcoholIntake)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.alcoholIntake)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.menstrual)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.menstrual)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LMP)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LMP)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LMPDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LMPDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.contraception)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.contraception)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.pregnancyatDiagnosis)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.pregnancyatDiagnosis)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SystemPerson.name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SystemPerson.name)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+<div style="margin-top:20px;clear:both;"></div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h3>Are you sure you want to delete this?</h3>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <div class="row">
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.name)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.name)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.diagnosis)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.diagnosis)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.diagnosisCode)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.diagnosisCode)
+                        </dd>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.notes)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.notes)
+                        </dd>
+
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.masterStatus)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.masterStatus)
+                        </dd>
+
+                    </div>
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.dateofDiagnosis)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.dateofDiagnosis)
+                        </dd>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.firstStatus)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.firstStatus)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.dateofRelapse)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.dateofRelapse)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.firstPresentationDate)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.firstPresentationDate)
+                        </dd>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.birthDate)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.birthDate)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.age)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.age)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.gender)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.gender)
+                        </dd>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.referredFrom)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.referredFrom)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.education)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.education)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.nationality)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.nationality)
+                        </dd>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.maritalStatus)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.maritalStatus)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.occupation)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.occupation)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.noofChildren)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.noofChildren)
+                        </dd>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ageofOldest)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.ageofOldest)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ageofYoungest)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.ageofYoungest)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.phone1)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.phone1)
+                        </dd>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.phone2)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.phone2)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.phone3)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.phone3)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.email)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.email)
+                        </dd>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.governorate)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.governorate)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.address)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.address)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.relationName)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.relationName)
+                        </dd>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.relation)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.relation)
+                        </dd>
+
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.relationPhone1)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.relationPhone1)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.relationPhone2)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.relationPhone2)
+                        </dd>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.relationPhone3)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.relationPhone3)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.relationAddress)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.relationAddress)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.relationGovernorate)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.relationGovernorate)
+                        </dd>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.demographic)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.demographic)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.demographicType)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.demographicType)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.demographicSince)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.demographicSince)
+                        </dd>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.packsNumber)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.packsNumber)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.alcoholIntake)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.alcoholIntake)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.menstrual)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.menstrual)
+                        </dd>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.LMP)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.LMP)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.LMPDate)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.LMPDate)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.contraception)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.contraception)
+                        </dd>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.pregnancyatDiagnosis)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.pregnancyatDiagnosis)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.SystemPerson.name)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.SystemPerson.name)
+                        </dd>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+     
+
+         
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-danger" /> |
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+                </div>
+            }
         </div>
-    }
+        </div>
 </div>

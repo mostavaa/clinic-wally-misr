@@ -4,65 +4,80 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div style="margin-top:20px;clear:both;"></div>
+<div class="row">
+    <div class="col-md-offset-2 col-md-6">
+        <div class="row">
 
-<p>
-    @Html.ActionLink("Create New", "Create", new { id = ViewBag.visit.id })
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageCenter)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TypeofImage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Site)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Comments)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.visit.visitStatus)
-        </th>
-        <th></th>
-    </tr>
+            <p style="float:right" class="btn btn-primary">
+                @Html.ActionLink("Create New", "Create", new { id = ViewBag.visit.id })
+            </p>
+        </div>
+    </div>
+</div>
+<div style="margin-top:20px;clear:both;"></div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageCenter)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TypeofImage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Site)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comments)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.visit.visitStatus)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+<div class="row">
+    <div class="col-md-offset-1 col-md-10">
+        <div class="row">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ImageDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ImageCenter)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TypeofImage)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Site)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Comments)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ImageName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.visit.visitStatus)
+                    </th>
+                    <th></th>
+                </tr>
 
-</table>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ImageDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ImageCenter)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TypeofImage)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Site)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Comments)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ImageName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.visit.visitStatus)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

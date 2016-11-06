@@ -4,189 +4,284 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>SystemPerson</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
+<div style="margin-top:20px;clear:both;"></div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
 
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.address)
-        </dt>
+        <div>
+            <dl class="dl-horizontal row">
+                <div class="row">
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.name)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.address)
-        </dd>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.name)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.address)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.gender)
-        </dt>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.address)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
 
-        <dd>
-            @Html.DisplayFor(model => model.gender)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.gender)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.religion)
-        </dt>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.gender)
+                        </dd>
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.religion)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nationality)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nationality)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.maritalStatus)
-        </dt>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.maritalStatus)
-        </dd>
+                <hr>
+                <div class="row">
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.religion)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.insuranceNo)
-        </dt>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.religion)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.insuranceNo)
-        </dd>
+                    </div>
+                    <div class="col-md-4">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SSN)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.nationality)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SSN)
-        </dd>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.nationality)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DateofBirth)
-        </dt>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.maritalStatus)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DateofBirth)
-        </dd>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.maritalStatus)
+                        </dd>
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.mobile1)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.mobile1)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.mobile2)
-        </dt>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.insuranceNo)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.mobile2)
-        </dd>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.insuranceNo)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.place)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.place)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.SSN)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cv)
-        </dt>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.SSN)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DateofBirth)
+                        </dt>
 
-        <dd>
-            @if (Model.cv != null)
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.DateofBirth)
+                        </dd>
+                    </div>
+
+
+
+                </div>
+
+                <hr>
+                <div class="row">
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.Phone)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.mobile1)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.mobile1)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.mobile2)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.mobile2)
+                        </dd>
+                    </div>
+
+
+
+
+
+                </div>
+
+                <hr>
+                <div class="row">
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.place)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.place)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.cv)
+                        </dt>
+
+                        <dd class="myinput">
+                            @if (Model.cv != null)
             {
                 if (Model.cv.Contains(Model.id.ToString()))
                 {
-                    @Html.ActionLink(Model.cv.Substring(Model.id.ToString().Length), "displayFile", "SystemPersons", new { @filePath = @Model.cv }, null)
-                }
-            }
-        </dd>
+                                    @Html.ActionLink(Model.cv.Substring(Model.id.ToString().Length), "displayFile", "SystemPersons", new { @filePath = @Model.cv }, null)
+                                }
+                            }
+                        </dd>
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.joinDate)
-        </dt>
+                    <div class="col-md-4">
 
-        <dd>
-            @Html.DisplayFor(model => model.joinDate)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.joinDate)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.leaveDate)
-        </dt>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.joinDate)
+                        </dd>
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.leaveDate)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.leaveReason)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.leaveReason)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.scientificDegree)
-        </dt>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.scientificDegree)
-        </dd>
+                <hr>
+                <div class="row">
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.leaveDate)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.leaveDate)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Type)
-        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.leaveReason)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Job.name)
-        </dt>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.leaveReason)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Job.name)
-        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.scientificDegree)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Specialization.name)
-        </dt>
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.scientificDegree)
+                        </dd>
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Specialization.name)
-        </dd>
 
-    </dl>
+
+                </div>
+
+                <hr>
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Type)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.Type)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Job.name)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.Job.name)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Specialization.name)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.Specialization.name)
+                        </dd>
+                    </div>
+
+
+
+                </div>
+
+            </dl>
+            <hr />
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.id }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+            </p>
+
+
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
