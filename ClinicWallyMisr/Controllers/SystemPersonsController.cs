@@ -13,12 +13,17 @@ namespace ClinicWallyMisr.Controllers
 {
     public class SystemPersonsController : Controller
     {
+        //TODO solve problem of datepicker
         SystemPersonService _personService = new SystemPersonService();
-        JobService _jobService = new JobService();
+        DBService<Job> _jobService = new JobService();
         SpecializationService _specializationService = new SpecializationService();
         // GET: SystemPersons
         public ActionResult Index()
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             List<SystemPerson> systemPersons = _personService.getAll().Include(s => s.Job).Include(s => s.Specialization).ToList();
             if ((Request.QueryString["acc.name"] != string.Empty && Request.QueryString["acc.name"] != null)
                 || (Request.QueryString["jobId"] != string.Empty && Request.QueryString["jobId"] != null)
@@ -54,6 +59,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: SystemPersons/Details/5
         public ActionResult Details(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -69,6 +78,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: SystemPersons/Create
         public ActionResult Create()
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             ViewBag.jobId = new SelectList(_jobService.getAll(), "id", "name");
             ViewBag.specializationId = new SelectList(new List<Specialization>(), "id", "name");
             return View();
@@ -88,8 +101,12 @@ namespace ClinicWallyMisr.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,name,address,gender,religion,nationality,maritalStatus,insuranceNo,SSN,DateofBirth,Phone,mobile1,mobile2,place,cv,joinDate,leaveDate,leaveReason,scientificDegree,Type,jobId,specializationId")] SystemPerson systemPerson)
+        public ActionResult Create(SystemPerson systemPerson)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (Request.Files.Count > 0)
             {
                 if (Request.Files[0].FileName!="")
@@ -119,6 +136,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: SystemPersons/Edit/5
         public ActionResult Edit(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -138,8 +159,12 @@ namespace ClinicWallyMisr.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,name,address,gender,religion,nationality,maritalStatus,insuranceNo,SSN,DateofBirth,Phone,mobile1,mobile2,place,cv,joinDate,leaveDate,leaveReason,scientificDegree,Type,jobId,specializationId")] SystemPerson systemPerson)
+        public ActionResult Edit(SystemPerson systemPerson)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (Request.Files.Count > 0)
             {
                 if (Request.Files[0].FileName != "")
@@ -186,6 +211,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: SystemPersons/Delete/5
         public ActionResult Delete(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -227,6 +256,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             SystemPerson systemPerson = _personService.get(id);
             _personService.delete(systemPerson);
             return RedirectToAction("Index");

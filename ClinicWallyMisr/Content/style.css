@@ -81,8 +81,8 @@ header {
 }
 .row-top {
 	width:100%;
-	height:124px;
-	background:url(images/row-top-tail.jpg) center top repeat-x;
+	height:250px;
+	background:black center top repeat-x;
 	overflow:hidden;
 }
 
@@ -93,16 +93,21 @@ h1 {
 }
 	h1 a {
 		display:block; 
-		width:299px;
-		height:44px;
+		width:199px;
+		height:165px;
 		text-indent:-9999em;
-		background:url(images/logo.png) 0 0 no-repeat;
+		background:url(images/logo2.png) 0 0 no-repeat;
 	}
 	
 /***** search form *****/
 #search-form {
 	padding:45px 10px 0 0;
 	float:right;
+}
+#search-form a{
+    text-transform:none;
+        font-size: medium;
+    text-decoration: none;
 }
 #search-form fieldset {
 	position:relative; 
@@ -322,6 +327,7 @@ dl span {float:left; width:88px}
 	display:block; 
 	height:44px;
 }
+/*
 .myinput{
     	width:248px; 
 	font-size:15px; 
@@ -334,7 +340,24 @@ dl span {float:left; width:88px}
 	outline:none;
     min-height:30px;
 }
+*/
+.myinput {
+    	width:245px; 
+	font-size:14px;
+	line-height:1.25em;
+	padding:9px 15px 9px; 
+	font-family:Arial, Helvetica, sans-serif; 
+	  color: #555555;
+  vertical-align: middle;
+  background-color: #ffffff;
+	background:none;
+	  border: 1px solid #cccccc;
+  
+	margin:0;
+	outline:none;
+	
 
+}
 .myinput:focus {
   border-color: #66afe9;
   outline: 0;

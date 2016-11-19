@@ -30,7 +30,7 @@
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/datepicker/jquery-ui.css" rel="stylesheet" />
 </head>
-<body id="">
+<body id="page1">
     <div class="extra">
         <!--==============================header=================================-->
         <header>
@@ -38,14 +38,19 @@
                 <div class="main">
                     <div class="wrapper">
                         <h1>@Html.ActionLink("Home", "Index", "Home")</h1>
-                        <form id="search-form" method="post" enctype="multipart/form-data">
-                            <fieldset>
-                                <div class="search-field">
-                                    <input name="search" type="text" value="Search..." onBlur="if(this.value=='') this.value='Search...'" onFocus="if(this.value =='Search...' ) this.value=''" />
-                                    <a class="search-button" href="#" onClick="document.getElementById('search-form').submit()"></a>
-                                </div>
-                            </fieldset>
-                        </form>
+                        <div id="search-form">
+                            @if (Session["username"] != null && Session["username"] != string.Empty)
+                            {
+                                <a>@Session["username"] |</a>@Html.ActionLink(" Logout", "Logout", "Accounts")
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Login", "Login", "Accounts")
+                            }
+                            <hr />
+                            @Html.ActionLink("Accounts ", "Index", "Accounts")
+                            @Html.ActionLink("| Group Permissions", "Index", "Groups")
+                        </div>
                     </div>
                 </div>
             </div>
@@ -64,6 +69,7 @@
                     </div>
                 </div>
             </div>
+@RenderSection("myHead",false)
         </header>
 
         <!--==============================content================================-->
@@ -80,6 +86,7 @@
                 <div class="container_12">
                     <div class="wrapper">
                         <article class="grid_8">
+                            <!--
                             <h4>Contact Form:</h4>
                             <form id="contact-form" method="post">
                                 <fieldset>
@@ -92,11 +99,12 @@
                                     </div>
                                 </fieldset>
                             </form>
+                                -->
                         </article>
                         <article class="grid_4">
                             <h4 class="indent-bot">Link to Us:</h4>
                             <ul class="list-services border-bot img-indent-bot">
-                                <li><a href="#">Facebook</a></li>
+                                <li><a href="https://www.facebook.com/Sportortho/">Facebook</a></li>
                                 <li><a class="item-1" href="#">Twitter</a></li>
                                 <li><a class="item-2" href="#">Picassa</a></li>
                                 <li><a class="item-3" href="#">You Tube</a></li>
@@ -113,10 +121,12 @@
         @RenderSection("scripts", required: false)
         <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    
     <script src="~/Scripts/datepicker/jquery-1.12.4.js"></script>
     <script src="~/Scripts/datepicker/jquery-ui.js"></script>
-    <script src="~/Scripts/newScripts/cufon-yui.js"></script>
+    
 
+    <script src="~/Scripts/newScripts/cufon-yui.js"></script>
     <script src="~/Scripts/newScripts/cufon-replace.js"></script>
     <script src="~/Scripts/newScripts/NewsGoth_400.font.js"></script>
     <script src="~/Scripts/newScripts/NewsGoth_700.font.js"></script>
@@ -124,7 +134,22 @@
 
     <script src="~/Scripts/newScripts/Vegur_400.font.js"></script>
     <script src="~/Scripts/newScripts/FF-cash.js"></script>
-    
+
+    <script src="~/Scripts/newScripts/jquery.featureCarousel.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $("#carousel").featureCarousel({
+            autoPlay: 7000,
+            trackerIndividual: false,
+            trackerSummation: false,
+            topPadding: 50,
+            smallFeatureWidth: .9,
+            smallFeatureHeight: .9,
+            sidePadding: 0,
+            smallFeatureOffset: 0
+        });
+    });
+    </script>
     <script>
         $(document).ready(function () {
             $("input[data-datepicker='true']").datepicker({

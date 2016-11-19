@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ClinicWallyMisr.Account>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div style="margin-top:20px;clear:both;"></div>
+<div class="row">
+    <div class="col-md-offset-2 col-md-6">
+        <div class="row">
+            <p style="float:right" class="btn btn-primary">
+                @Html.ActionLink("Create New", "Create")
+            </p>
+        </div>
+    </div>
+</div>
+<div style="margin-top:20px;clear:both;"></div>
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-10">
+        <div class="row">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.password)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.creationDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.isAdmin)
+                    </th>
+                    <th>Group</th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.password)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.creationDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.isAdmin)
+                        </td>
+                        <td>
+                            @if (item.Group != null)
+                            {
+                                @Html.DisplayFor(modelItem => item.Group.name)
+                            }
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            </div>
+        </div>
+    </div>
+
+            

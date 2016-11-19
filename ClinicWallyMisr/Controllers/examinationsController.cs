@@ -17,6 +17,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: examinations
         public ActionResult Index(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
                 return HttpNotFound();
             visit visit = _visitService.get(id);
@@ -31,6 +35,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: examinations/Create
         public ActionResult Create(Guid id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
                 return HttpNotFound();
 
@@ -48,6 +56,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(examination examination)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (ModelState.IsValid)
             {
                 examination.id = Guid.NewGuid();
@@ -69,6 +81,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: examinations/Edit/5
         public ActionResult Edit(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -88,6 +104,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit( examination examination)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(examination).State = EntityState.Modified;
@@ -100,6 +120,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: examinations/Delete/5
         public ActionResult Delete(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -117,6 +141,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             examination examination = db.examinations.Find(id);
             Guid visitId = (Guid)examination.visitId;
             db.examinations.Remove(examination);

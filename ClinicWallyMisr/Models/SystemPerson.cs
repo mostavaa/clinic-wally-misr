@@ -17,7 +17,13 @@ namespace ClinicWallyMisr
     [MetadataType(typeof(SystemPersonMetaData))]
     public partial class SystemPerson
     {
-
+        
+        [MinLength(2)]
+        [MaxLength(50)]
+        [RegularExpression(@"^[a-zA-Z0-9\u0600-\u06FF\s_-]*$")]
+        [Required]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
     }
     public class SystemPersonMetaData
     {
@@ -132,6 +138,18 @@ namespace ClinicWallyMisr
 
             try
             {
+                DBService<Account> _accountService = new AccountService();
+                Account account = _accountService.get(acc.id);
+                if (account != null)
+                {
+                    account.name = acc.name;
+                    account.password = acc.Password;
+                    _accountService.edit(account);
+                }
+                else
+                {
+                    addAccount(acc);
+                }
 
                 var entry = _context.Entry<SystemPerson>(acc);
 
@@ -159,10 +177,22 @@ namespace ClinicWallyMisr
             }
             return acc;
         }
+        private void addAccount(SystemPerson acc)
+        {
+            DBService<Account> _accountService = new AccountService();
+            _accountService.add(new Account
+            {
+                creationDate = DateTime.Now,
+                name = acc.name,
+                password = acc.Password,
+                id = acc.id
+            });
+        }
         public SystemPerson add(SystemPerson acc)
         {
             try
             {
+                addAccount(acc);
                 _context.SystemPersons.Add(acc);
                 _context.SaveChanges();
                 Logger.Log(acc.name + " is Added", LogType.Info);
@@ -177,6 +207,13 @@ namespace ClinicWallyMisr
         {
             try
             {
+
+                DBService<Account> _accountService = new AccountService();
+                Account account =  _accountService.get(acc.id);
+                if (account != null)
+                {
+                    _accountService.delete(account);
+                }
                 _context.Entry(acc).State = System.Data.Entity.EntityState.Deleted;
                 _context.SaveChanges();
                 Logger.Log(acc.name + " is Deleted", LogType.Info);

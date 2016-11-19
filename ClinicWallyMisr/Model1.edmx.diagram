@@ -36,6 +36,13 @@
         <AssociationConnector Association="ClinicWallyMisrModel.FK_Reservation_SystemPerson" />
         <AssociationConnector Association="ClinicWallyMisrModel.FK_SystemPerson_Specialization" />
         <AssociationConnector Association="ClinicWallyMisrModel.FK_visits_SystemPerson" />
+        <EntityTypeShape EntityType="ClinicWallyMisrModel.Account" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ClinicWallyMisrModel.Group" Width="1.5" PointX="1" PointY="3.875" />
+        <EntityTypeShape EntityType="ClinicWallyMisrModel.Permission" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="ClinicWallyMisrModel.Table" Width="1.5" PointX="3.75" PointY="5.375" />
+        <AssociationConnector Association="ClinicWallyMisrModel.FK_Account_Group" />
+        <AssociationConnector Association="ClinicWallyMisrModel.FK_Permissions_Group" />
+        <AssociationConnector Association="ClinicWallyMisrModel.FK_Permissions_Tables" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

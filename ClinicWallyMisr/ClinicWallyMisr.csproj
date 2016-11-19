@@ -159,20 +159,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Complaint.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\EndoscopiesController.cs" />
     <Compile Include="Controllers\examinationsController.cs" />
+    <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagingsController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\LaboratoriesController.cs" />
     <Compile Include="Controllers\medicinesController.cs" />
     <Compile Include="Controllers\patientsController.cs" />
+    <Compile Include="Controllers\PermissionsController.cs" />
     <Compile Include="Controllers\prescriptionsController.cs" />
     <Compile Include="Controllers\ReservationsController.cs" />
     <Compile Include="Controllers\SpecializationsController.cs" />
@@ -186,6 +192,9 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Group.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Imaging.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -220,9 +229,14 @@
     <Compile Include="Models\ClinicWallyMisrEntities.cs" />
     <Compile Include="Models\examination.cs" />
     <Compile Include="Models\Imaging.cs" />
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Group.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Lab.cs" />
     <Compile Include="Models\Laboratory.cs" />
+    <Compile Include="Models\tools\AuthenticationModule.cs" />
+    <Compile Include="Models\tools\myRoleProvider.cs" />
+    <Compile Include="Models\tools\DBService.cs" />
     <Compile Include="Models\visit.cs" />
     <Compile Include="Models\Endoscopy.cs" />
     <Compile Include="Models\Complaint.cs" />
@@ -235,6 +249,9 @@
     <Compile Include="Models\tools\Constants.cs" />
     <Compile Include="Models\tools\Logger.cs" />
     <Compile Include="patient.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Permission.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="prescription.cs">
@@ -254,11 +271,67 @@
     <Compile Include="SystemPerson.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Table.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="visit.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\ClinicWallyMisr.dll" />
+    <Content Include="bin\ClinicWallyMisr.pdb" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Core.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Owin.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Owin.xml" />
+    <Content Include="bin\Microsoft.Owin.dll" />
+    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Cookies.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Facebook.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Facebook.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Google.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Google.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.OAuth.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.OAuth.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Twitter.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Twitter.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.xml" />
+    <Content Include="bin\Microsoft.Owin.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\Owin.dll" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.xml" />
+    <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\images\box-tail.gif" />
     <Content Include="Content\images\center-shadow.png" />
     <Content Include="Content\images\center-shadow2.jpg" />
@@ -270,6 +343,8 @@
     <Content Include="Content\images\gallery-img3.png" />
     <Content Include="Content\images\input-tail.gif" />
     <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\logo2.jpg" />
+    <Content Include="Content\images\logo2kber.png" />
     <Content Include="Content\images\marker-1.gif" />
     <Content Include="Content\images\marker-2.png" />
     <Content Include="Content\images\marker-3.gif" />
@@ -342,6 +417,8 @@
     <Content Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="bin\ClinicWallyMisr.dll.config" />
+    <None Include="Properties\PublishProfiles\wallhymisr.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\datepicker\jquery-ui.js" />
     <Content Include="Scripts\datepicker\jquery-1.12.4.js" />
@@ -357,7 +434,6 @@
     <Content Include="Scripts\newScripts\cufon-yui.js" />
     <Content Include="Scripts\newScripts\FF-cash.js" />
     <Content Include="Scripts\newScripts\html5.js" />
-    <Content Include="Scripts\newScripts\jquery-1.6.3.min.js" />
     <Content Include="Scripts\newScripts\jquery.featureCarousel.js" />
     <Content Include="Scripts\newScripts\NewsGoth_400.font.js" />
     <Content Include="Scripts\newScripts\NewsGoth_700.font.js" />
@@ -366,7 +442,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -442,11 +520,22 @@
     <Content Include="Views\Reservations\Details.cshtml" />
     <Content Include="Views\Reservations\Edit.cshtml" />
     <Content Include="Views\Reservations\Index.cshtml" />
-    <Content Include="Views\examinations\Create.cshtml" />
     <Content Include="Views\examinations\Delete.cshtml" />
     <Content Include="Views\examinations\Details.cshtml" />
     <Content Include="Views\examinations\Edit.cshtml" />
     <Content Include="Views\examinations\Index.cshtml" />
+    <Content Include="Views\Accounts\Create.cshtml" />
+    <Content Include="Views\Accounts\Delete.cshtml" />
+    <Content Include="Views\Accounts\Edit.cshtml" />
+    <Content Include="Views\Accounts\Index.cshtml" />
+    <Content Include="Views\Accounts\Login.cshtml" />
+    <Content Include="Views\Groups\Create.cshtml" />
+    <Content Include="Views\Groups\Delete.cshtml" />
+    <Content Include="Views\Groups\Edit.cshtml" />
+    <Content Include="Views\Groups\Index.cshtml" />
+    <Content Include="Views\Permissions\Edit.cshtml" />
+    <Content Include="Views\Permissions\Index.cshtml" />
+    <Content Include="Views\examinations\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\fileUploads\" />

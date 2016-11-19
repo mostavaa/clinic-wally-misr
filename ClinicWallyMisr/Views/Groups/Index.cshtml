@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ClinicWallyMisr.Group>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-md-offset-2 col-md-6">
+        <p style="float:right" class="btn btn-primary">
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    </div>
+</div>
+
+
+<div style="margin-top:20px;clear:both;"></div>
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-10">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th>Permissions</th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>@Html.ActionLink("Permissions", "Index", "Permissions", new { @id = item.id }, null)</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>

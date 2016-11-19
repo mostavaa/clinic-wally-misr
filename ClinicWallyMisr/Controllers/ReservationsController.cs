@@ -17,7 +17,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Reservations
         public ActionResult Index()
         {
-
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             var reservations = db.Reservations.Include(r => r.SystemPerson).ToList();
             if ((Request.QueryString["roomNumberQ"] != string.Empty && Request.QueryString["roomNumberQ"] != null) ||
                (Request.QueryString["doctorIdsearch"] != string.Empty && Request.QueryString["doctorIdsearch"] != null)
@@ -43,6 +46,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Reservations/Details/5
         public ActionResult Details(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -69,6 +76,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,patientName,fromTime,toTime,reservationType,notes,status,doctorId,roomNumber")] Reservation reservation)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (ModelState.IsValid)
             {
                 reservation.id = Guid.NewGuid();
@@ -84,6 +95,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Reservations/Edit/5
         public ActionResult Edit(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -104,6 +119,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,patientName,fromTime,toTime,reservationType,notes,status,doctorId,roomNumber")] Reservation reservation)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(reservation).State = EntityState.Modified;
@@ -117,6 +136,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Reservations/Delete/5
         public ActionResult Delete(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -134,6 +157,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             Reservation reservation = db.Reservations.Find(id);
             db.Reservations.Remove(reservation);
             db.SaveChanges();

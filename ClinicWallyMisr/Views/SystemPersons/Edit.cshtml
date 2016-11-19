@@ -184,7 +184,7 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.jobId, "Job", htmlAttributes: new { @class = "control-label col-md-6" })
                                 <div class="col-md-10">
-                                    @Html.DropDownList("jobId", null, string.Empty, htmlAttributes: new { @class = "myinput" })
+                                    @Html.DropDownList("jobId", null, null, htmlAttributes: new { @class = "myinput" })
                                     @Html.ValidationMessageFor(model => model.jobId, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -193,7 +193,7 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.specializationId, "Specialization", htmlAttributes: new { @class = "control-label col-md-6" })
                                 <div class="col-md-10">
-                                    @Html.DropDownList("specializationId", null, string.Empty, htmlAttributes: new { @class = "myinput", @readonly = "readonly" })
+                                    @Html.DropDownList("specializationId", null, null, htmlAttributes: new { @class = "myinput", @readonly = "readonly" })
                                     @Html.ValidationMessageFor(model => model.specializationId, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -504,7 +504,19 @@
                     </div>
 
 
-
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-6" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "myinput" } })
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4"></div>
+                    </div>
 
 
                     

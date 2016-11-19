@@ -18,6 +18,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: patients
         public ActionResult Index()
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             var patients = db.patients.Include(p => p.SystemPerson);
 
             if (Request.QueryString["name"] != null && Request.QueryString["name"] != string.Empty)
@@ -32,6 +36,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: patients/Details/5
         public ActionResult Details(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -47,6 +55,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: patients/Create
         public ActionResult Create()
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             ViewBag.doctorId = new SelectList(db.SystemPersons, "id", "name");
             return View();
         }
@@ -56,8 +68,12 @@ namespace ClinicWallyMisr.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,name,diagnosis,diagnosisCode,notes,masterStatus,dateofDiagnosis,firstStatus,dateofRelapse,firstPresentationDate,birthDate,doctorId,age,gender,referredFrom,education,nationality,maritalStatus,occupation,noofChildren,ageofOldest,ageofYoungest,phone1,phone2,phone3,email,governorate,address,relationName,relation,relationPhone1,relationPhone2,relationPhone3,relationAddress,relationGovernorate,demographic,demographicType,demographicSince,packsNumber,alcoholIntake,menstrual,LMP,LMPDate,contraception,pregnancyatDiagnosis")] patient patient)
+        public ActionResult Create(patient patient)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (ModelState.IsValid)
             {
                 if (patient.birthDate != null)
@@ -87,6 +103,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: patients/Edit/5
         public ActionResult Edit(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -107,6 +127,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(patient patient)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (ModelState.IsValid)
             {
                 if (patient.birthDate != null)
@@ -157,6 +181,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: patients/Delete/5
         public ActionResult Delete(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -174,6 +202,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             patient patient = db.patients.Find(id);
             db.patients.Remove(patient);
             db.SaveChanges();

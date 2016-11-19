@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ClinicWallyMisr.Permission>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div style="margin-top:20px;clear:both;"></div>
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-10">
+        <h1>@ViewBag.group.name</h1>
+        <br />
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.canAdd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.canEdit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.canDelete)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.canRead)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Table.tableName)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.canAdd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.canEdit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.canDelete)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.canRead)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Table.tableName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }) 
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+    </div>
+        

@@ -19,22 +19,22 @@ namespace ClinicWallyMisr
         [RegularExpression(@"^[a-zA-Z0-9\u0600-\u06FF\s_-]*$")]
         public string name { get; set; }
     }
-    public class JobService
+    public class JobService: DBService<Job>
     {
         private ClinicWallyMisrEntities _context = ClinicWallyMisrEntities.Instance;
-        public Job get(Guid? id)
+        public override Job get(Guid? id)
         {
             if (id == null) id = Guid.Empty;
             Job acc = _context.Jobs.FirstOrDefault(o => o.id==(id));
             return acc;
         }
-        public Job getByName(string name)
+        public override Job getByName(string name)
         {
             Job acc = _context.Jobs.FirstOrDefault(o => o.name == name);
             return acc;
         }
 
-        public Job edit(Job acc)
+        public override Job edit(Job acc)
         {
 
             try
@@ -64,7 +64,7 @@ namespace ClinicWallyMisr
             }
             return acc;
         }
-        public Job add(Job acc)
+        public override Job add(Job acc)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace ClinicWallyMisr
             }
             return acc;
         }
-        public Job delete(Job acc)
+        public override Job delete(Job acc)
         {
             try
             {
@@ -93,7 +93,7 @@ namespace ClinicWallyMisr
             }
             return acc;
         }
-        public IQueryable<Job> getAll()
+        public override IQueryable<Job> getAll()
         {
             return _context.Jobs;
         }

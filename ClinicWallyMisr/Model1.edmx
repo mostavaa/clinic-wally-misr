@@ -5,6 +5,18 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ClinicWallyMisrModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="creationDate" Type="datetime" />
+          <Property Name="isAdmin" Type="bit" Nullable="false" />
+          <Property Name="groupId" Type="uniqueidentifier" />
+        </EntityType>
         <EntityType Name="Complaint">
           <Key>
             <PropertyRef Name="id" />
@@ -48,6 +60,13 @@
           <Property Name="GaitPattern" Type="bit" Nullable="false" />
           <Property Name="GaitPatternType" Type="nvarchar" MaxLength="50" />
           <Property Name="visitId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Imaging">
           <Key>
@@ -183,6 +202,18 @@
           <Property Name="allergySince" Type="datetime" />
           <Property Name="allergyType" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Permissions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="groupId" Type="uniqueidentifier" />
+          <Property Name="tableId" Type="uniqueidentifier" />
+          <Property Name="canAdd" Type="bit" Nullable="false" />
+          <Property Name="canEdit" Type="bit" Nullable="false" />
+          <Property Name="canDelete" Type="bit" Nullable="false" />
+          <Property Name="canRead" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="prescription">
           <Key>
             <PropertyRef Name="id" />
@@ -249,6 +280,13 @@
           <Property Name="jobId" Type="uniqueidentifier" />
           <Property Name="specializationId" Type="uniqueidentifier" />
         </EntityType>
+        <EntityType Name="Tables">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="tableName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="visits">
           <Key>
             <PropertyRef Name="id" />
@@ -275,6 +313,18 @@
           <Property Name="DoctorId" Type="uniqueidentifier" />
           <Property Name="patientId" Type="uniqueidentifier" />
         </EntityType>
+        <Association Name="FK_Account_Group">
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="groupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Complaint_visits">
           <End Role="visits" Type="Self.visits" Multiplicity="0..1" />
           <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
@@ -368,6 +418,30 @@
             </Principal>
             <Dependent Role="patient">
               <PropertyRef Name="doctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permissions_Group">
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Permissions" Type="Self.Permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Permissions">
+              <PropertyRef Name="groupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permissions_Tables">
+          <End Role="Tables" Type="Self.Tables" Multiplicity="0..1" />
+          <End Role="Permissions" Type="Self.Permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tables">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Permissions">
+              <PropertyRef Name="tableId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -468,21 +542,29 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ClinicWallyMisrModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Complaint" EntityType="Self.Complaint" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Endoscopy" EntityType="Self.Endoscopy" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="examination" EntityType="Self.examination" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Imaging" EntityType="Self.Imaging" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Job" EntityType="Self.Job" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Laboratory" EntityType="Self.Laboratory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Labs" EntityType="Self.Labs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="medicine" EntityType="Self.medicine" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="patient" EntityType="Self.patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permissions" EntityType="Self.Permissions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="prescription" EntityType="Self.prescription" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Specialization" EntityType="Self.Specialization" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="surgicalHistory" EntityType="Self.surgicalHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SystemPerson" EntityType="Self.SystemPerson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tables" EntityType="Self.Tables" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="visits" EntityType="Self.visits" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Account_Group" Association="Self.FK_Account_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
           <AssociationSet Name="FK_Complaint_visits" Association="Self.FK_Complaint_visits">
             <End Role="visits" EntitySet="visits" />
             <End Role="Complaint" EntitySet="Complaint" />
@@ -514,6 +596,14 @@
           <AssociationSet Name="FK_patient_SystemPerson" Association="Self.FK_patient_SystemPerson">
             <End Role="SystemPerson" EntitySet="SystemPerson" />
             <End Role="patient" EntitySet="patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permissions_Group" Association="Self.FK_Permissions_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Permissions" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permissions_Tables" Association="Self.FK_Permissions_Tables">
+            <End Role="Tables" EntitySet="Tables" />
+            <End Role="Permissions" EntitySet="Permissions" />
           </AssociationSet>
           <AssociationSet Name="FK_prescription_visits" Association="Self.FK_prescription_visits">
             <End Role="visits" EntitySet="visits" />
@@ -631,6 +721,22 @@
           <AssociationSet Name="FK_visits_SystemPerson" Association="ClinicWallyMisrModel.FK_visits_SystemPerson">
             <End Role="SystemPerson" EntitySet="SystemPersons" />
             <End Role="visit" EntitySet="visits" />
+          </AssociationSet>
+          <EntitySet Name="Accounts" EntityType="ClinicWallyMisrModel.Account" />
+          <EntitySet Name="Groups" EntityType="ClinicWallyMisrModel.Group" />
+          <EntitySet Name="Permissions" EntityType="ClinicWallyMisrModel.Permission" />
+          <EntitySet Name="Tables" EntityType="ClinicWallyMisrModel.Table" />
+          <AssociationSet Name="FK_Account_Group" Association="ClinicWallyMisrModel.FK_Account_Group">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permissions_Group" Association="ClinicWallyMisrModel.FK_Permissions_Group">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Permission" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permissions_Tables" Association="ClinicWallyMisrModel.FK_Permissions_Tables">
+            <End Role="Table" EntitySet="Tables" />
+            <End Role="Permission" EntitySet="Permissions" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Complaint">
@@ -1127,6 +1233,86 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="creationDate" Type="DateTime" Precision="3" />
+          <Property Name="isAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="groupId" Type="Guid" />
+          <NavigationProperty Name="Group" Relationship="ClinicWallyMisrModel.FK_Account_Group" FromRole="Account" ToRole="Group" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Accounts" Relationship="ClinicWallyMisrModel.FK_Account_Group" FromRole="Group" ToRole="Account" />
+          <NavigationProperty Name="Permissions" Relationship="ClinicWallyMisrModel.FK_Permissions_Group" FromRole="Group" ToRole="Permission" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="groupId" Type="Guid" />
+          <Property Name="tableId" Type="Guid" />
+          <Property Name="canAdd" Type="Boolean" Nullable="false" />
+          <Property Name="canEdit" Type="Boolean" Nullable="false" />
+          <Property Name="canDelete" Type="Boolean" Nullable="false" />
+          <Property Name="canRead" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Group" Relationship="ClinicWallyMisrModel.FK_Permissions_Group" FromRole="Permission" ToRole="Group" />
+          <NavigationProperty Name="Table" Relationship="ClinicWallyMisrModel.FK_Permissions_Tables" FromRole="Permission" ToRole="Table" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="tableName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Permissions" Relationship="ClinicWallyMisrModel.FK_Permissions_Tables" FromRole="Table" ToRole="Permission" />
+        </EntityType>
+        <Association Name="FK_Account_Group">
+          <End Type="ClinicWallyMisrModel.Group" Role="Group" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.Account" Role="Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="groupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permissions_Group">
+          <End Type="ClinicWallyMisrModel.Group" Role="Group" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.Permission" Role="Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="groupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permissions_Tables">
+          <End Type="ClinicWallyMisrModel.Table" Role="Table" Multiplicity="0..1" />
+          <End Type="ClinicWallyMisrModel.Permission" Role="Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="tableId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1414,6 +1600,48 @@
                 <ScalarProperty Name="visitSite" ColumnName="visitSite" />
                 <ScalarProperty Name="visitStatus" ColumnName="visitStatus" />
                 <ScalarProperty Name="visitDate" ColumnName="visitDate" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="groupId" ColumnName="groupId" />
+                <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Group">
+              <MappingFragment StoreEntitySet="Group">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permissions">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Permission">
+              <MappingFragment StoreEntitySet="Permissions">
+                <ScalarProperty Name="canRead" ColumnName="canRead" />
+                <ScalarProperty Name="canDelete" ColumnName="canDelete" />
+                <ScalarProperty Name="canEdit" ColumnName="canEdit" />
+                <ScalarProperty Name="canAdd" ColumnName="canAdd" />
+                <ScalarProperty Name="tableId" ColumnName="tableId" />
+                <ScalarProperty Name="groupId" ColumnName="groupId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tables">
+            <EntityTypeMapping TypeName="ClinicWallyMisrModel.Table">
+              <MappingFragment StoreEntitySet="Tables">
+                <ScalarProperty Name="tableName" ColumnName="tableName" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

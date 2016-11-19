@@ -17,6 +17,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Endoscopies
         public ActionResult Index(Guid?id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null || id == Guid.Empty)
                 return HttpNotFound();
             visit visit = _visitService.get(id);
@@ -30,6 +34,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Endoscopies/Create
         public ActionResult Create(Guid?id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null || id == Guid.Empty)
                 return HttpNotFound();
             visit visit = _visitService.get(id);
@@ -46,6 +54,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,Endoscopy1,EndoscopyType,site,comments,graph,visitId")] Endoscopy endoscopy)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (ModelState.IsValid)
             {
                 endoscopy.id = Guid.NewGuid();
@@ -63,6 +75,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Endoscopies/Edit/5
         public ActionResult Edit(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -82,6 +98,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,Endoscopy1,EndoscopyType,site,comments,graph,visitId")] Endoscopy endoscopy)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(endoscopy).State = EntityState.Modified;
@@ -94,6 +114,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Endoscopies/Delete/5
         public ActionResult Delete(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -111,6 +135,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             Endoscopy endoscopy = db.Endoscopies.Find(id);
             Guid visitId = (Guid)endoscopy.visitId;
             db.Endoscopies.Remove(endoscopy);

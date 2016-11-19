@@ -19,6 +19,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: prescriptions
         public ActionResult Index(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null || id == Guid.Empty)
                 return HttpNotFound();
             visit visit = _visitService.get(id);
@@ -33,6 +37,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: prescriptions/Create
         public ActionResult Create(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null || id == Guid.Empty)
                 return HttpNotFound();
             visit visit = _visitService.get(id);
@@ -49,6 +57,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,notes,visitId")] prescription prescription)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (ModelState.IsValid)
             {
                 prescription.id = Guid.NewGuid();
@@ -66,6 +78,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: prescriptions/Edit/5
         public ActionResult Edit(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -85,6 +101,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,notes,visitId")] prescription prescription)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(prescription).State = EntityState.Modified;
@@ -97,6 +117,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: prescriptions/Delete/5
         public ActionResult Delete(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -114,6 +138,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             prescription prescription = db.prescriptions.Find(id);
             Guid visitId = (Guid)prescription.visitId;
 

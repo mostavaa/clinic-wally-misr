@@ -19,6 +19,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: visits
         public ActionResult Index(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
                 return HttpNotFound();
 
@@ -34,6 +38,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: visits/Create
         public ActionResult Create(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
                 return HttpNotFound();
 
@@ -53,6 +61,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,visitDate,visitStatus,visitSite,complaintType,PresentHistory,decision,requestedInvestigations,GeneralAppearance,mentality,Built,Pallor,jaundice,cyanosis,postureDuringWalking,postureStanding,postureSitting,postureLyingSupineorPhone,vitalSigns,DoctorId,patientId")] visit visit)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (ModelState.IsValid)
             {
                 visit.id = Guid.NewGuid();
@@ -75,6 +87,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: visits/Edit/5
         public ActionResult Edit(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -95,6 +111,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,visitDate,visitStatus,visitSite,complaintType,PresentHistory,decision,requestedInvestigations,GeneralAppearance,mentality,Built,Pallor,jaundice,cyanosis,postureDuringWalking,postureStanding,postureSitting,postureLyingSupineorPhone,vitalSigns,DoctorId,patientId")] visit visit)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(visit).State = EntityState.Modified;
@@ -108,6 +128,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: visits/Delete/5
         public ActionResult Delete(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -125,6 +149,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             visit visit = db.visits.Find(id);
             Guid patientId = (Guid)visit.patientId;
             db.visits.Remove(visit);

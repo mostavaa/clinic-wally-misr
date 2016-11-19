@@ -1,0 +1,63 @@
+﻿@model ClinicWallyMisr.Account
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div style="margin-top:20px;clear:both;"></div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+
+        <h3>Are you sure you want to delete this?</h3>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <div class="row">
+                    <div class="col-md-4">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.name)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.name)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.password)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.password)
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.email)
+                        </dt>
+
+                        <dd class="myinput">
+                            @Html.DisplayFor(model => model.email)
+                        </dd>
+                    </div>
+                </div>
+                <dt>
+                    @Html.DisplayNameFor(model => model.name)
+                </dt>
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-danger" /> |
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+                </div>
+            }
+        </div>
+    </div>
+
+</div>

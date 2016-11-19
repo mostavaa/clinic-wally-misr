@@ -17,6 +17,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Imagings
         public ActionResult Index(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null || id == Guid.Empty)
                 return HttpNotFound();
             visit visit = _visitService.get(id);
@@ -32,6 +36,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Imagings/Create
         public ActionResult Create(Guid?id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null || id == Guid.Empty)
                 return HttpNotFound();
             visit visit = _visitService.get(id);
@@ -48,6 +56,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,ImageDate,ImageCenter,TypeofImage,Site,Comments,ImageName,VisitId")] Imaging imaging)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (ModelState.IsValid)
             {
                 imaging.id = Guid.NewGuid();
@@ -65,6 +77,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Imagings/Edit/5
         public ActionResult Edit(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -84,6 +100,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,ImageDate,ImageCenter,TypeofImage,Site,Comments,ImageName,VisitId")] Imaging imaging)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(imaging).State = EntityState.Modified;
@@ -96,6 +116,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Imagings/Delete/5
         public ActionResult Delete(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -113,6 +137,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             Imaging imaging = db.Imagings.Find(id);
             Guid visitId = (Guid)imaging.VisitId;
             db.Imagings.Remove(imaging);

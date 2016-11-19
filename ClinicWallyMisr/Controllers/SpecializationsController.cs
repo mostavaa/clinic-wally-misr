@@ -17,6 +17,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Specializations
         public ActionResult Index()
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             var specializations = db.Specializations.Include(s => s.Job);
             return View(specializations.ToList());
         }
@@ -24,6 +28,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Specializations/Details/5
         public ActionResult Details(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +47,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Specializations/Create
         public ActionResult Create()
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             ViewBag.jobId = new SelectList(db.Jobs, "id", "name");
             return View();
         }
@@ -50,6 +62,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,name,jobId")] Specialization specialization)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (ModelState.IsValid)
             {
                 specialization.id = Guid.NewGuid();
@@ -65,6 +81,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Specializations/Edit/5
         public ActionResult Edit(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -85,6 +105,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,name,jobId")] Specialization specialization)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(specialization).State = EntityState.Modified;
@@ -98,6 +122,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Specializations/Delete/5
         public ActionResult Delete(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -115,6 +143,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             Specialization specialization = db.Specializations.Find(id);
             db.Specializations.Remove(specialization);
             db.SaveChanges();

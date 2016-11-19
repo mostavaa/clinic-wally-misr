@@ -19,6 +19,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Laboratories
         public ActionResult Index(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null || id == Guid.Empty)
                 return HttpNotFound();
             visit visit = _visitService.get(id);
@@ -34,6 +38,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Laboratories/Create
         public ActionResult Create(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null || id == Guid.Empty)
                 return HttpNotFound();
             visit visit = _visitService.get(id);
@@ -51,6 +59,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,Laboratory1,DateofLab,visitId")] Laboratory laboratory)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (ModelState.IsValid)
             {
                 laboratory.id = Guid.NewGuid();
@@ -71,6 +83,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Laboratories/Edit/5
         public ActionResult Edit(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -90,6 +106,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,Laboratory1,DateofLab,visitId")] Laboratory laboratory)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(laboratory).State = EntityState.Modified;
@@ -102,6 +122,10 @@ namespace ClinicWallyMisr.Controllers
         // GET: Laboratories/Delete/5
         public ActionResult Delete(Guid? id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -119,6 +143,10 @@ namespace ClinicWallyMisr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
+            if (!HomeController.Authorized(this))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             Laboratory laboratory = db.Laboratories.Find(id);
             Guid visitId = (Guid)laboratory.visitId;
             db.Laboratories.Remove(laboratory);
