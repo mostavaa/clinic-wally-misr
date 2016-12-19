@@ -1,5 +1,5 @@
 ﻿@{
-    string home = "", employees = "", patient = "", constants = "", reservations = "";
+    string home = "", employees = "", patient = "", reservations = "";
     if (Request.Url.AbsoluteUri.ToLower().Contains("person"))
     {
         employees = "active";
@@ -8,10 +8,7 @@
     {
         patient = "active";
     }
-    else if (Request.Url.AbsoluteUri.ToLower().Contains("constant"))
-    {
-        constants = "active";
-    }
+
     else if (Request.Url.AbsoluteUri.ToLower().Contains("reservation"))
     {
         reservations = "active";
@@ -26,9 +23,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-        @Styles.Render("~/Content/css")
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <link href="~/Content/datepicker/jquery-ui.css" rel="stylesheet" />
+
+    <link href="~/Content/datepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet" />
 </head>
 <body id="page1">
     <div class="extra">
@@ -63,19 +64,18 @@
                                 <li class="@employees">@Html.ActionLink("Employees", "Index", "SystemPersons")</li>
                                 <li class="@patient">@Html.ActionLink("Patients", "Index", "patients")</li>
                                 <li class="@reservations">@Html.ActionLink("Reservations", "Index", "Reservations")</li>
-                                <li class="@constants">@Html.ActionLink("Constants", "constants","Home")</li>
                             </ul>
                         </nav>
                     </div>
                 </div>
             </div>
-@RenderSection("myHead",false)
+            @RenderSection("myHead", false)
         </header>
 
         <!--==============================content================================-->
         <section id="content">
             @RenderBody()
-            
+
         </section>
     </div>
     <!--==============================footer=================================-->
@@ -116,14 +116,16 @@
     </footer>
 
     @Scripts.Render("~/bundles/jquery")
-    
-        @RenderSection("scripts", required: false)
-        <script src="~/Scripts/jquery.validate.js"></script>
+
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     
-    <script src="~/Scripts/datepicker/jquery-1.12.4.js"></script>
-    <script src="~/Scripts/datepicker/jquery-ui.js"></script>
-    
+
+    @*
+        <script src="~/Scripts/datepicker/jquery-1.12.4.js"></script>
+            <script src="~/Scripts/datepicker/jquery-ui.js"></script>
+    *@
 
     <script src="~/Scripts/newScripts/cufon-yui.js"></script>
     <script src="~/Scripts/newScripts/cufon-replace.js"></script>
@@ -136,28 +138,55 @@
 
     <script src="~/Scripts/newScripts/jquery.featureCarousel.js"></script>
     <script type="text/javascript">
-    $(document).ready(function () {
-        $("#carousel").featureCarousel({
-            autoPlay: 7000,
-            trackerIndividual: false,
-            trackerSummation: false,
-            topPadding: 0,
-            smallFeatureWidth: .5,
-            smallFeatureHeight: .5,
-            largeFeatureWidth: .7,
-            largeFeatureHeight: .7,
-            sidePadding: 0,
-            smallFeatureOffset: 0,
-        });
-    });
-    </script>
-    <script>
         $(document).ready(function () {
-            $("input[data-datepicker='true']").datepicker({
-                dateFormat: "dd-M-yy"
+            $("#carousel").featureCarousel({
+                autoPlay: 7000,
+                trackerIndividual: false,
+                trackerSummation: false,
+                topPadding: 0,
+                smallFeatureWidth: .5,
+                smallFeatureHeight: .5,
+                largeFeatureWidth: .7,
+                largeFeatureHeight: .7,
+                sidePadding: 0,
+                smallFeatureOffset: 0,
             });
         });
     </script>
+    <script>
+        /*
+    $(document).ready(function () {
+        $("input[data-datepicker='true']").datepicker({
+            dateFormat: "dd-M-yy"
+        });
+    });
+        */
+    </script>
+
+
+
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+
+
+    <script src="~/Scripts/datepicker/bootstrap-datetimepicker.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('.datetimepicker1').datetimepicker({
+                language: 'en',
+                pick12HourFormat: true,
+                format: 'MM/dd/yyyy HH:mm:ss PP',
+            });
+            $(document).click(function () {
+                $(".bootstrap-datetimepicker-widget").hide().find("li").removeClass("collapse");
+            });
+            $(".clickable").click(function () {
+                window.location.href = $(this).data("href");
+            });
+         
+        });
+    </script>
+
     <script type="text/javascript"> Cufon.now(); </script>
 
 </body>

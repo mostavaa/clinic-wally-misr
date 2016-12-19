@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
         <div class="row">
-
+            @Html.ActionLink("Patients", "Index", null, new { @class = "btn" })
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
@@ -66,13 +66,7 @@
                                 @Html.LabelFor(model => model.masterStatus, htmlAttributes: new { @class = "control-label col-md-6" })
                                 <div class="col-md-10">
                                     <select id="masterStatus" name="masterStatus" class="myinput">
-                                        @{
-                                            foreach (var item in Constants.masterStatus)
-                                            {
-                                                <option value="@item.Key">@item.Value</option>
-
-                                            }
-                                        }
+                                        <option value="Under Treatment">Under Treatment</option>
                                     </select>                @Html.ValidationMessageFor(model => model.masterStatus, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -97,13 +91,7 @@
                                 @Html.LabelFor(model => model.firstStatus, htmlAttributes: new { @class = "control-label col-md-6" })
                                 <div class="col-md-10">
                                     <select id="firstStatus" name="firstStatus" class="myinput">
-                                        @{
-                                            foreach (var item in Constants.firstStatus)
-                                            {
-                                                <option value="@item.Key">@item.Value</option>
-
-                                            }
-                                        }
+                                      
                                     </select>                  @Html.ValidationMessageFor(model => model.firstStatus, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -150,13 +138,10 @@
                                 @Html.LabelFor(model => model.nationality, htmlAttributes: new { @class = "control-label col-md-6" })
                                 <div class="col-md-10">
                                     <select id="nationality" name="nationality" class="myinput">
-                                        @{
-                                            foreach (var item in Constants.nationality)
-                                            {
-                                                <option value="@item.Key">@item.Value</option>
+                                   
+                    <option value="Egyptian">Egyptian</option>
 
-                                            }
-                                        }
+             
                                     </select>                @Html.ValidationMessageFor(model => model.nationality, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -180,13 +165,11 @@
                                 @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-6" })
                                 <div class="col-md-10">
                                     <select name="gender" id="gender" class="myinput">
-                                        @{
-                                            foreach (var item in Constants.gender)
-                                            {
-                                                <option value="@item.Key">@item.Value</option>
+                                 
+                    <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
 
-                                            }
-                                        }
+          
                                     </select>
                                     @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
                                 </div>
@@ -197,13 +180,7 @@
                                 @Html.LabelFor(model => model.education, htmlAttributes: new { @class = "control-label col-md-6" })
                                 <div class="col-md-10">
                                     <select id="education" name="education" class="myinput">
-                                        @{
-                                            foreach (var item in Constants.education)
-                                            {
-                                                <option value="@item.Key">@item.Value</option>
-
-                                            }
-                                        }
+                                    
                                     </select>                      @Html.ValidationMessageFor(model => model.education, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -227,13 +204,7 @@
                                 @Html.LabelFor(model => model.referredFrom, htmlAttributes: new { @class = "control-label col-md-6" })
                                 <div class="col-md-10">
                                     <select id="referredFrom" name="referredFrom" class="myinput">
-                                        @{
-                                            foreach (var item in Constants.referredFrom)
-                                            {
-                                                <option value="@item.Key">@item.Value</option>
-
-                                            }
-                                        }
+                                      
                                     </select>                  @Html.ValidationMessageFor(model => model.referredFrom, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -243,13 +214,9 @@
                                 @Html.LabelFor(model => model.maritalStatus, htmlAttributes: new { @class = "control-label col-md-6" })
                                 <div class="col-md-10">
                                     <select id="maritalStatus" name="maritalStatus" class="myinput">
-                                        @{
-                                            foreach (var item in Constants.maritalStatus)
-                                            {
-                                                <option value="@item.Key">@item.Value</option>
+                 
+                    <option value="Single">Single</option>
 
-                                            }
-                                        }
                                     </select>                     @Html.ValidationMessageFor(model => model.maritalStatus, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -367,13 +334,7 @@
                                 @Html.LabelFor(model => model.governorate, htmlAttributes: new { @class = "control-label col-md-6" })
                                 <div class="col-md-10">
                                     <select id="governorate" name="governorate" class="myinput">
-                                        @{
-                                            foreach (var item in Constants.governorate)
-                                            {
-                                                <option value="@item.Key">@item.Value</option>
-
-                                            }
-                                        }
+                                        <option value="Cairo">Cairo</option>
                                     </select>                      @Html.ValidationMessageFor(model => model.governorate, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -411,13 +372,7 @@
     @Html.LabelFor(model => model.relation, htmlAttributes: new { @class = "control-label col-md-6" })
     <div class="col-md-10">
         <select id="relation" name="relation" class="myinput">
-            @{
-                foreach (var item in Constants.relation)
-                {
-                    <option value="@item.Key">@item.Value</option>
-
-                }
-            }
+            <option value="Brother">Brother</option>
         </select>                         @Html.ValidationMessageFor(model => model.relation, "", new { @class = "text-danger" })
     </div>
 </div></div>
@@ -467,13 +422,7 @@
                                 @Html.LabelFor(model => model.relationGovernorate, htmlAttributes: new { @class = "control-label col-md-6" })
                                 <div class="col-md-10">
                                     <select id="relationGovernorate" name="relationGovernorate" class="myinput">
-                                        @{
-                                            foreach (var item in Constants.governorate)
-                                            {
-                                                <option value="@item.Key">@item.Value</option>
-
-                                            }
-                                        }
+                                        <option value="Cairo">Cairo</option>
                                     </select>                    @Html.ValidationMessageFor(model => model.relationGovernorate, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -488,13 +437,7 @@
     @Html.LabelFor(model => model.demographic, htmlAttributes: new { @class = "control-label col-md-6" })
     <div class="col-md-10">
         <select id="demographic" name="demographic" class="myinput">
-            @{
-                foreach (var item in Constants.demographicPationtIs)
-                {
-                    <option value="@item.Key">@item.Value</option>
-
-                }
-            }
+            <option value="Smoking">Smoking</option>
         </select>                      @Html.ValidationMessageFor(model => model.demographic, "", new { @class = "text-danger" })
     </div>
 </div></div>
@@ -502,13 +445,7 @@
     @Html.LabelFor(model => model.demographicType, htmlAttributes: new { @class = "control-label col-md-6" })
     <div class="col-md-10">
         <select id="demographicType" name="demographicType" class="myinput">
-            @{
-                foreach (var item in Constants.demographicType)
-                {
-                    <option value="@item.Key">@item.Value</option>
-
-                }
-            }
+            <option value="Cigerette">Cigerette</option>
         </select>                 @Html.ValidationMessageFor(model => model.demographicType, "", new { @class = "text-danger" })
     </div>
 </div></div>
@@ -555,13 +492,7 @@
                                 @Html.LabelFor(model => model.menstrual, htmlAttributes: new { @class = "control-label col-md-6" })
                                 <div class="col-md-10">
                                     <select id="menstrual" name="menstrual" class="myinput" readonly="readonly" disabled="disabled">
-                                        @{
-                                            foreach (var item in Constants.menstrual)
-                                            {
-                                                <option value="@item.Key">@item.Value</option>
-
-                                            }
-                                        }
+                                  
                                     </select>
 
 
@@ -597,13 +528,7 @@
                                 @Html.LabelFor(model => model.contraception, htmlAttributes: new { @class = "control-label col-md-6" })
                                 <div class="col-md-10">
                                     <select id="contraception" name="contraception" class="myinput" readonly="readonly" disabled="disabled">
-                                        @{
-                                            foreach (var item in Constants.contraception)
-                                            {
-                                                <option value="@item.Key">@item.Value</option>
-
-                                            }
-                                        }
+                                    
                                     </select>                 @Html.ValidationMessageFor(model => model.contraception, "", new { @class = "text-danger" })
                                 </div>
                             </div>

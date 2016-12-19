@@ -44,13 +44,10 @@
                                 @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-6" })
                                 <div class="col-md-10">
                                     <select id="gender" name="gender" class="myinput">
-                                        @{
-                                            foreach (var item in Constants.gender)
-                                            {
-                                                <option value="@item.Key">@item.Value</option>
-
-                                            }
-                                        }
+                          
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+       
                                     </select>
                                     @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
                                 </div>
@@ -66,13 +63,9 @@
                                 @Html.LabelFor(model => model.religion, htmlAttributes: new { @class = "control-label col-md-6" })
                                 <div class="col-md-10">
                                     <select id="religion" name="religion" class="myinput">
-                                        @{
-                                            foreach (var item in Constants.religion)
-                                            {
-                                                <option value="@item.Key">@item.Value</option>
+                                     
+                    <option value="Muslim">Muslim</option>
 
-                                            }
-                                        }
                                     </select>
                                     @Html.ValidationMessageFor(model => model.religion, "", new { @class = "text-danger" })
                                 </div>
@@ -83,13 +76,9 @@
                                 @Html.LabelFor(model => model.nationality, htmlAttributes: new { @class = "control-label col-md-6" })
                                 <div class="col-md-10">
                                     <select id="nationality" name="nationality" class="myinput">
-                                        @{
-                                            foreach (var item in Constants.nationality)
-                                            {
-                                                <option value="@item.Key">@item.Value</option>
+                                 
+                    <option value="Egyptian">Egyptian</option>
 
-                                            }
-                                        }
                                     </select>                @Html.ValidationMessageFor(model => model.nationality, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -100,13 +89,12 @@
                                 @Html.LabelFor(model => model.maritalStatus, htmlAttributes: new { @class = "control-label col-md-6" })
                                 <div class="col-md-10">
                                     <select id="maritalStatus" name="maritalStatus" class="myinput">
-                                        @{
-                                            foreach (var item in Constants.maritalStatus)
-                                            {
-                                                <option value="@item.Key">@item.Value</option>
+                                       
+              
+                    <option value="Single">Single</option>
 
-                                            }
-                                        }
+                
+                                        
                                     </select>                @Html.ValidationMessageFor(model => model.maritalStatus, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -210,51 +198,36 @@
                                                 if (Model.Job.name.ToLower().Contains("doctor"))
                                                 {
                                                     <select id="scientificDegree" name="scientificDegree" class="myinput">
-                                                        @{
-                                                            foreach (var item in Constants.ScientificDegree)
-                                                            {
-                                                                <option value="@item.Key">@item.Value</option>
+                                                
+                                                                <option value="Doctor">Doctor</option>
 
-                                                            }
-                                                        }
+                                                           
                                                     </select>
                                                             }
                                                             else
                                                             {
                                                                 <select id="scientificDegree" name="scientificDegree" class="myinput" readonly="readonly" disabled="disabled">
-                                                                    @{
-                                                                        foreach (var item in Constants.ScientificDegree)
-                                                                        {
-                                                                            <option value="@item.Key">@item.Value</option>
+                                                                  
+                                                                            <option value="Doctor">Doctor</option>
 
-                                                                        }
-                                                                    }
+                                                                    
                                                                 </select>
                                                                             }
                                                                         }
                                                                         else
                                                                         {
                                                                             <select id="scientificDegree" name="scientificDegree" class="myinput" readonly="readonly" disabled="disabled">
-                                                                                @{
-                                                                                    foreach (var item in Constants.ScientificDegree)
-                                                                                    {
-                                                                                        <option value="@item.Key">@item.Value</option>
+                                                                              
+                                                                         <option value="Doctor">Doctor</option>
 
-                                                                                    }
-                                                                                }
+                                                                        
                                                                             </select>
                                                                                         }
                                                                                     }
                                                                                     else
                                                                                     {
                                                                                         <select id="scientificDegree" name="scientificDegree" class="myinput" readonly="readonly" disabled="disabled">
-                                                                                            @{
-                                                                                                foreach (var item in Constants.ScientificDegree)
-                                                                                                {
-                                                                                                    <option value="@item.Key">@item.Value</option>
-
-                                                                                                }
-                                                                                            }
+                                                                                            <option value="Doctor">Doctor</option>
                                                                                         </select>
                                                                                                 }
                                     }

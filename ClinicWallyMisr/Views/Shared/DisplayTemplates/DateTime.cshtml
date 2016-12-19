@@ -1,7 +1,7 @@
 ﻿@model DateTime?
 @{
     if(Model.HasValue){
-        Write(Model.Value.ToString("dd-MMM-yyyy"));
+        Write(Model.Value.ToString("dd-MMM-yyyy HH:mm"));
     }else{
        Write("");
         //TODO display template for date ->not displayed

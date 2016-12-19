@@ -21,7 +21,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (id == null)
                 return HttpNotFound();
@@ -40,7 +40,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (id == null)
                 return HttpNotFound();
@@ -63,7 +63,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (ModelState.IsValid)
             {
@@ -89,7 +89,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (id == null)
             {
@@ -113,7 +113,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (ModelState.IsValid)
             {
@@ -130,7 +130,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (id == null)
             {
@@ -151,7 +151,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             visit visit = db.visits.Find(id);
             Guid patientId = (Guid)visit.patientId;

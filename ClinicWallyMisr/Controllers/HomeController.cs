@@ -26,23 +26,7 @@ namespace ClinicWallyMisr.Controllers
 
             return View();
         }
-        public ActionResult constants()
-        {
-            ClinicWallyMisrEntities db = ClinicWallyMisrEntities.Instance;
-                       string username = Session["username"] as string;
-                       if (username != null && username != string.Empty)
-                       {
-                           Account account = db.Accounts.FirstOrDefault(u => u.name == username);
-                           if (account != null)
-                           {
-                               if (account.isAdmin)
-                               {
-                                   return View();
-                               }
-                           }
-                       }
-                       return RedirectToAction("Index");            
-        }
+
         public ActionResult RemoveConstant(string constant, string value)
         {
             if (constant == "" || constant == null || constant == string.Empty || value == "" || value == null || value == string.Empty)

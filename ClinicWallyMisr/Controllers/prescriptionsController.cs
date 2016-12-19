@@ -21,7 +21,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (id == null || id == Guid.Empty)
                 return HttpNotFound();
@@ -39,7 +39,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (id == null || id == Guid.Empty)
                 return HttpNotFound();
@@ -59,7 +59,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (ModelState.IsValid)
             {
@@ -80,7 +80,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (id == null)
             {
@@ -103,7 +103,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (ModelState.IsValid)
             {
@@ -119,7 +119,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (id == null)
             {
@@ -140,7 +140,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             prescription prescription = db.prescriptions.Find(id);
             Guid visitId = (Guid)prescription.visitId;

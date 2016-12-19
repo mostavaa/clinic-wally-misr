@@ -19,7 +19,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (id == null || id == Guid.Empty)
                 return HttpNotFound();
@@ -27,6 +27,7 @@ namespace ClinicWallyMisr.Controllers
             if (presc == null)
                 return HttpNotFound();
             ViewBag.prescription = presc;
+            ViewBag.visit = presc.visit;
             return View(db.medicines.Where(o=>o.prescriptionId==id).ToList());
         }
 
@@ -37,7 +38,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (id == null || id == Guid.Empty)
                 return HttpNotFound();
@@ -57,7 +58,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (ModelState.IsValid)
             {
@@ -78,7 +79,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (id == null)
             {
@@ -101,7 +102,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (ModelState.IsValid)
             {
@@ -117,7 +118,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (id == null)
             {
@@ -138,7 +139,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             medicine medicine = db.medicines.Find(id);
             Guid prescId = (Guid)medicine.prescriptionId;

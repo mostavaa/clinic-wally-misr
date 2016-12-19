@@ -15,7 +15,115 @@
                 <div class="">
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     @Html.HiddenFor(model => model.id)
+               
+                        <div class="row">
+                            @Html.ActionLink("Patients", "Index", "patients", null, new { @class = "btn" })
+                            @Html.ActionLink("Visits", "Index", "visits", new { id = Model.patient.id }, new { @class = "btn" })
+                            @Html.ActionLink("Examinations", "Index", "examinations", new { id = Model.id }, new { @class = "btn" })
+                            @Html.ActionLink("Investigations", "investigations", "visits", new { id = Model.id }, new { @class = "btn" })
+                            @Html.ActionLink("Prescriptions", "Index", "prescriptions", new { id = Model.id }, new { @class = "btn" })
+                        </div>
+      
+               
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label col-md-6">Patient Name : </label>
+                                <div class="col-md-10 ">
+                                    <input type="text" readonly="readonly" value="@Model.patient.name " />
 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label col-md-6">diagnosis</label>
+                                <div class="col-md-10 ">
+
+                                    <input type="text" readonly="readonly" value="@Model.patient.diagnosis " />
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label col-md-6">diagnosis Code</label>
+                                <div class="col-md-10 ">
+
+                                    <input type="text" readonly="readonly" value="@Model.patient.diagnosisCode " />
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label col-md-6">notes</label>
+                                <div class="col-md-10 ">
+
+                                    <input type="text" readonly="readonly" value="@Model.patient.notes " />
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label col-md-6">master Status</label>
+                                <div class="col-md-10 ">
+                                    <input type="text" readonly="readonly" value="@Model.patient.masterStatus " />
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label col-md-6">date of Diagnosis</label>
+                                <div class="col-md-10 ">
+
+                                    <input type="text" readonly="readonly" value="@Model.patient.dateofDiagnosis " />
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label col-md-6">first Status</label>
+                                <div class="col-md-10 ">
+
+                                    <input type="text" readonly="readonly" value="@Model.patient.firstStatus " />
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label col-md-6">date of Relapse</label>
+                                <div class="col-md-10 ">
+
+                                    <input type="text" readonly="readonly" value="@Model.patient.dateofRelapse " />
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                    <hr />
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">

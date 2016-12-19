@@ -19,7 +19,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             return View(db.Accounts.ToList());
         }
@@ -38,7 +38,7 @@ namespace ClinicWallyMisr.Controllers
                 if (_service.getbyNameandPassword(account.name, account.password) != null)
                 {
                     login(account.name);            
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction ("Index", "Home");
                 }
 
                 else
@@ -59,7 +59,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             ViewBag.groupId = new SelectList(db.Groups, "id", "name");
 
@@ -75,7 +75,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (_service.getbyNameandPassword(account.name, account.password)!=null)
             {
@@ -99,7 +99,7 @@ namespace ClinicWallyMisr.Controllers
         public ActionResult Logout()
         {
             Session.Remove("username");
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Accounts");
         }
 
         // GET: Accounts/Edit/5
@@ -107,7 +107,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (id == null)
             {
@@ -131,7 +131,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (ModelState.IsValid)
             {
@@ -148,7 +148,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (id == null)
             {
@@ -169,7 +169,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             Account account = db.Accounts.Find(id);
             db.Accounts.Remove(account);

@@ -332,6 +332,8 @@
     <Content Include="bin\System.Web.WebPages.Razor.xml" />
     <Content Include="bin\System.Web.WebPages.xml" />
     <Content Include="bin\WebGrease.dll" />
+    <Content Include="Content\datepicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="Scripts\datepicker\bootstrap-datetimepicker.min.js" />
     <Content Include="Content\images\4d4b2eda-2a56-49b7-9804-be49c3448864.png" />
     <Content Include="Content\images\aa1d62f1-eaee-4538-8afd-0e5617a4a3ec.png" />
     <Content Include="Content\images\box-tail.gif" />
@@ -479,7 +481,7 @@
     <Content Include="Views\SystemPersons\Details.cshtml" />
     <Content Include="Views\SystemPersons\Edit.cshtml" />
     <Content Include="Views\SystemPersons\Index.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\DateTimee.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\medicines\Create.cshtml" />
     <Content Include="Views\medicines\Delete.cshtml" />

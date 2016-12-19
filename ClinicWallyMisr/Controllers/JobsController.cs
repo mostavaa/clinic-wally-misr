@@ -20,7 +20,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             return View(db.Jobs.ToList());
         }
@@ -30,7 +30,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (id == null)
             {
@@ -49,7 +49,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             return View();
         }
@@ -63,7 +63,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (id == null)
             {
@@ -104,7 +104,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (ModelState.IsValid)
             {
@@ -120,7 +120,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (id == null)
             {
@@ -141,7 +141,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             Job job = db.Jobs.Find(id);
             db.Jobs.Remove(job);

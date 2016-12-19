@@ -37,7 +37,7 @@
 
 <div class="row">
     <div class="col-md-offset-1 col-md-10">
-        <table class="table">
+        <table class="table table-hover">
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.patientName)
@@ -68,40 +68,48 @@
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.patientName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.fromTime)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.toTime)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.reservationType)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.notes)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.status)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.roomNumber)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SystemPerson.name)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
-                    </td>
-                </tr>
+                
+                    <tr style="cursor:pointer" class="clickable" data-href="@Url.Action("Edit", "Reservations", new { id = item.id })">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.patientName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fromTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.toTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.reservationType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.notes)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.status)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.roomNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SystemPerson.name)
+                        </td>
+                        <td>
+                            
+                            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                        </td>
+
+                    </tr>
+                
+
             }
 
         </table>
         </div>
     </div>
         
+@section scripts{
+<script>
+
+    </script>
+}

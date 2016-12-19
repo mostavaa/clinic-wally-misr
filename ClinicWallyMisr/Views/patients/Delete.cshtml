@@ -9,6 +9,12 @@
 <div style="margin-top:20px;clear:both;"></div>
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+            @Html.ActionLink("Patients", "Index", null, new { @class = "btn" })
+            @Html.ActionLink("Visits", "Index", "visits", new { @id = Model.id }, new { @class = "btn" })
+
+        </div>
+        
         <h3>Are you sure you want to delete this?</h3>
         <div>
             <hr />

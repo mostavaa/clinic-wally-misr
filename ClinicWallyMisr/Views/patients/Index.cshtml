@@ -48,15 +48,15 @@
                 <th>
                     @Html.DisplayNameFor(model => model.dateofDiagnosis)
                 </th>
-                <th>
-                    Visits
-                </th>
+             <th>
+                 Visits
+             </th>
                 <th></th>
             </tr>
 
             @foreach (var item in Model)
             {
-                <tr>
+                <tr style="cursor:pointer" class="clickable" data-href="@Url.Action("Edit", "patients", new { id = item.id })">
                     <td>
                         @Html.DisplayFor(modelItem => item.name)
                     </td>
@@ -71,11 +71,9 @@
                         @Html.DisplayFor(modelItem => item.dateofDiagnosis)
                     </td>
                     <td>
-                        @Html.ActionLink("Visits", "Index", "visits", new { @id = item.id }, null)
+                        @Html.ActionLink("Visits", "Index", "visits", new { id = item.id }, new { @class="btn"})
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.id }) |
                         @Html.ActionLink("Delete", "Delete", new { id = item.id })
                     </td>
                 </tr>

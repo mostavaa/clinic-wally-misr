@@ -3,8 +3,118 @@
 @{
     ViewBag.Title = "Index";
 }
+@helper renderPatient(patient obj)
+{
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label col-md-6">Patient Name : </label>
+                <div class="col-md-10 ">
+                    <input type="text" readonly="readonly" value="@obj.name " />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label col-md-6">diagnosis</label>
+                <div class="col-md-10 ">
+
+                    <input type="text" readonly="readonly" value="@obj.diagnosis " />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label col-md-6">diagnosis Code</label>
+                <div class="col-md-10 ">
+
+                    <input type="text" readonly="readonly" value="@obj.diagnosisCode " />
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label col-md-6">notes</label>
+                <div class="col-md-10 ">
+
+                    <input type="text" readonly="readonly" value="@obj.notes " />
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label col-md-6">master Status</label>
+                <div class="col-md-10 ">
+                    <input type="text" readonly="readonly" value="@obj.masterStatus " />
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label col-md-6">date of Diagnosis</label>
+                <div class="col-md-10 ">
+
+                    <input type="text" readonly="readonly" value="@obj.dateofDiagnosis " />
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label col-md-6">first Status</label>
+                <div class="col-md-10 ">
+
+                    <input type="text" readonly="readonly" value="@obj.firstStatus " />
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label col-md-6">date of Relapse</label>
+                <div class="col-md-10 ">
+
+                    <input type="text" readonly="readonly" value="@obj.dateofRelapse " />
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+}
 
 <div style="margin-top:20px;clear:both;"></div>
+<div class="row">
+    <div class="col-md-offset-2 col-md-6">
+        <div class="row">
+            @Html.ActionLink("Patients", "Index", "patients", null, new { @class = "btn" })
+            @Html.ActionLink("Visits", "Index", "visits", new { id = ViewBag.visit.patient.id }, new { @class = "btn" })
+            @Html.ActionLink("Investigations", "investigations", "visits", new { id = ViewBag.visit.id }, new { @class = "btn" })
+        </div>
+        @renderPatient(ViewBag.visit.patient)
+    </div>
+</div>
 <div class="row">
     <div class="col-md-offset-2 col-md-6">
         <div class="row">

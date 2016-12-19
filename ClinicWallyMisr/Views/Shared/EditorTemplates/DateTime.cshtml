@@ -1,0 +1,27 @@
+﻿@model DateTime?
+@{
+    var fieldName = ViewData.TemplateInfo.HtmlFieldPrefix;
+    
+    if (Model.HasValue)
+    {
+
+    <div class="datetimepicker1 input-append date">
+        <input type="text" name="@fieldName" id="@fieldName" value="@Model.Value" />
+        <span class="add-on">
+            <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+        </span>
+    </div>
+    
+    }
+    else
+    {
+    <div class="datetimepicker1 input-append date">
+        <input type="text" name="@fieldName" id="@fieldName" />
+        <span class="add-on">
+            <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+        </span>
+    </div>
+    }
+
+
+}

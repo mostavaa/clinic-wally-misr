@@ -26,7 +26,13 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.fromTime, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.fromTime, new { htmlAttributes = new { @class = "myinput" } })
+                            <div class="datetimepicker1 input-append date">
+                                @Html.EditorFor(model => model.fromTime, new { htmlAttributes = new { @class = "myinput" } })
+                                <span class="add-on">
+                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                                </span>
+                            </div>
+                           
                             @Html.ValidationMessageFor(model => model.fromTime, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -34,9 +40,15 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.toTime, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.toTime, new { htmlAttributes = new { @class = "myinput" } })
-                            @Html.ValidationMessageFor(model => model.toTime, "", new { @class = "text-danger" })
-                        </div>
+                            <div class="datetimepicker1 input-append date">
+
+                                @Html.EditorFor(model => model.toTime, new { htmlAttributes = new { @class = "myinput" } })
+                                <span class="add-on">
+                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                                </span>
+                                </div>
+                                @Html.ValidationMessageFor(model => model.toTime, "", new { @class = "text-danger" })
+                            </div>
                     </div>
 
                     <div class="form-group">

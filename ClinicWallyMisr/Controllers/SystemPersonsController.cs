@@ -22,7 +22,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             List<SystemPerson> systemPersons = _personService.getAll().Include(s => s.Job).Include(s => s.Specialization).ToList();
             if ((Request.QueryString["acc.name"] != string.Empty && Request.QueryString["acc.name"] != null)
@@ -57,30 +57,14 @@ namespace ClinicWallyMisr.Controllers
         }
 
         // GET: SystemPersons/Details/5
-        public ActionResult Details(Guid? id)
-        {
-            if (!HomeController.Authorized(this))
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SystemPerson systemPerson = _personService.get(id??Guid.Empty);
-            if (systemPerson == null)
-            {
-                return HttpNotFound();
-            }
-            return View(systemPerson);
-        }
+
 
         // GET: SystemPersons/Create
         public ActionResult Create()
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             ViewBag.jobId = new SelectList(_jobService.getAll(), "id", "name");
             ViewBag.specializationId = new SelectList(new List<Specialization>(), "id", "name");
@@ -105,7 +89,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (Request.Files.Count > 0)
             {
@@ -138,7 +122,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (id == null)
             {
@@ -163,7 +147,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (Request.Files.Count > 0)
             {
@@ -213,7 +197,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             if (id == null)
             {
@@ -258,7 +242,7 @@ namespace ClinicWallyMisr.Controllers
         {
             if (!HomeController.Authorized(this))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Accounts");
             }
             SystemPerson systemPerson = _personService.get(id);
             _personService.delete(systemPerson);
