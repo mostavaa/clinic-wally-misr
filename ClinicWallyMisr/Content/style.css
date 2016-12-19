@@ -53,7 +53,7 @@ p {margin-bottom:18px}
 .indent-left4 {padding-left:10px}
 .indent-right {padding-right:50px}
 
-.indent-bot {margin-bottom:20px}
+.indent-bot {}
 .indent-bot2 {margin-bottom:28px}
 
 .prev-indent-bot {margin-bottom:10px}
@@ -81,13 +81,13 @@ header {
 }
 .row-top {
 	width:100%;
-	height:250px;
+	height:160px;
 	background:black center top repeat-x;
 	overflow:hidden;
 }
 
 h1 {
-	padding:43px 0 0 7px; 
+	padding:0px 0 0 7px; 
 	position:relative;
 	float:left;
 }
@@ -101,7 +101,7 @@ h1 {
 	
 /***** search form *****/
 #search-form {
-	padding:45px 10px 0 0;
+	padding:30px 10px 0 0;
 	float:right;
 }
 #search-form a{
@@ -165,8 +165,6 @@ h1 {
 }
 .menu li a {
 	display:block; 
-	font-size:18px; 
-	line-height:3em; 
 	width:189px;
 	padding:8px 0 8px;
 	text-align:center;
@@ -200,7 +198,7 @@ h1 {
   margin:0 auto;
 }
 #carousel {
-  height:449px;
+  height:300px;
   width:960px;
   position:relative;
 }
@@ -224,7 +222,7 @@ h1 {
 	position:relative;
 	z-index:1;
 }
-	#page1 #content {border-top:none; background:none; padding:43px 0 60px}
+	#page1 #content {border-top:none; background:none; padding:0px 0 60px}
 
 .content-bg {
 	width:100%;
@@ -276,7 +274,7 @@ h6 {color:#000}
 .border-bot {
 	width:100%; 
 	padding-bottom:20px; 
-	background:url(images/pic-1.gif) 0 bottom repeat-x;
+	
 }
 
 .box {
@@ -452,27 +450,30 @@ dl span {float:left; width:88px}
 /****************************footer************************/
 footer {
 	width:100%; 
-	height:395px;
+	
 	color:#999;
 	background:url(images/footer-tail.gif) center top repeat;
 	position:relative;
 	z-index:9;
 	overflow:hidden;
 }
-footer .padding {padding:35px 0 0}
-footer h4 {color:#fff; margin-bottom:18px}
+footer .padding {padding:10px 0 0}
+footer h4 {color:#fff; }
 
 	.list-services li {
+        padding-left:10px;
+        float:left;
 		font-size:18px;
 		line-height:35px;
 		text-transform:uppercase;
 		padding-bottom:9px;
 	}
 	.list-services a {
+       
 		display:inline-block;
 		text-decoration:none;
 		color:#999;
-		padding-left:54px;
+		padding-left:40px;
 		background:url(images/social-icons.png) 0 0px no-repeat;
 	}
 	.list-services a.item-1 {background-position:0 -44px}
@@ -480,12 +481,10 @@ footer h4 {color:#fff; margin-bottom:18px}
 	.list-services a.item-3 {background-position:0 -132px}
 	
 /*********extra***********/
-.block {height:395px}
+.block {height:340px}
 .extra {
-	min-height:100%; 
-	height:auto !important; 
-	height:100%; 
-	margin: 0 auto -395px; 
+	min-height:590px; 
+
 	position:relative;
 	overflow:hidden;
 } 

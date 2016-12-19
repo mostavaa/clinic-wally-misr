@@ -332,6 +332,8 @@
     <Content Include="bin\System.Web.WebPages.Razor.xml" />
     <Content Include="bin\System.Web.WebPages.xml" />
     <Content Include="bin\WebGrease.dll" />
+    <Content Include="Content\images\4d4b2eda-2a56-49b7-9804-be49c3448864.png" />
+    <Content Include="Content\images\aa1d62f1-eaee-4538-8afd-0e5617a4a3ec.png" />
     <Content Include="Content\images\box-tail.gif" />
     <Content Include="Content\images\center-shadow.png" />
     <Content Include="Content\images\center-shadow2.jpg" />
@@ -344,6 +346,7 @@
     <Content Include="Content\images\input-tail.gif" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logo2.jpg" />
+    <Content Include="Content\images\logo2.png" />
     <Content Include="Content\images\logo2kber.png" />
     <Content Include="Content\images\marker-1.gif" />
     <Content Include="Content\images\marker-2.png" />

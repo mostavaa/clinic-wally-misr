@@ -182,7 +182,7 @@
             'left': (pluginData.containerWidth / 2) - (pluginData.smallFeatureWidth / 2) - (pluginData.borderWidth / 2),
             'width': pluginData.smallFeatureWidth,
             'height': pluginData.smallFeatureHeight,
-            'top': options.smallFeatureOffset + options.topPadding,
+            'top': 0,
             'opacity': 1
           });
         })
